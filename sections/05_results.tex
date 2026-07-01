@@ -1,0 +1,712 @@
+% Section 06: Results and Analysis
+% Structure: sRQ-organized with Delphi round progression within each sRQ
+
+\section{Results and Analysis}\label{sec:results}
+
+\subsection*{Introduction}
+
+This section presents findings from the three-round Delphi study
+(Section~\ref{sec:methodology}), organized by sub-research question. Within
+each subsection, findings follow the round progression to show how practitioner
+consensus evolved. The following subsections detail the results:
+
+\localtableofcontents\clearpage
+
+%% ================================================================
+%% 6.2 Panel Overview
+%% ================================================================
+\subsection{Delphi Panel and Convergence Overview}\label{subsec:panel-overview}
+
+This subsection describes the expert panel composition across the three Delphi
+rounds and summarizes each round's procedural outcomes.
+
+Table~\ref{tab:panel-participation} presents the panel participation summary.
+Eight Enterprise Architecture (EA) practitioners completed asynchronous discovery workbooks in Round~1
+(January 2026). Ten of twelve invited participants joined the synchronous
+Round~2 session (February 2026). Seven participants returned for the final
+synchronous Round~3 session (March 2026). For Round~2, the panel was expanded to twelve invitees (five returning, seven
+new) to introduce perspectives not anchored to Round~1 submissions. For
+Round~3, all seven participants were returning from earlier rounds, ensuring
+continuity in the final convergence phase.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Panel Participation Summary}\label{tab:panel-participation}
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        & \textbf{Round~1} & \textbf{Round~2} & \textbf{Round~3} \\
+        \hline
+        Format & Async workbook & Sync 120~min & Sync 120~min \\
+        \hline
+        Date & January 2026 & 4 February 2026 & 4 March 2026 \\
+        \hline
+        Invited & 8 & 12 & 10 \\
+        \hline
+        Participated & 8 & 10 & 7 \\
+        \hline
+        Platform & Word workbook & Zoom\footnote{\url{https://zoom.us/}} + MeetingWizard\footnote{\url{https://www.meetingwizard.nl/en/}} & Zoom + MeetingWizard \\
+        \hline
+        Voted & -- & 10 & 7 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Participants held diverse architectural roles including enterprise architect,
+solution architect, platform engineer, enterprise data architect, software
+architect, and freelance architectural consultant. This role diversity reflects
+how Reference Architecture (RA) development unfolds in practice across
+organizational boundaries, consistent with the broad ``Enterprise Architecture (EA) practitioners''
+framing established in Section~\ref{subsec:expert-panel}.
+
+\textbf{Round~1} focused on open discovery. Eight participants documented
+19 distinct Generative AI (GenAI) practices, nine critical
+incidents, and twelve challenges with workarounds. No researcher-imposed
+categories constrained what participants could report, consistent with the
+exploratory Delphi orientation described in Section~\ref{sec:methodology}.
+
+\textbf{Round~2} shifted to pattern validation. The session presented six
+practice categories synthesized from Round~1 analysis. Participants voted on
+category importance, discussed boundary conditions, and proposed refinements. A
+seventh category (Governance and Compliance Checking) emerged during live
+discussion and was validated in real time. The session produced seven validated
+practice categories with importance ratings and convergence data on cross-cutting
+patterns.
+
+\textbf{Round~3} targeted remaining evidence gaps. The synchronous session
+executed Steps 1--14 of the planned 16-step protocol. Steps 1--12 proceeded as
+designed. Steps 13--14 (artifact discussion and guidance element voting) were
+compressed due to time constraints. Step~15 (Future Perspectives brainstorm) was
+not executed. Step~16 (SP2 Maturity Progression vote) was collected
+asynchronously after the session, with all seven participants responding.
+\textit{Data Limitations} (Section~\ref{subsec:data-limitations}) addresses the implications of these
+procedural variations.
+
+%% ================================================================
+%% 6.3 sRQ1: GenAI Practices in RA Development
+%% ================================================================
+\subsection{sRQ1: GenAI Practices in RA Development}\label{subsec:srq1}
+
+This subsection addresses sRQ1: \textit{``What GenAI practices are EA
+Practitioners currently using when developing RAs?''} We present practice
+discovery from Round~1, category validation from Round~2, and cross-cutting
+patterns that emerged across both rounds. These findings form a two-level
+taxonomy: seven practice categories that describe task domains, and five
+cross-cutting patterns that describe behavioral universals transcending any
+single category.
+
+\subsubsection{Practice Discovery (Round~1)}\label{subsubsec:practice-discovery}
+
+Round~1 yielded 19 distinct GenAI practices from eight participants, each
+documenting two to three practices with step-by-step descriptions, genesis
+stories, and effectiveness assessments. The Round~1 coded analysis applied four coding dimensions: interaction patterns,
+distribution of cognitive tasks, engagement quality, and practice reconfiguration.
+These dimensions emerged through the open and axial coding process described in
+Section~\ref{sec:methodology}, following established qualitative coding procedures
+\parencite{charmaz_constructing_2014, patton_qualitative_2015}.
+
+The practices concentrated in three RA lifecycle phases. Phase~4 (Target State
+Design) attracted the most practices, with seven of 19 mapped primarily to
+Research \& Exploration activities. Phase~6 (Documentation \& Communication)
+accounted for six practices across First Draft \& Documentation and Stakeholder
+Communication. Phase~2 (Current State Analysis) contributed two practices in
+System/Codebase Analysis. Phases~1, 3, 5, 7, and~8 received no primary practice
+mappings, though some practices spanned multiple phases.
+
+During the Round~2 session, the researcher clarified the breadth of RA work to
+participants. The researcher framed this as: ``it can be a pattern, it can be a
+module\ldots{} and you are not necessarily just creating, sometimes you are
+absorbing, going through it, reading, getting context'' (R2 Transcript,
+researcher facilitation). The aim was to capture practitioner activities beyond artifact origination.
+
+Interaction patterns varied across the panel. Research Assistant mode dominated,
+with seven of 19 practices involving GenAI as an information-gathering tool.
+First Draft Generator mode appeared in six practices where GenAI produced initial
+content for substantial human editing. Two participants operated in Cyborg mode
+with deep tooling integration via MCP servers, hooks, and skills. Two practices
+reflected a Junior Colleague framing with conversational, supervisory
+interaction. No participant delegated architectural decisions entirely to GenAI.
+
+A key finding from Round~1 concerned the distribution of cognitive tasks. All eight
+participants delegated information gathering to GenAI while retaining judgment
+under ambiguity. Seven of eight described a hybrid synthesis pattern where GenAI
+drafts content and the human reconciles, validates, and edits. Organizational
+context (team dynamics, political constraints, historical decisions) remained
+exclusively human-retained across the entire panel.
+
+\subsubsection{Practice Category Validation (Round~2)}\label{subsubsec:practice-validation}
+
+Round~2 validated the practice categories through collective deliberation. The
+researcher presented six categories synthesized from Round~1 analysis. During the
+flipboard discussion, participants identified a gap: governance and compliance
+checking was not represented in the original six categories. The panel proposed
+and validated a seventh category in real time, demonstrating the emergent nature
+of the Delphi process.
+
+Table~\ref{tab:practice-importance} presents the importance ratings for all seven
+validated categories. System/Codebase Analysis received the highest mean rating
+with the lowest variability, indicating strong consensus on its importance for
+RA work. By contrast, Stakeholder Communication and Governance/Compliance showed
+the highest variability, reflecting context-dependent value across
+organizational settings.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Practice Category Importance Ratings (Round~2, $N = 10$)}\label{tab:practice-importance}
+    \begin{tabular}{|p{6.5cm}|c|c|c|c|}
+        \hline
+        \textbf{Practice Category} & \textbf{$M$} & \textbf{$SD$} & \textbf{Var.\%} & \textbf{Abst.} \\
+        \hline
+        System / Codebase Analysis & 4.00 & 0.82 & 38 & 0 \\
+        \hline
+        Research \& Exploration & 3.60 & 1.17 & 55 & 0 \\
+        \hline
+        Adversarial Review / Stress Testing & 3.60 & 0.97 & 45 & 0 \\
+        \hline
+        Governance / Compliance Checking & 3.50 & 1.27 & 60 & 0 \\
+        \hline
+        First Draft \& Documentation & 3.10 & 1.10 & 52 & 0 \\
+        \hline
+        Stakeholder Communication & 3.10 & 1.37 & 65 & 0 \\
+        \hline
+        Deep Workflow Integration & 2.89 & 1.17 & 54 & 1 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The consensus--variability pattern across categories showed a clear structure.
+System/Codebase Analysis exhibited both the highest importance and lowest
+variability, so directive guidance is feasible for this practice. Categories with higher
+variability (Stakeholder Communication, Governance/Compliance) call for
+guidance that remains contextual and adaptive. Deep Workflow Integration received
+the lowest mean rating and one abstention, consistent with its dependence on
+individual maturity and organizational tooling policies.
+
+\subsubsection{Cross-Cutting Patterns}\label{subsubsec:cross-cutting}
+
+The sRQ1 findings comprise a two-level taxonomy. The seven practice categories
+presented above constitute the first level: they describe \emph{what}
+practitioners do, organized by task domain. Each category is
+context-dependent; its importance varies with organizational setting, as the
+consensus--variability profiles in Table~\ref{tab:practice-importance} confirm.
+The five cross-cutting patterns below constitute the second level: they
+describe \emph{how} practitioners approach GenAI work, regardless of task
+domain. The Round~1 coded analysis identified these patterns through constant
+comparison across participants \parencite{charmaz_constructing_2014}; Round~2
+discussions reinforced them.
+
+\textbf{Universal Verification Mandate (8/8 participants).} All eight Round~1
+participants described explicit verification practices. No participant accepted
+GenAI outputs without review. Verification strategies ranged from multi-round
+review cycles to line-by-line comparison with source documents, from
+knowledge-based assessment to treating all outputs as hypotheses. As P4
+described: ``Everything is treated as hypothesis, never conclusion'' (R1
+Workbook). P2 reported verifying ``60--70\% of specific claims'' against
+primary sources (R1 Workbook). This universal pattern mapped to what we term \emph{engaged
+augmentation}: a coding dimension that emerged from the Round~1 analysis to
+distinguish active oversight from passive delegation. Engaged augmentation
+characterized the entire panel.
+
+\textbf{Compression Not Generation (5/8 participants).} Five participants framed
+GenAI's value as compressing existing information rather than creating new
+architectural knowledge. As P2 described: ``The value is not in generation
+but in compression. It compresses reading time for surveys'' (R1 Workbook).
+P3 reinforced this framing: ``The thinking is still mine; the AI accelerates
+expression'' (R1 Workbook). This pattern reframes the distribution of cognitive tasks
+\parencite{hutchins_cognition_1995}; GenAI handles information gathering while
+humans retain sensemaking.
+
+\textbf{Frontier Learning Through Failure (6/8 participants).} Six participants
+described learning GenAI's limitations through errors. P1 caught a retention
+period change from seven to five years only through verification. P2
+identified a hallucinated benchmark that nearly entered a planning document.
+P3 encountered bounded context suggestions that were ``technically logical but
+organisationally nonsensical'' (R1 Workbook). These incidents demonstrated how
+practitioners discovered the boundary between tasks inside and outside GenAI
+capability through direct experience.
+
+\textbf{Organizational Context as Hard Boundary (7/8 participants).} Seven
+participants identified organizational and sociotechnical factors as outside
+GenAI capability. P3 observed that ``organisational context is nearly
+impossible to convey: team dynamics, political constraints, historical baggage''
+(R1 Workbook). P4 noted that GenAI ``is not valuable for the sociotechnical
+aspects that determine whether an architecture will actually succeed'' (R1
+Workbook). This pattern identified a category of knowledge that practitioners
+consistently retained rather than delegated.
+
+\textbf{Role Identity Preservation (8/8 participants).} All eight participants
+viewed GenAI as an efficiency tool, not a replacement for professional judgment.
+P4 stated: ``I did this work for years without GenAI. Efficiency would
+decrease but effectiveness would not'' (R1 Workbook). P3 described that he
+``would be slower but functional. The thinking is still mine'' (R1 Workbook).
+This pattern indicated that professional identity remained intact despite
+significant workflow changes. These cross-cutting patterns, particularly the
+verification mandate and role identity preservation, set the stage for
+understanding how EA practice itself changed with GenAI adoption.
+
+%% ================================================================
+%% 6.4 sRQ2: Changes to EA Practice
+%% ================================================================
+\subsection{sRQ2: Changes to EA Practice}\label{subsec:srq2}
+
+sRQ2 asks: \textit{``What changes to EA practice are EA practitioners
+experiencing when RAs are developed using GenAI?''} The findings below cover
+practice changes from Rounds~1--2, cross-role dynamics that emerged across all
+three rounds, and a convergence assessment.
+
+\subsubsection{Practice Changes (Rounds~1--2)}\label{subsubsec:practice-changes}
+
+Round~1 identified four dimensions of practice change:
+
+\begin{enumerate}
+    \item \textbf{Creator to curator and judge.} Six of eight participants
+    reported that their primary contribution moved from producing content to
+    evaluating, editing, and validating AI-generated content.
+    \item \textbf{New skills emerged.} Prompt engineering, output evaluation, and
+    trust calibration appeared across the panel as competencies that did not exist
+    before GenAI adoption.
+    \item \textbf{Certain skills used less frequently.} Cold-start writing,
+    exhaustive manual search, and cover-to-cover documentation reading declined.
+    \item \textbf{Artifact formats adapted.} Several practitioners shifted toward
+    machine-readable formats such as Markdown and Mermaid diagrams.
+\end{enumerate}
+
+Round~2 quantified these changes through significance voting.
+Table~\ref{tab:change-significance} presents the results. Verification burden
+shift received the highest rating with the lowest variability, indicating strong
+consensus that practitioners spend less time creating and more time validating.
+Compression not generation received the most contested rating, suggesting that
+not all practitioners frame GenAI's contribution as purely compressive.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Change Significance Ratings (Round~2, $N = 10$)}\label{tab:change-significance}
+    \begin{tabular}{|p{7cm}|c|c|c|}
+        \hline
+        \textbf{Change Theme} & \textbf{$M$} & \textbf{$SD$} & \textbf{Var.\%} \\
+        \hline
+        Verification burden shift & 4.40 & 0.70 & 33 \\
+        \hline
+        Skills used less & 3.90 & 0.57 & 26 \\
+        \hline
+        Role evolution (creator $\rightarrow$ curator) & 3.80 & 1.14 & 53 \\
+        \hline
+        Compression not generation & 2.90 & 0.99 & 47 \\
+        \hline
+        New skills emerging & 2.90 & 1.20 & 56 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The low rating for ``new skills emerging'' ($M = 2.90$) alongside the high
+rating for ``verification burden shift'' ($M = 4.40$) revealed an interesting
+tension. Practitioners acknowledged that their work had changed substantially
+(verification) but were less inclined to characterize this change as requiring
+fundamentally new skills. This pattern indicated that practitioners treated verification as an
+extension of existing professional expertise, not a novel competency.
+
+\subsubsection{Cross-Role Dynamics (Rounds~1--2--3)}\label{subsubsec:cross-role}
+
+Cross-role dynamics emerged as an unanticipated theme across all three rounds.
+In Round~1, several practitioners described GenAI-enabled practices crossing
+traditional role boundaries: developers producing architectural artifacts
+bottom-up, solution architects generating decision records from meeting
+transcripts, and platform engineers contributing to enterprise-level governance.
+Round~2 reinforced these observations. The panel's role diversity surfaced
+inside-out workflows where developer-level GenAI use shapes EA artifacts before
+formal governance awareness.
+
+Round~3 probed these dynamics through the ``Ghost Architect'' provocation:
+``If anyone with GenAI can produce architectural artifacts, who is the
+architect?'' Seven participants contributed sixteen brainstorm responses across
+three probes (bottom-up workflows, traceability, governance friction). One
+participant observed:
+``The friction is real, and honestly, it's almost hard to admit. You spend 15
+years building up knowledge\ldots{} And then someone sits down with GenAI and
+produces something that looks pretty much the same in under an hour'' (R3
+Brainstorm). Another noted that ``everybody can generate an architecture now,
+which is cool. But the one taking responsibility of the decision is in the end
+the architect'' (R3 Brainstorm). These responses captured a shared tension:
+GenAI democratized artifact production, but accountability for architectural
+decisions remained with the architect.
+
+Table~\ref{tab:cross-role} presents the cross-role pattern significance ratings
+from Round~3. Collective decision capture (meeting transcripts and requirements
+transformed into architecture decision records) received the highest mean rating
+($M = 3.86$, $SD = 1.68$). However, all six patterns exhibited high variability
+(37--79\%), indicating substantial disagreement about the significance of
+cross-role shifts. Governance patterns (inside-out and outside-in) received the
+lowest ratings, suggesting that GenAI had not yet materially affected governance
+structures in most participants' organizations.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Cross-Role Pattern Significance (Round~3, $N = 5$--$7$)}\label{tab:cross-role}
+    \begin{tabular}{|p{6.5cm}|c|c|c|c|}
+        \hline
+        \textbf{Pattern} & \textbf{$N$} & \textbf{$M$} & \textbf{$SD$} & \textbf{Var.\%} \\
+        \hline
+        Collective decision capture & 7 & 3.86 & 1.68 & 77 \\
+        \hline
+        Top-down code generation & 7 & 3.43 & 1.72 & 79 \\
+        \hline
+        Role boundary blurring & 7 & 2.86 & 1.57 & 72 \\
+        \hline
+        Bottom-up artifact generation & 7 & 2.57 & 1.27 & 58 \\
+        \hline
+        Outside-in governance\textsuperscript{*} & 5 & 2.40 & 1.14 & 50 \\
+        \hline
+        Inside-out governance & 7 & 2.00 & 0.82 & 37 \\
+        \hline
+        \multicolumn{5}{l}{\small \textsuperscript{*}Five of seven participants rated this item; two abstained, likely because this} \\
+        \multicolumn{5}{l}{\small emergent pattern (proposed mid-session) was not applicable to their organizational context.} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The high variability across all cross-role patterns reflected divergent
+organizational realities. Participants from organizations with mature
+governance structures reported minimal boundary shifts; those in more fluid
+environments described significant role redistribution. Cross-role dynamics
+appeared to depend on organizational factors rather than on GenAI adoption
+itself.
+
+\subsubsection{Convergence Assessment}\label{subsubsec:convergence}
+
+Across the three rounds, several findings stabilized while others remained
+contested, consistent with the iterative convergence expected in Delphi designs
+\parencite{von_der_gracht_consensus_2012}. The seven practice categories validated in Round~2 showed no
+challenges or revisions in Round~3, indicating stable consensus on the practice
+taxonomy. The universal verification mandate (8/8 in Round~1) was reinforced
+through Round~3's heuristic refinement, where cross-validation received the
+highest importance rating. The verification burden shift achieved the strongest
+consensus of any change theme ($M = 4.40$, variability 33\%).
+
+The SP2 maturity progression question, which could not be addressed during the
+synchronous session, was resolved through asynchronous data collection. The panel
+strongly agreed that practitioners naturally progress from basic to sophisticated
+GenAI integration ($M = 4.71$, variability 22\%). At the same time, context
+received moderate agreement as a factor ($M = 3.86$, variability 49\%), while the
+proposition that short experience can equal long experience was rejected
+($M = 2.86$, variability 31\%). The panel moderately agreed that maturity should
+be measured per practice category rather than per individual ($M = 3.86$,
+variability 49\%). Table~\ref{tab:maturity-progression} presents the full
+results. Taken together, these ratings support a ``both/and'' interpretation:
+practitioners do progress over time, but progression is practice-specific and
+pace-modulated by organizational context.
+
+\begin{table}[!ht]
+    \centering
+    \caption{SP2 Maturity Progression Ratings (Async, $N = 7$)}\label{tab:maturity-progression}
+    \begin{tabular}{|p{7.5cm}|c|c|c|}
+        \hline
+        \textbf{Statement} & \textbf{$M$} & \textbf{$SD$} & \textbf{Var.\%} \\
+        \hline
+        Practitioners naturally progress from basic GenAI use to more sophisticated integration over time & 4.71 & 0.45 & 22 \\
+        \hline
+        Sophistication depends more on context than on individual experience & 3.86 & 0.99 & 49 \\
+        \hline
+        A practitioner with 6 months of experience can be as effective as one with 2 years, given the right context and guidance & 2.86 & 0.64 & 31 \\
+        \hline
+        Maturity should be measured per practice category, not per individual & 3.86 & 0.99 & 49 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Two areas remained empirically unresolved. First, the cross-role patterns showed
+variability too high to establish consensus, suggesting these dynamics are still
+emerging. Second, the relative importance of new skills versus existing expertise
+remained contested, with practitioners split on whether GenAI required
+fundamentally new competencies or merely extended existing professional judgment.
+The next subsection examines how practitioners made sense of these changes.
+
+%% ================================================================
+%% 6.5 sRQ3: Sense-Making of Impacts and Trade-Offs
+%% ================================================================
+\subsection{sRQ3: Sense-Making of Impacts and Trade-Offs}\label{subsec:srq3}
+
+sRQ3 asks: \textit{``How do EA practitioners make sense of impacts and
+trade-offs when adopting GenAI for RA development?''} Verification heuristics
+evolved across all three rounds, from personal strategies (Round~1) through
+candidate items (Round~2) to refined and rated heuristics (Round~3). Trust
+calibration stories and teachability findings follow.
+
+\subsubsection{Verification Heuristics (Rounds~1--2--3)}\label{subsubsec:heuristics}
+
+Verification heuristics evolved across all three rounds, progressively moving
+from personal strategies to collectively validated guidance. In Round~1, all
+eight participants described individual verification practices, but these varied
+widely in formality and specificity. The coded analysis identified five recurring
+heuristic patterns: never trust AI-generated numbers, organizational context is
+always a human job, treat outputs as hypotheses, verify line-by-line in
+compliance contexts, and AI usefulness decreases with domain specificity.
+
+Round~2 formalized these patterns into five candidate heuristics and collected
+agreement ratings ($N = 10$). ``Never trust AI-generated numbers'' received the
+highest agreement ($M = 4.70$, $SD = 0.67$), followed by ``In compliance
+contexts, verify every detail line-by-line'' ($M = 4.20$, $SD = 0.63$). These
+two heuristics exhibited both high importance and low variability, indicating
+strong consensus.
+
+Round~3 expanded and refined the heuristic set from five to eight items,
+incorporating participant-generated additions from the flipboard discussion.
+Table~\ref{tab:heuristic-importance} presents the Round~3 importance ratings.
+Cross-validation of content (including source verification) received the
+highest rating with the lowest variability and no abstentions. Incremental trust
+building and context management also rated highly, both above 4.0. Output
+structure check received the lowest rating, with one abstention.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Heuristic Importance Ratings (Round~3, $N = 5$--$7$)}\label{tab:heuristic-importance}
+    \begin{tabular}{|p{6.5cm}|c|c|c|c|}
+        \hline
+        \textbf{Heuristic} & \textbf{$N$} & \textbf{$M$} & \textbf{$SD$} & \textbf{Abst.} \\
+        \hline
+        Cross-validate content (source verification) & 7 & 4.57 & 0.53 & 0 \\
+        \hline
+        Incremental trust building & 7 & 4.29 & 1.11 & 0 \\
+        \hline
+        Context management & 7 & 4.14 & 0.90 & 0 \\
+        \hline
+        Domain expertise threshold & 7 & 3.86 & 1.07 & 0 \\
+        \hline
+        Learn through failure & 5 & 3.40 & 0.89 & 2 \\
+        \hline
+        Contradiction seeding & 6 & 3.33 & 0.82 & 1 \\
+        \hline
+        Simulate stakeholder reaction & 5 & 3.00 & 1.58 & 2 \\
+        \hline
+        Output structure check & 6 & 2.83 & 1.33 & 1 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+A tier structure emerged from the ratings. The top tier ($M \geq 4.0$) comprised
+cross-validation, incremental trust building, and context management, all
+process-oriented heuristics that practitioners can systematically apply. The
+middle tier ($M = 3.0$--$3.9$) included domain expertise threshold, learn through
+failure, and contradiction seeding, heuristics that depend more on individual
+experience. The bottom tier ($M < 3.0$) contained output structure check, rated
+lowest and generating the most abstentions. This tier structure showed that process-oriented verification strategies
+achieved stronger consensus than experience-dependent ones.
+
+\subsubsection{Trust Calibration Stories (Round~3)}\label{subsubsec:trust-calibration}
+
+Round~3 collected 14 brainstorm responses from seven participants to the trust
+calibration prompt (participants could submit multiple responses):
+``Describe a specific moment when you had to calibrate trust in AI output.'' Two
+themes dominated the responses.
+
+First, domain expertise as prerequisite appeared in multiple contributions. One
+participant described validating a solution design where GenAI ``pointed to a
+folder that simply didn't exist. One key takeaway here: always verify the
+physical components where possible'' (R3 Brainstorm). Another reported that
+``a lot of the hallucination issue can only be identified if you know things are
+wrong from experience already'' (R3 Brainstorm). A third described an
+event-driven architecture where ``the AI output was hallucinating capabilities
+of services that did not exist and wrongly explained retry logic for specific
+combinations'' (R3 Brainstorm).
+
+Second, the ``junior colleague'' framing recurred. One participant stated:
+``Think of AI as a junior architect and yourself as the senior architect'' (R3
+Brainstorm). Another described the trust-building process: ``This is very much
+teachable: as normally we do this pre-AI when we train or have a buddy system.
+Learnt that using the right prompting and almost sharing the elements as if it
+were human betters the end output'' (R3 Brainstorm). A third noted that
+dependency graph calculations ``were actually better than our manual diagrams.
+We missed some links the LLM did not'' (R3 Brainstorm). This indicated that trust calibration was bidirectional; practitioners sometimes
+discovered tasks where GenAI outperformed manual approaches, recalibrating trust
+upward rather than only guarding against errors.
+
+\subsubsection{Teachability of Calibration (Round~3)}\label{subsubsec:teachability}
+
+The Round~3 flipboard discussion addressed a central tension: if verification
+depends on deep domain expertise and personal calibration, can it be taught? The
+panel's consensus was nuanced. Calibration is teachable, but it requires domain
+expertise as a foundation. One participant explained:
+
+\begin{quote}
+Based on experience from the pre-AI era, you had to build a deep understanding
+before applying it. If the output of the AI is in line with the principles
+learned (scientifically grounded) and experience, at that point I trust it. It
+is not the LLM that is in charge. (R3 Brainstorm)
+\end{quote}
+
+Several participants identified mechanisms for accelerating calibration in less
+experienced practitioners. Cross-checking with authoritative documentation,
+having beginners ask the AI to verify its own suggestions, and progressive
+exposure from low-stakes to high-stakes tasks all appeared as transferable
+strategies. One participant observed that ``the person learning will have another
+learning trajectory compared with the persons from the pre-AI era. But in the
+end, the knowledge has to be built'' (R3 Brainstorm).
+
+One participant identified a gap in current reinforcement mechanisms. The
+observation pointed to the absence of structured feedback loops where
+practitioners learn which calibration decisions were correct after the fact.
+Without such reinforcement, calibration remains largely experiential, a
+limitation relevant to the guidance artifact design.
+
+
+%% ================================================================
+%% 6.6 sRQ4: Systematization into Guidance
+%% ================================================================
+\subsection{sRQ4: Systematization into Guidance}\label{subsec:srq4}
+
+sRQ4 asks: \textit{``How should effective GenAI practices for RA development be
+systematized into guidance for EA practitioners?''} Round~3 rated six candidate
+guidance elements, critiqued the draft artifact, and refined the artifact's
+structure.
+
+\subsubsection{Guidance Element Priorities (Round~3)}\label{subsubsec:guidance-priorities}
+
+Round~3 presented the draft guidance artifact (v2.5) structured by practice type
+and asked participants to rate six candidate elements on importance.
+Table~\ref{tab:guidance-priorities} presents the results. Practice description
+received the highest rating with the lowest variability, indicating
+near-unanimous agreement that describing what each practice is and when it
+applies is essential. Verification patterns (practice-specific trust
+calibration strategies) received the second-highest rating.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Guidance Element Priority Ratings (Round~3, $N = 7$)}\label{tab:guidance-priorities}
+    \begin{tabular}{|p{6.5cm}|c|c|c|}
+        \hline
+        \textbf{Guidance Element} & \textbf{$M$} & \textbf{$SD$} & \textbf{Var.\%} \\
+        \hline
+        Practice description & 4.71 & 0.49 & 22 \\
+        \hline
+        Verification patterns & 4.14 & 0.69 & 31 \\
+        \hline
+        Guidance level (directive vs. adaptive) & 3.71 & 0.95 & 44 \\
+        \hline
+        Experience indicators & 3.43 & 0.98 & 45 \\
+        \hline
+        Cross-role considerations & 3.43 & 1.27 & 58 \\
+        \hline
+        Lifecycle phase mapping & 2.43 & 0.53 & 24 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Lifecycle phase mapping received the lowest priority with low variability,
+indicating consensus that mapping practices to specific
+lifecycle phases was the least essential element. This finding was noteworthy
+given that the conceptual model in Section~\ref{sec:conceptual-model}
+emphasizes the RA lifecycle as a structuring lens. The panel's response
+suggested that practitioners valued practice descriptions and verification
+strategies over lifecycle positioning when consuming guidance.
+
+Cross-role considerations exhibited the highest variability (58\%) among the six
+elements, consistent with the contested cross-role dynamics observed in
+Section~\ref{subsubsec:cross-role}. This variability reflected genuine
+disagreement about whether cross-role considerations belong in practice-level
+guidance or at a higher organizational level.
+
+Two additional elements surfaced during the verbal discussion but were not voted
+on: criticality-based applicability (applying practices differently based on
+system criticality) and proven prompt examples (high-quality prompt templates per
+practice). Both were noted for inclusion at the guidance level rather than per
+practice.
+
+The SP2 maturity progression results
+(Table~\ref{tab:maturity-progression}) further informed the guidance design. The
+panel's strong agreement on natural progression ($M = 4.71$) combined with
+moderate support for per-category measurement ($M = 3.86$) suggested that
+experience indicators should be differentiated per practice category rather than
+applied uniformly across the artifact.
+
+\subsubsection{Artifact Critique (Round~3)}\label{subsubsec:artifact-critique}
+
+Round~3 collected ten brainstorm responses from seven participants (participants
+could submit multiple responses) critiquing the draft artifact across
+four dimensions: structure, format, missing elements, and the
+directive-versus-adaptive distinction.
+
+On structure, participants validated organizing by practice type rather than by
+lifecycle phase or experience level. One participant stated: ``By practice seems
+fine, because if you do by lifecycle, then you will repeat yourself'' (R3
+Brainstorm). Another affirmed: ``I think this is the right approach. The decision
+on how to apply AI will be done by use case as structured here'' (R3 Brainstorm).
+
+On format, participants expressed interest in multiple consumption modes. Several
+mentioned using it as a reference document paired with a checklist. One
+participant noted that ``since the guide is already in md format it can be easily
+fed to an agent/assistant, so in addition to just a document there can be an
+assistant whom you could ask questions about this guide'' (R3 Brainstorm). This
+response pointed toward agent-consumable guidance as a format consideration.
+
+On missing elements, participants identified proven prompt examples and additional
+context for first-time readers as gaps. One participant noted: ``It would need to
+be more verbose. At the moment it assumes a lot of background knowledge'' (R3
+Brainstorm). Another suggested including ``proven, high-quality prompt samples'' (R3 Brainstorm)
+per practice for less experienced practitioners.
+
+On the directive-versus-adaptive distinction, one participant reported that ``it
+took me a few minutes to figure out whether directive and adaptive were in the
+text'' (R3 Brainstorm), suggesting the labeling needed clearer presentation.
+
+\subsubsection{Artifact Evolution Across Rounds}\label{subsubsec:artifact-evolution}
+
+The guidance artifact progressed through four stages across the study, following
+the emergent artifact approach described in Section~\ref{sec:methodology}.
+
+\textbf{Initial taxonomy} (between Rounds~1--2) emerged from the researcher's
+coded analysis of Round~1 data. It organized 19 discovered practices into an
+initial taxonomy mapped to RA lifecycle phases.
+
+\textbf{Validated patterns} (between Rounds~2--3) incorporated Round~2 validation
+results. The seven practice categories replaced the initial taxonomy. Importance
+ratings and variability profiles informed a preliminary directive-versus-adaptive
+classification per category.
+
+\textbf{Structured artifact} (presented in Round~3) structured each practice with
+six elements: description, lifecycle phases, guidance level, experience
+indicators, verification patterns, and cross-role considerations. This
+represented the researcher's synthesis of Rounds~1--2 findings into a concrete,
+reviewable artifact.
+
+\textbf{Final guidance} (Section~\ref{sec:artifact}) incorporated Round~3
+priorities, critique feedback, and the heuristic refinement data into the final
+guidance artifact. The panel's priority ratings
+(Table~\ref{tab:guidance-priorities}) directly informed which elements received
+emphasis.
+
+Four data collection limitations warrant disclosure before the section summary.
+
+%% ================================================================
+%% 6.7 Study Limitations Specific to Data Collection
+%% ================================================================
+\subsection{Study Limitations Specific to Data Collection}\label{subsec:data-limitations}
+
+Four data collection limitations affected the completeness of the findings
+presented in this section.
+
+First, Round~3 Step~15 (Future Perspectives brainstorm) was not executed due to
+time constraints, and no asynchronous follow-up was conducted. This step was
+planned to collect forward-looking data on how GenAI practices in RA development
+may evolve. Its absence means the temporal dimension of the conceptual framework
+(Section~\ref{subsec:frameworkdimensions}) remains empirically underexplored.
+
+Second, Step~16 (SP2 Maturity Progression vote) was collected asynchronously
+after the session rather than during it. All seven Round~3 participants
+responded, and the voting data is complete
+(Table~\ref{tab:maturity-progression}). Three methodological caveats apply:
+(a)~the vote was collected without the preceding group discussion (Step~15) that
+the protocol designed as reflective priming, (b)~asynchronous collection
+eliminates the real-time deliberation and peer influence that characterize
+synchronous Delphi votes, and (c)~participants voted individually rather than
+after collectively exploring future perspectives.
+
+Third, Round~3 Steps 13--14 (artifact discussion and guidance element priority
+voting) were compressed due to time pressure. While all seven participants voted,
+the discussion preceding the vote was shorter than planned. This may have
+affected the depth of deliberation informing the priority ratings, though the
+voting data itself remains complete.
+
+Fourth, participant counts varied across rounds and across voting items within
+rounds. Round~1 had eight participants, Round~2 had ten, and Round~3 had seven.
+Within Round~3, abstentions ranged from zero to
+two per item, particularly for the heuristic refinement vote. These variations limit the interpretive weight of individual items, though all
+items allow meaningful comparison as discovery indicators.
+

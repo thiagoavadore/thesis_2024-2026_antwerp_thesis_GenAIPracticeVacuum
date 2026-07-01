@@ -1,0 +1,771 @@
+% Section 08: Discussion
+% Mode: Interpretive — "These findings suggest...", "In our view...",
+%   "This aligns with \textcite{author}'s concept of..."
+
+\section{Discussion}\label{sec:discussion}
+
+\subsection*{Introduction}
+
+This section interprets the findings from \textit{Results and Analysis} (Section~\ref{sec:results}) and the
+guidance artifact from \textit{Guidance Artifact} (Section~\ref{sec:artifact}) against the theoretical
+framework established in the \textit{Theoretical Background} (Section~\ref{sec:theoretical-background})
+and \textit{Conceptual Model} (Section~\ref{sec:conceptual-model}). Three lenses structure the interpretation:
+distributed cognition, practice theory, and the jagged technological frontier.
+The section then triangulates the practice catalog against external evidence,
+draws implications for Enterprise Architecture (EA) practice and theory, and
+closes with limitations and future research directions. The following
+subsections detail this interpretation:
+
+\localtableofcontents\clearpage
+
+%% ================================================================
+%% 8.2 Distributed Cognition in EA-GenAI Practice
+%% ================================================================
+\subsection{Distributed Cognition in EA-GenAI Practice}\label{subsec:disc-dcog}
+
+The conceptual model positioned EA-GenAI integration as a distributed cognitive
+system where the functional properties of the whole cannot be reduced to the
+properties of individual agents \parencite{hutchins_cognition_1995}. The
+Delphi findings confirm this
+framing while revealing specific distribution patterns that the theoretical
+framework anticipated but did not specify.
+
+\subsubsection{Cognitive Distribution Patterns Across Practices}
+
+The seven validated practice categories represent distinct configurations of
+cognitive distribution between human and artificial agents. These
+configurations align with \textcite{hollan_distributed_2000}'s three types of
+distribution (across group members, between internal and external structures,
+and through time) though the boundaries are more fluid than the typology
+implies.
+
+The Delphi data suggest that System/Codebase Analysis distributes information
+retrieval to GenAI while retaining interpretive judgment with the practitioner.
+The tight consensus on this practice
+(Table~\ref{tab:practice-importance}) suggests that cognitive
+distribution succeeds most clearly when the delegated task (scanning code
+repositories, mapping dependencies) is verifiable against physical systems.
+The trust spectrum for GenAI in RA development (Table~\ref{tab:trust-spectrum}) places information
+compression at the highest trust level, consistent with this interpretation.
+This convergence implies that verifiability, not task complexity, determines
+where cognitive distribution succeeds most readily.
+
+Research \& Exploration appears to distribute information gathering across a
+broader knowledge space. The prevalence of Research Assistant mode among Round~1
+practices (Section~\ref{subsubsec:practice-discovery}) suggests that
+practitioners default to using GenAI to compress
+large bodies of information into actionable summaries. This corresponds to
+\textcite{hollan_distributed_2000}'s coordination between internal and external
+structures: the practitioner's architectural mental model interacts with
+GenAI's encoded knowledge to produce synthesis neither could achieve alone.
+
+In a similar vein, First Draft \& Documentation appears to distribute
+expression while retaining architectural thinking. The widespread adoption of
+the Compression Not Generation framing (Section~\ref{subsubsec:cross-cutting})
+captures this distinction precisely. As P3 stated: ``The thinking is still mine; the
+AI accelerates expression'' (R1 Workbook). GenAI handles the cognitive labour
+of transforming ideas into structured documents; the practitioner retains the
+conceptual architecture that gives those documents meaning.
+
+Stakeholder Communication and Governance/Compliance occupy a different position
+in the distribution landscape. Both exhibited high variability
+(Table~\ref{tab:practice-importance}), and both involve organizational context
+that the panel near-unanimously identified as outside GenAI capability
+(Section~\ref{subsubsec:cross-cutting}). These findings suggest that cognitive
+distribution encounters a boundary at the organizational context interface; a
+point we return to below.
+
+\subsubsection{The Organizational Context Boundary}
+
+The most consistent finding across the Delphi study was the organizational
+context boundary. The panel near-unanimously identified team dynamics,
+political constraints, and historical decisions as knowledge that cannot be
+delegated to GenAI (Section~\ref{subsubsec:cross-cutting}). P3 observed that
+``organisational context is nearly impossible to convey'' (R1 Workbook), while
+P4 noted that GenAI ``is not valuable for the sociotechnical aspects that
+determine whether an architecture will actually succeed'' (R1 Workbook).
+
+In our view, this boundary maps directly to
+\textcite{hutchins_cognition_1995}'s concept of functional system boundaries.
+A distributed cognitive system operates within constraints set by its
+participants' capabilities and the media available for coordination.
+Organizational context (tacit, political, embedded in history) resists being
+translated into forms GenAI can process. The context engineering practices described in
+Section~\ref{subsubsec:context-engineering} narrow this boundary by making more
+organizational knowledge machine-accessible, but they do not eliminate it.
+
+This interpretation aligns with \textcite{saint-louis_investigation_2019}'s
+three contexts of EA practice. The technological context maps readily to
+cognitive distribution (System/Codebase Analysis). The socio-technological
+context permits partial distribution with human oversight (First Draft \&
+Documentation, Adversarial Review). The eco-technological context (external
+standards, compliance, regulatory relationships) demands the most careful
+verification (Governance/Compliance). An alternative explanation is that this boundary reflects current GenAI
+limitations rather than a structural feature; future systems with richer
+organizational memory may narrow it. However, the consistency across
+all three EA contexts suggests the boundary reflects a structural
+feature of distributed cognition in sociotechnical systems, not solely a
+technological shortcoming.
+
+\subsubsection{Verification as Cognitive Coordination}
+
+The universal verification mandate (all eight participants described explicit
+verification practices, with none accepting GenAI outputs without review
+(Section~\ref{subsubsec:cross-cutting})) takes on new significance when viewed
+through the distributed cognition lens. Verification is not merely quality
+control. It is the mechanism through which the distributed cognitive system
+maintains coherence.
+
+\textcite{hutchins_cognition_1995} described how navigation teams use
+redundant representations and cross-checking procedures to detect and correct
+errors propagating through the cognitive system. The Delphi panel's
+verification practices serve an analogous function. The top-tier heuristics (cross-validation, incremental trust building, and
+context management; Table~\ref{tab:heuristic-importance}) are cognitive
+coordination mechanisms that ensure distributed outputs align with the
+practitioner's architectural intent.
+
+The verification burden shift, rated the most significant practice change
+(Table~\ref{tab:change-significance}), reflects a
+fundamental restructuring of the cognitive system. Practitioners spend less
+time on information gathering and expression (now distributed to GenAI) and
+more time on coordination and validation. This shift is consistent with
+\textcite{hollan_distributed_2000}'s observation that distributed cognitive
+systems require coordination overhead proportional to their distribution
+complexity.
+
+%% ================================================================
+%% 8.3 Practice Evolution Through a Practice Theory Lens
+%% ================================================================
+\subsection{Practice Evolution Through a Practice Theory Lens}\label{subsec:disc-practice-theory}
+
+The conceptual model drew on \textcite{feldman_theorizing_2011}'s
+conceptualization of practice as recurrent, recognizable patterns of action that
+emerge through repeated performance. The Delphi findings provide empirical grounding for how
+such patterns emerge under conditions of rapid technological change.
+
+\subsubsection{From Creator to Curator: A Sociomaterial Accomplishment}
+
+The creator-to-curator role transformation
+(Section~\ref{subsubsec:practice-changes}) represents what
+\textcite{orlikowski_sociomaterial_2007} would describe as a sociomaterial
+accomplishment. The role shift did not arise from a deliberate redesign of
+practice. It emerged through situated interaction between practitioners and
+GenAI capabilities.
+
+\textcite{orlikowski_using_2000}'s concept of technology-in-practice
+illuminates this process. Practitioners did not adopt GenAI according to a
+predefined workflow. Instead, they enacted new practices through ongoing
+interaction, discovering that their most productive contribution shifted from
+producing architectural content to evaluating, editing, and validating it.
+Round~2 confirmed this shift: verification burden received the highest
+significance rating, while the creator-to-curator transformation showed
+notably higher variability (Table~\ref{tab:change-significance}).
+
+A selection bias caveat applies: practitioners who gravitate toward curation
+may be those who adopted GenAI earliest. However, the variability in the
+creator-to-curator rating is itself informative.
+\textcite{feldman_theorizing_2011} emphasize that practices are constituted
+through performance. The uneven adoption of the curator role across the panel
+suggests that this transformation is still being constituted, with different
+organizational contexts producing different enactments.
+
+\subsubsection{Emergent Practice Patterns}
+
+The seven practice categories exhibit the characteristics
+\textcite{feldman_theorizing_2011} identify as constitutive of practice:
+recurrence, recognizability, and emergence through repeated performance. None
+of the 19 Round~1 practices were formally designed. All arose through
+practitioner experimentation with GenAI capabilities in the context of
+architectural work. This emergence aligns with the conceptual model's
+prediction that ``practices cannot be predicted from GenAI's technical
+capabilities alone'' (Section~\ref{sec:conceptual-model}).
+
+The Delphi convergence process itself demonstrated how individual practices
+aggregate into collective patterns. Round~1 captured 19 individual practices;
+Round~2 synthesized these into seven validated categories; Round~3 refined
+heuristics and cross-role dynamics. This progression mirrors the
+individual-collective dimension identified in the conceptual framework
+(Section~\ref{subsec:frameworkdimensions}): personal experimentation aggregated
+into shared organizational patterns through collective deliberation.
+
+\textcite{kotusev_enterprise_2018}'s finding that successful EA practices
+diverge substantially from mainstream literature prescriptions resonates
+with this emergence pattern. The seven practice categories did not map neatly
+onto existing EA frameworks or prescribed GenAI workflows. They emerged from
+the complex interplay of practitioner creativity, organizational constraints,
+and technological capabilities; precisely the sociomaterial dynamics that
+practice theory predicts.
+
+The cross-role dynamics data reinforce this interpretation. All six cross-role
+patterns in Table~\ref{tab:cross-role} exhibited variability between 37\% and
+79\% (Section~\ref{subsubsec:cross-role}), indicating that practices crossing
+traditional role boundaries are still actively being constituted. The ``Ghost
+Architect'' provocation surfaced a genuine tension: GenAI democratized artifact
+production, yet accountability for architectural decisions remained with the
+architect. This asymmetry (distributed production with
+concentrated accountability) illustrates the uneven pace at which different
+dimensions of practice emerge. \textcite{feldman_theorizing_2011} argue that
+practices are constituted through performance; when new actors enter the
+performance space, the practice itself must be reconstituted. The high
+variability across cross-role patterns suggests that this reconstitution is
+underway but far from settled, shaped more by organizational context than by
+GenAI capability alone.
+
+\subsubsection{Compression Not Generation as Practice Reframing}
+
+The Compression Not Generation pattern represents a collective reframing of
+GenAI's role in architectural practice, adopted by the majority of the panel. As P2 described: ``The value is not in generation
+but in compression. It compresses reading time for surveys'' (R1 Workbook).
+This framing is significant from a practice theory perspective because it
+reveals how practitioners make sense of a new technology in terms compatible
+with their existing professional identity.
+
+\textcite{orlikowski_technological_1994}'s concept of technological frames
+helps explain this dynamic. By framing GenAI as a compression tool rather than
+a generative agent, practitioners maintained their self-understanding as the
+source of architectural knowledge. The technology became an accelerator of
+human thinking rather than a substitute for it. This framing connects directly
+to the role identity preservation pattern: all eight participants viewed GenAI
+as an efficiency tool, not a replacement for professional judgment
+(Section~\ref{subsubsec:cross-cutting}).
+
+%% ================================================================
+%% 8.4 The Jagged Frontier in Architectural Work
+%% ================================================================
+\subsection{The Jagged Frontier in Architectural Work}\label{subsec:disc-jagged-frontier}
+
+\textcite{dellacqua_navigating_2023} introduced the concept of a ``jagged
+technological frontier'' to describe how AI capabilities vary unpredictably
+across tasks. Their study of Boston Consulting Group consultants found that
+task performance improved substantially when tasks fell inside the frontier
+but degraded when they fell outside it. The Delphi consensus--variability
+profiles map onto this concept in revealing ways.
+
+\subsubsection{Mapping the Frontier Through Consensus Data}
+
+System/Codebase Analysis sits clearly inside the frontier
+(Table~\ref{tab:practice-importance}). The tight consensus and low variability
+suggest that organizational context matters less: codebase analysis is
+relatively standardized, verifiable, and bounded. This stable frontier boundary
+suggests that directive guidance may be feasible.
+
+Research \& Exploration and Adversarial Review occupy the frontier's middle
+zone, with moderate consensus supporting contextual guidance, namely general
+recommendations with situational qualification. The frontier here depends on
+the specificity of the research question and the practitioner's domain
+expertise.
+
+Stakeholder Communication and Governance/Compliance sit on or outside the
+frontier. Their high variability reflects that GenAI's value for these
+practices depends heavily on organizational context; precisely the knowledge
+that the panel identified as outside GenAI capability. The shifting frontier
+boundary suggests that adaptive guidance may be more appropriate for these
+practices.
+
+Deep Workflow Integration presents a different pattern. Its low mean rating
+and one abstention likely reflect adoption barriers rather than low frontier
+placement. The participants operating in Cyborg mode
+(Section~\ref{subsubsec:practice-discovery}) demonstrated that
+practitioners who overcome infrastructure prerequisites achieve sustained
+workflow benefits. The frontier for this practice may be wide but the path to reaching it is
+steep. This suggests that for Deep Workflow Integration, the primary barrier
+is organizational readiness rather than GenAI capability.
+
+\subsubsection{Frontier Learning Through Failure}
+
+The majority of participants described learning GenAI's limitations through
+errors: hallucinated benchmarks, non-existent folder references, bounded
+context suggestions that were ``technically logical but organisationally
+nonsensical'' (P3, R1 Workbook). These incidents demonstrate what
+\textcite{dellacqua_navigating_2023} describe as the cost of operating outside
+the frontier: degraded performance that can propagate downstream if
+undetected.
+
+In our view, the frontier learning pattern reveals a distinctive feature of the
+EA-GenAI cognitive system. Unlike the BCG consultants in
+\textcite{dellacqua_navigating_2023}'s study, who were experimentally assigned
+to tasks inside or outside the frontier, EA practitioners must navigate the
+frontier continuously in their daily work. The verification heuristics refined
+across three Delphi rounds (Table~\ref{tab:heuristic-importance}) represent
+collectively developed navigation strategies for this frontier.
+
+The tier structure of verification heuristics reinforces this interpretation.
+Process-oriented heuristics (cross-validation, incremental trust building,
+context management) rated higher than experience-dependent ones (domain
+expertise threshold, learn through failure). This suggests that the panel
+valued systematic frontier navigation strategies over individual intuition; a
+finding consistent with \textcite{hutchins_cognition_1995}'s emphasis on
+procedural coordination in distributed cognitive systems.
+
+\subsubsection{Trust Calibration as Frontier Navigation}
+
+Trust calibration (the bidirectional process of adjusting expectations about
+GenAI capabilities) functions as the primary mechanism for navigating the
+jagged frontier. The ``junior colleague'' mental model recurred across the
+Round~3 panel: ``Think of AI as a junior architect and yourself as the senior
+architect'' (R3 Brainstorm). This framing establishes a calibration anchor that
+adapts as practitioners accumulate experience with GenAI's capability profile.
+
+The panel confirmed that trust calibration is teachable but requires domain
+expertise as a prerequisite (Section~\ref{subsubsec:teachability}). This
+finding has implications for the frontier's temporal dimension. Novice
+practitioners lack the domain knowledge to recognize when GenAI operates
+outside the frontier, making them more vulnerable to the ``beautiful but wrong''
+outputs that \textcite{dellacqua_navigating_2023} identified. The experience
+indicators in the guidance artifact (Section~\ref{subsec:practice-catalog})
+address this by providing graduated entry points for practitioners at different
+experience levels.
+
+%% ================================================================
+%% 8.5 External Triangulation of Delphi Practices
+%% ================================================================
+\subsection{External Triangulation of Delphi Practices}\label{subsec:disc-triangulation}
+
+The guidance artifact in Section~\ref{sec:artifact} is grounded in the Delphi
+study. This section examines how external evidence corroborates, extends, or
+qualifies the seven validated practice categories. The purpose is triangulation:
+establishing whether the Delphi findings reflect broader practitioner experience
+or remain idiosyncratic to this panel.
+
+\textbf{System/Codebase Analysis.} Practitioner evidence confirms codebase
+analysis as the highest-confidence GenAI application. Practitioners report using
+GenAI for reverse-engineering software architecture, producing dependency graphs
+and cross-repository documentation
+\parencite{chatlatanagulchai_agent_readmes_2025}. Agent context files containing
+architecture content appear in 67.7\% of analyzed repositories, indicating
+widespread adoption of this practice in tooling-integrated workflows. This
+convergence strengthens the directive guidance level assigned to this practice.
+
+\textbf{Research \& Exploration.} Multi-model research pipelines are emerging,
+where practitioners use different AI models for planning, structuring, and
+execution stages \parencite{banh_affordance_genai_ea_2025}. The compression
+framing (GenAI compresses existing information rather than creating new
+knowledge) is well-established in practitioner discourse and aligns with the
+Delphi finding that five of eight participants adopted this framing
+(Section~\ref{subsubsec:cross-cutting}). External evidence thus corroborates
+both the practice and its underlying cognitive model.
+
+\textbf{Adversarial Review / Stress Testing.} The adversarial use of GenAI is
+documented across practitioner discourse, though primarily as informal validation
+rather than structured architectural critique
+\parencite{lee_devils_advocate_2025, stanimirovic_ai_sparring_2026}. Epistemic
+stress testing (tracking confidence levels in AI-mediated architectural
+decisions) connects to the distributed cognition lens by making cognitive
+assumptions explicit \parencite{gilda_epistemic_status_2026}. The stress testing
+techniques identified in Table~\ref{tab:stress-testing} draw on both Delphi data
+and this external evidence.
+
+\textbf{Governance/Compliance.} The gap between governance aspiration and
+implementation is well-documented.
+\textcite{ettinger_ea_dynamic_capability_2025} identifies significant
+limitations in existing EA frameworks for addressing GenAI requirements, noting
+tension between fostering innovation and maintaining compliance.
+Architecture-as-Code approaches (encoding architectural constraints as
+machine-readable rules in CI/CD pipelines) represent an emerging response to this
+gap \parencite{bucaioni_architecture_as_code_2025}. The high variability in the Delphi rating
+(Table~\ref{tab:practice-importance}) is consistent with this literature:
+governance value depends heavily on organizational maturity.
+
+\textbf{First Draft \& Documentation.} This practice has the strongest external
+corroboration. Practitioners report generating architecture decision records from
+meeting transcripts and requirements, with multi-layer verification workflows
+combining metaprompts, fresh LLM contexts, and LLM-as-Judge evaluation before
+human review \parencite{banh_affordance_genai_ea_2025}. The verification burden
+shift (the highest-rated change theme,
+Table~\ref{tab:change-significance}) is most directly experienced in
+documentation workflows. A related emerging practice, Spec-Driven Development
+(SDD), extends the documentation-first principle by using formal specifications
+as the primary human-authored artifact from which implementations derive
+\parencite{piskala_spec_driven_dev_2026}. SDD is not yet a validated Delphi
+practice, but its specification-anchored approach mirrors how RAs function:
+normative specifications constraining downstream implementation. Early evidence
+suggests three maturity levels (spec-first, spec-anchored, and spec-as-source),
+though concerns about specification drift and tool inflexibility remain
+\parencite[sec.~IX]{piskala_spec_driven_dev_2026}.
+
+\textbf{Stakeholder Communication.} External evidence for GenAI-assisted
+stakeholder communication in architecture contexts is sparse compared to other
+practices. The strongest evidence concerns meeting transcript synthesis into
+formal records (collective decision capture received the highest cross-role
+pattern rating, Table~\ref{tab:cross-role}) rather than proactive
+stakeholder communication. This evidence gap is consistent with the practice's
+high variability and adaptive guidance level.
+
+\textbf{Deep Workflow Integration.} The shift from chat-based interaction to
+IDE-integrated workflows represents a maturation trajectory documented across
+practitioner discourse \parencite{rajasekaran_context_engineering_2025,
+chatlatanagulchai_agent_readmes_2025}. Agent context files containing
+architecture content appear in 67.7\% of studied repositories, and enterprise
+organizations are converting internal APIs into MCP servers at scale. Context
+engineering (designing the information environment for AI agents) is emerging as
+a core architectural skill (Section~\ref{subsubsec:context-engineering}).
+
+Taken together, external evidence corroborates the Delphi findings across all
+seven practice categories, though with varying strength. System/Codebase
+Analysis and First Draft \& Documentation have the strongest external
+validation, consistent with their higher consensus ratings. Stakeholder
+Communication and Deep Workflow Integration have sparser external evidence,
+consistent with their adaptive guidance levels. This pattern suggests that
+the Delphi panel's consensus--variability profiles reflect genuine differences
+in practice maturity rather than panel idiosyncrasy.
+
+%% ================================================================
+%% 8.6 Implications for EA Practice
+%% ================================================================
+\subsection{Implications for EA Practice}\label{subsec:disc-implications-practice}
+
+The theoretical interpretations above yield four practical implications for
+how EA practice may evolve as GenAI integration matures.
+
+\subsubsection{Context Engineering as an Emerging Competency}\label{subsubsec:disc-context-eng}
+
+The Delphi findings position context engineering (systematically designing
+the information provided to GenAI systems) as an emerging EA competency.
+The strong panel endorsement of the context management heuristic
+(Table~\ref{tab:heuristic-importance}), combined with the finding that
+agent context files containing architecture content appear in 67.7\% of
+studied repositories \parencite{chatlatanagulchai_agent_readmes_2025},
+indicates that context engineering is not merely aspirational but reflects
+emerging practice maturity. These files function as both human-readable
+documentation and machine-executable constraints.
+
+Context engineering extends the traditional EA practitioner
+competency set identified by \textcite{land_enterprise_2009} (which
+emphasized technical expertise, communication skills, and political
+acumen) with a new dimension. That dimension is the ability to represent
+architectural knowledge in forms that GenAI systems can process
+effectively. This is not
+merely a technical skill. It requires the architectural judgment to determine
+which constraints matter, the communication skill to encode them precisely,
+and the organizational awareness to know what context the AI lacks.
+
+\subsubsection{The Gate-to-Guardrail Transition}
+
+The governance adaptation themes in Section~\ref{subsec:governance-adaptation}
+suggest a shift from periodic gate reviews to continuous guardrail enforcement.
+GenAI's acceleration of artifact production (practitioners producing drafts in
+minutes rather than days) challenges the temporal assumptions of traditional
+architectural review boards. The Delphi panel's low rating for inside-out governance
+(Table~\ref{tab:cross-role}) suggests that most organizations have not yet
+confronted this shift.
+
+\textcite{ettinger_ea_dynamic_capability_2025} identifies significant
+limitations in existing EA frameworks for addressing GenAI requirements. In our
+view, the gate-to-guardrail transition represents the governance equivalent of
+cognitive distribution: encoding architectural constraints as machine-readable
+rules distributes governance enforcement across the development pipeline rather
+than concentrating it in periodic human reviews. This transition directly
+addresses the accountability gap exposed by the Ghost Architect dynamic
+(Section~\ref{subsubsec:cross-role}): when artifact production is distributed
+but accountability remains concentrated, continuous guardrail enforcement shifts
+evaluation from \textit{who produced} the artifact to \textit{whether it meets
+encoded standards}. In this way, the gate-to-guardrail model resolves the
+asymmetry between distributed production and concentrated accountability by
+making compliance verifiable regardless of the artifact's origin.
+
+\subsubsection{The Competency Decay Paradox}
+
+The skills being automated (cold-start writing, exhaustive manual search,
+cover-to-cover documentation reading) are the same skills through which
+practitioners built their expertise
+\parencite{kabashkin_cognitive_atrophy_2025}. The panel rated ``skills used less'' as the second-most significant change
+(Table~\ref{tab:change-significance}), confirming that practitioners recognize
+this dynamic. Yet ``new skills emerging'' received a notably lower rating,
+suggesting practitioners perceive the shift as extending existing expertise
+rather than requiring fundamentally new competencies.
+
+This tension reveals a paradox that practice theory helps illuminate. If
+practices are constituted through performance
+\parencite{feldman_theorizing_2011}, then automating the performance
+undermines the mechanism through which expertise develops. Future practitioners
+may lack the foundation required for effective trust calibration; precisely
+the skill the panel identified as essential for all seven practices.
+
+The anti-atrophy strategies proposed in
+Section~\ref{subsubsec:anti-atrophy} constitute a practice-theoretic response
+to this paradox. If expertise develops through performance
+\parencite{feldman_theorizing_2011}, then preserving expertise requires
+deliberately reintroducing the performance that automation displaces. Each
+strategy targets a different facet of this mechanism. AI-free design sessions
+preserve foundational skill performance by requiring practitioners to produce
+architectural work without GenAI assistance. The attempt-independently-first
+protocol maintains mental model formation by ensuring practitioners engage with
+problems before encountering AI-generated representations. The pair programming
+mindset sustains active cognitive engagement during GenAI-assisted work,
+preventing delegation from becoming abdication. These strategies
+represent deliberate friction: a structured reintroduction of the cognitive
+effort that constitutes architectural expertise.
+
+\subsubsection{The Maturity Model as Diagnostic}
+
+The four-stage maturity model (Table~\ref{tab:maturity-model}) received partial
+empirical support through the asynchronously collected SP2 maturity progression
+vote (Table~\ref{tab:maturity-progression}). The panel strongly endorsed the natural progression assumption while rejecting
+the proposition that short experience can substitute for sustained engagement
+(Table~\ref{tab:maturity-progression}). The model's value remains diagnostic rather than prescriptive. Practitioners can
+use it to locate their current practice and identify potential growth areas
+without implying that progression through all four stages is necessary or
+desirable for every organizational context.
+
+The SP2 results reveal a nuanced position that echoes a broader debate in EA
+maturity literature. \textcite{kotusev_enterprise_2018} demonstrated that EA
+maturity models often prescribe trajectories that bear little resemblance to how
+practices actually evolve. The panel's moderate, high-variability agreement on per-category measurement
+and context-dependence aligns with this critique: progression is real but not
+uniform across practice categories. The high variability across organizational contexts
+(particularly in Governance/Compliance and Stakeholder Communication) further
+suggests that context-specific factors shape adoption pace more than any
+universal progression logic. The specific four-stage structure remains
+researcher-proposed, and the asynchronous collection mode introduces
+methodological caveats (Section~\ref{subsec:data-limitations}).
+
+%% ================================================================
+%% 8.6 Implications for Theory
+%% ================================================================
+\subsection{Implications for Theory}\label{subsec:disc-implications-theory}
+
+The findings extend three theoretical areas: distributed cognition, practice
+theory, and the conceptualization of GenAI in professional knowledge work.
+
+\subsubsection{GenAI as Cognitive Partner}
+
+Distributed cognition theory \parencite{hutchins_cognition_1995} originally
+examined how cognitive processes distribute across human team members and
+physical artifacts. The Delphi findings suggest that GenAI occupies a position
+in the cognitive system distinct from both. The organizational context
+boundary, near-unanimously identified as a hard limit on delegation
+(Section~\ref{subsubsec:cross-cutting}), delineates where GenAI's
+cognitive partnership reaches its current limits. Yet within that boundary,
+practitioners described GenAI generating novel representations, responding to
+queries contextually, and adapting outputs to conversational framing;
+capabilities that exceed those of the charts, instruments, and procedures in
+\textcite{hutchins_cognition_1995}'s navigation studies. In our view, GenAI
+functions as a new category of cognitive partner: more capable than a static
+artifact but less reliable than a human collaborator in domains requiring
+tacit organizational knowledge.
+
+These findings point toward a pattern not explicitly addressed in
+\textcite{hollan_distributed_2000}'s three types of distribution: distribution
+to agents whose reliability varies across task types. The consensus--variability
+profiles from Section~\ref{subsec:disc-jagged-frontier} offer preliminary
+indications of this pattern. The tight consensus on System/Codebase Analysis suggests relatively stable
+perceived reliability, while the wide disagreement on Stakeholder Communication
+suggests less predictable performance. These variability differences reflect
+panel-level variation in importance ratings rather than direct measures of
+GenAI reliability. Yet the
+pattern they trace is consistent with the jagged frontier
+\parencite{dellacqua_navigating_2023}, where AI capability varies
+unpredictably across task boundaries. While the present study's scope does not
+permit theoretical generalization, the observation warrants further
+investigation. Distributed cognition theory, as originally formulated, assumed
+relatively stable capabilities among system components. GenAI may introduce a
+partner whose competence shifts across task boundaries, requiring continuous
+calibration; a dynamic the original framework did not anticipate.
+
+\subsubsection{Practice Emergence Under Rapid Technological Change}
+
+\textcite{feldman_theorizing_2011}'s practice theory provides a lens for
+understanding how recurrent patterns of action emerge and stabilize. The Delphi
+findings illustrate a distinctive feature of practice emergence under rapid
+technological change: the technology's capabilities shift faster than practices
+can stabilize.
+
+The seven practice categories validated in Round~2 showed no challenges or
+revisions in Round~3 (Section~\ref{subsubsec:convergence}), suggesting that
+the practice taxonomy itself has stabilized. However, the specific
+enactments within each category (the tools used, the verification strategies
+applied, the interaction patterns adopted) continue to evolve as GenAI
+capabilities advance. This creates what we might describe as stable categories
+with fluid content: the practice patterns are recognizable but their
+instantiation changes continuously.
+
+\textcite{orlikowski_using_2000} argued that technology-in-practice emerges
+through situated use rather than following predetermined adoption paths.
+The Delphi findings support this claim but add a temporal dimension: when
+the technology itself evolves rapidly, practitioners must continuously
+re-situate their practices. The frontier learning pattern (the majority of participants discovering
+limitations through errors) demonstrates this ongoing re-situation in action.
+
+\subsubsection{The Junior Colleague Mental Model}
+
+The ``junior colleague'' framing, recurrent across the Round~3 panel, deserves
+theoretical attention as a novel calibration heuristic. One participant
+stated: ``Think of AI as a junior architect and yourself as the senior
+architect'' (R3 Brainstorm). Another described treating GenAI interaction like
+a buddy system where ``sharing the elements as if it were human betters the
+end output'' (R3 Brainstorm).
+
+This mental model is not a formal theoretical contribution but a practitioner
+heuristic that performs important cognitive work. It establishes appropriate
+expectations (capable but requiring supervision), defines the appropriate
+relationship (mentorship rather than delegation or replacement), and provides
+a familiar frame of reference for navigating an unfamiliar technology.
+
+In our view, the junior colleague model is theoretically significant because
+it reveals how practitioners make sense of a novel cognitive partner by drawing
+on social frameworks from human collaboration. This process (making the
+unfamiliar familiar through analogical reasoning) represents a sense-making
+strategy that existing literature on GenAI adoption has not foregrounded. The
+framing also reveals its own limitations. Unlike a junior colleague, GenAI
+does not learn from supervision in ways that transfer across sessions. Its
+failure modes also differ fundamentally from those of a human novice.
+
+%% ================================================================
+%% 8.7 Limitations
+%% ================================================================
+\subsection{Limitations}\label{subsec:disc-limitations}
+
+Several limitations qualify the findings and their interpretation.
+
+\textbf{Sample size and composition.} The Delphi panel comprised eight to ten
+participants across three rounds, sufficient for a Delphi study targeting information richness but limiting
+generalizability. The panel was
+predominantly European, self-selected through the researcher's professional
+network, and composed of practitioners already using GenAI. This composition
+produces a portrait of early adopter practices that may not represent the
+broader EA practitioner population.
+
+\textbf{Scope boundary tension.} The workbook was framed as ``Software
+Architecture / Solution Design work'' rather than ``Enterprise Architecture'' to
+capture practitioners who do RA work under various professional labels (see
+Section~\ref{sec:methodology}). This terminological broadening may have
+admitted practices that sit at the boundary between RA-specific and general
+architectural work. The workbook's RA lifecycle mapping (Part~C) and R2's
+RA-contextualized validation mitigate this risk, but some practices (e.g.,
+System/Codebase Analysis) may represent general architectural work that is not
+exclusive to RA development. This is an inherent trade-off: ecological validity
+(capturing how practitioners actually describe their work) versus strict
+construct alignment with the research question's ``EA practitioners'' scope.
+Future research could isolate RA-specific practices from general architectural
+practices through comparative studies across different architectural artifact
+types.
+
+\textbf{Temporal snapshot.} Data collection occurred between January and March
+2026, during a period of rapid GenAI capability evolution. Findings represent
+a snapshot of practice at a specific moment. GenAI capabilities available
+during the study period (including large context windows, multi-modal
+reasoning, and agent-based workflows) may shift substantially within months,
+potentially rendering specific findings (particularly tool-dependent practices
+like Deep Workflow Integration) outdated.
+
+\textbf{Partially validated maturity model.} The four-stage maturity model
+(Table~\ref{tab:maturity-model}) was derived from observed variation in the
+Delphi data. The asynchronously collected SP2 vote
+(Table~\ref{tab:maturity-progression}) provides empirical support for the underlying progression assumption
+($M = 4.71$, variability 22\%), partially grounding a maturity model within a
+consensus-based study. However, a residual design-science tension remains: the specific
+four-stage structure (from Experimental to Organizational Embedding) was not
+individually validated by the panel, the vote was collected asynchronously
+without preceding group discussion, and the sample comprised seven participants.
+Future research should validate the specific stage boundaries and
+characteristics.
+
+\textbf{Delphi process constraints.} Three rounds may limit the depth of
+convergence achievable. Round~1's asynchronous format allowed thoughtful
+individual responses but prevented the real-time probing possible in
+interviews. Rounds~2 and~3 compressed discussion into 120-minute sessions,
+with Round~3 Step~15 not executed and Step~16 collected asynchronously. The
+absence of Step~15 (Future Perspectives) means the temporal dimension and
+future-oriented perspectives of the conceptual framework remain empirically
+underexplored.
+
+\textbf{Researcher positionality.} The researcher is an EA practitioner who
+uses GenAI daily for architectural work. This dual role means the researcher
+is simultaneously a research subject and the person designing the inquiry.
+Insider status touched every phase of the research: the discovery workbook
+drew on practitioner knowledge of EA workflows, coding decisions reflected
+familiarity with architectural reasoning patterns, the seven practice
+categories emerged through researcher synthesis of participant data, and the
+guidance artifact incorporated the researcher's understanding of what
+practitioners would find actionable. Each of these steps involved interpretive
+judgments that insider knowledge could shape, creating a structural bias toward
+validating the significance of GenAI integration.
+
+Assumption management relied primarily on the Delphi method's structural
+safeguards rather than a rigorous personal reflexivity protocol. We acknowledge
+that the researcher's actual reflexive practice was less systematic than
+planned; reflexive notes were captured at key decision points rather than
+maintained as a continuous journal. Three structural features partially
+compensated for this gap. Round~1's asynchronous workbook format ensured
+participants articulated practices in their own terms before researcher coding
+began. Round~2's live voting and discussion allowed the panel to validate or
+reject practice categories collectively, not through researcher judgment alone.
+Round~3's structured brainstorming generated participant responses that were
+aggregated before researcher synthesis. In our view, these deliberative
+safeguards provided meaningful protection against insider bias, but we
+acknowledge that a more disciplined personal reflexivity practice would have
+strengthened confirmability.
+
+Two reflexive insights merit disclosure. The researcher has experimented with
+large language models since 2017 and assumed that most EA practitioners would
+gradually incorporate GenAI over time. The genuine surprise was the speed of
+conversion: several participants described themselves as recently skeptical,
+believing EA work was too context-heavy for AI assistance, yet had rapidly
+become active daily users within months. This challenged the researcher's
+gradualist assumption and highlighted the threshold-crossing pattern visible in
+the findings. Regarding the ``Ghost
+Architect'' provocation, this stimulus emerged primarily from the data rather
+than insider projection. Rounds~1 and~2 surfaced unanticipated cross-role
+dynamics, including developers producing architectural artifacts bottom-up
+(Section~\ref{subsubsec:cross-role}). The provocation was designed to probe
+these participant-identified tensions in Round~3. We acknowledge that insider
+status likely influenced the salience assigned to role boundary shifts; an
+active practitioner may notice such dynamics more readily. However, the
+provocation's content was anchored in participant-generated themes rather than
+researcher preconceptions.
+
+\textbf{GenAI tool dependency.} Findings are shaped by the GenAI tools
+available in 2025--2026, including large language models from major providers,
+IDE-integrated coding assistants, and early agent-based workflows. The
+practices, heuristics, and governance considerations identified may not
+transfer directly to future GenAI paradigms with different capability profiles.
+
+%% ================================================================
+%% 8.8 Future Research
+%% ================================================================
+\subsection{Future Research}\label{subsec:future-research}
+
+Five directions merit investigation. First, longitudinal research should track
+how the seven practice categories evolve as GenAI capabilities advance, since
+the temporal snapshot limitation means that practices documented here may
+fragment, merge, or transform as tool capabilities shift.
+
+Second, cross-organizational validation of the practice taxonomy would establish
+whether the categories identified in this early-adopter panel hold across
+different organizational contexts, governance maturity levels, and industry
+sectors. Replication studies with larger panels would test whether the consensus
+patterns observed here generalize beyond this exploratory sample.
+
+Third, the maturity model's progression assumption received strong panel support
+($M = 4.71$), but three areas warrant further validation: the specific four-stage
+structure (from Experimental to Organizational Embedding) was not individually
+tested, the practice-category-specific nature of maturity suggested by the panel
+implies different progression trajectories per practice may exist, and the
+model's applicability beyond the early-adopter population studied here remains
+unknown.
+
+Fourth, sector-specific RA contexts (healthcare, financial services, government)
+introduce regulatory and compliance dimensions that may reshape which
+practice categories dominate and how verification heuristics are calibrated.
+
+Fifth, the anti-atrophy strategies proposed in
+Section~\ref{subsec:disc-implications-practice} require longitudinal validation.
+While this study identifies the competency decay paradox and proposes deliberate
+friction interventions, their long-term effectiveness in preserving
+architectural expertise remains an open empirical question with significant
+implications for EA education and professional development.
+
+%% ================================================================
+%% 8.9 Closing Statement
+%% ================================================================
+\subsection{Closing Statement}\label{subsec:closing-statement}
+
+The research began with a practice vacuum: EA practitioners were integrating
+GenAI into RA development without empirical evidence, evaluation frameworks,
+shared vocabulary, or validated guidance.
+\textcite{kotusev_enterprise_2018} called for reconceptualizing EA practice to
+reflect how architects actually work; GenAI has made that call urgent. Through
+three Delphi rounds, this study maps what practitioners are doing, how their
+work is changing, and what guidance helps. The practices documented here will
+evolve as GenAI capabilities advance. What persists is the underlying question:
+which parts of architectural work to delegate, and which to keep.

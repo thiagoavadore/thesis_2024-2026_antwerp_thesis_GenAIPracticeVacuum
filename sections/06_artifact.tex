@@ -1,0 +1,557 @@
+% Section 07: Guidance Artifact
+% Answers sRQ4: How should effective GenAI practices be systematized into guidance?
+% Mode: Prescriptive (guidance) — distinct from descriptive mode in section 06
+
+\section{Guidance Artifact}\label{sec:artifact}
+
+\subsection*{Introduction}
+
+This section presents the guidance artifact answering sRQ4: \textit{``How should
+effective GenAI practices for RA development be systematized into guidance for EA
+Practitioners?''} It turns the Delphi findings from
+\textit{Results and Analysis} (Section~\ref{sec:results}) into prescriptive guidance that Enterprise
+Architecture (EA) practitioners can apply when using Generative AI (GenAI) in
+Reference Architecture (RA) development. The consensus-variability profiles
+from \textit{Results and Analysis} (Section~\ref{sec:results}) directly inform where the artifact can offer
+directive recommendations and where guidance must remain adaptive. The artifact
+is organized by practice category (per the panel's preference), followed by
+cross-cutting guidance, governance adaptation, and a maturity model. The
+following subsections detail the artifact:
+
+\localtableofcontents\clearpage
+
+%% ================================================================
+%% 7.1 Introduction and Scope
+%% ================================================================
+\subsection{Introduction and Scope}\label{subsec:artifact-scope}
+
+The guidance artifact presented here is the final version, incorporating Round~3
+priority ratings (Table~\ref{tab:guidance-priorities}), artifact critique
+feedback (Section~\ref{subsubsec:artifact-critique}), and heuristic refinement
+data (Table~\ref{tab:heuristic-importance}). The intended audience is Enterprise
+Architecture (EA) practitioners broadly defined: enterprise architects, solution
+architects, platform engineers, data architects, and senior engineers who
+participate in RA development. This scope matches the panel diversity described
+in Section~\ref{subsec:panel-overview}.
+
+The artifact is organized by practice category rather than by RA lifecycle phase
+or experience level, consistent with the panel's explicit preference
+(Section~\ref{subsubsec:artifact-critique}). One participant stated: ``By
+practice seems fine, because if you do by lifecycle, then you will repeat
+yourself'' (R3 Brainstorm). Lifecycle phase mapping received the lowest priority
+rating among all guidance elements ($M = 2.43$,
+Table~\ref{tab:guidance-priorities}), consistent with this choice.
+
+Each practice category carries a guidance level (\textit{directive},
+\textit{contextual}, or \textit{adaptive}) based on panel agreement and
+variability patterns from Table~\ref{tab:practice-importance}. Categories where
+the panel agreed closely ($SD < 1.0$) receive directive guidance; those with
+moderate variability ($1.0 \leq SD \leq 1.2$) receive contextual guidance; and
+those with wide disagreement ($SD > 1.2$) receive adaptive guidance. Two
+overrides apply: Adversarial Review ($SD = 0.97$) is contextual rather than
+directive because its value depends on domain expertise, and Deep Workflow
+Integration ($SD = 1.17$) is adaptive because its low mean and abstention
+pattern point to adoption barriers that vary across settings. Practice
+descriptions ($M = 4.71$) and verification patterns ($M = 4.14$), the two
+highest-priority guidance elements, structure each practice block.
+
+Each element carries a provenance label. \textit{Delphi consensus} marks
+elements the panel voted on or explicitly validated. \textit{Researcher
+synthesis} marks researcher interpretation anchored in Delphi data.
+\textit{Researcher proposal} marks informed suggestions not validated by the
+panel. Where an element draws on both sources, both are indicated. External
+literature corroborating each practice is examined separately in
+Section~\ref{subsec:disc-triangulation}.
+
+%% ================================================================
+%% 7.2 Practice Catalog
+%% ================================================================
+\subsection{Practice Catalog}\label{subsec:practice-catalog}
+
+Table~\ref{tab:practice-catalog} summarizes the seven validated practice
+categories with their consensus profiles, guidance levels, and primary
+verification patterns. The following subsections detail each practice.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Practice Catalog Summary}\label{tab:practice-catalog}
+    \begin{tabular}{|p{4.2cm}|c|c|p{2.2cm}|p{4cm}|}
+        \hline
+        \textbf{Practice Category} & \textbf{$M$} & \textbf{$SD$} & \textbf{Guidance Level} & \textbf{Primary Verification Pattern} \\
+        \hline
+        System / Codebase Analysis & 4.00 & 0.82 & Directive & Cross-validate against source systems \\
+        \hline
+        Research \& Exploration & 3.60 & 1.17 & Contextual & Verify claims against primary sources \\
+        \hline
+        Adversarial Review / Stress Testing & 3.60 & 0.97 & Contextual & Domain expertise threshold check \\
+        \hline
+        Governance / Compliance & 3.50 & 1.27 & Adaptive & Line-by-line verification in compliance contexts \\
+        \hline
+        First Draft \& Documentation & 3.10 & 1.10 & Contextual & Cross-check references and facts \\
+        \hline
+        Stakeholder Communication & 3.10 & 1.37 & Adaptive & Validate organizational context manually \\
+        \hline
+        Deep Workflow Integration & 2.89 & 1.17 & Adaptive & Incremental trust building \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Throughout the catalog, practice descriptions and verification patterns carry
+Delphi consensus; experience indicators are researcher proposals.
+
+\textbf{System/Codebase Analysis} \textit{[Directive].}
+This practice involves using GenAI to analyze existing systems, codebases, and
+architectural artifacts to build understanding of the current state. Practitioners
+should apply this practice during Phase~2 (Current State Analysis) of the RA
+lifecycle, particularly for legacy system comprehension, dependency mapping, and
+cross-repository analysis. System/Codebase Analysis received the highest
+importance rating with the lowest variability
+(Table~\ref{tab:practice-importance}), indicating strong consensus that this is
+the most valuable GenAI application in RA work.
+
+\textit{Verification pattern:} Cross-validate GenAI-generated system
+descriptions against source systems directly. As the Delphi panel established,
+all participants delegated information gathering to GenAI while retaining
+judgment (Section~\ref{subsubsec:practice-discovery}). For codebase analysis
+specifically, practitioners should verify that referenced components, services,
+and dependencies exist in the actual system. One Round~3 participant reported
+that GenAI ``pointed to a folder that simply didn't exist''
+(Section~\ref{subsubsec:trust-calibration}), demonstrating why physical
+constraint checking is essential.
+
+\textit{Experience indicators:} Novice practitioners should start with
+well-documented codebases where verification is straightforward. Advanced
+practitioners extend this practice to legacy systems and cross-repository
+analysis where GenAI's compression value is highest.
+
+\textbf{Research \& Exploration} \textit{[Contextual].}
+This practice involves using GenAI as a research assistant for exploring design
+alternatives, technology options, and architectural trade-offs during target
+state design. Seven of 19 Round~1 practices mapped to Phase~4 (Target State
+Design) in research-assistant mode
+(Section~\ref{subsubsec:practice-discovery}).
+
+\textit{Verification pattern:} Verify claims, statistics, and technology
+recommendations against primary sources. The cross-validation heuristic received
+the highest importance rating across all heuristics ($M = 4.57$,
+Table~\ref{tab:heuristic-importance}). P2 reported verifying ``60--70\% of
+specific claims'' against primary sources (R1 Workbook). Practitioners should
+treat GenAI research outputs as hypotheses requiring confirmation, not as
+authoritative findings.
+
+\textit{Experience indicators:} Start with well-scoped questions verifiable
+against established sources; progress to multi-model workflows and iterative
+refinement.
+
+\textbf{Adversarial Review / Stress Testing} \textit{[Contextual].}
+This practice involves deliberately using GenAI to challenge, critique, and
+stress-test architectural decisions. The Delphi panel validated contradiction
+seeding as a verification heuristic ($M = 3.33$,
+Table~\ref{tab:heuristic-importance}), and domain expertise threshold rated
+$M = 3.86$. Adversarial Review requires the practitioner to actively elicit
+critique rather than accept GenAI's default collaborative stance.
+
+Adversarial Review encompasses a family of techniques that practitioner discourse
+calls \textit{Architecture Stress Testing}. Table~\ref{tab:stress-testing}
+presents seven named sub-practices identified through researcher synthesis. The
+Delphi panel validated contradiction seeding and domain expertise threshold as
+techniques; the remaining techniques were identified from practitioner discourse
+and are corroborated in Section~\ref{subsec:disc-triangulation}.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Architecture Stress Testing Techniques}\label{tab:stress-testing}
+    \begin{tabular}{|p{4cm}|p{9cm}|}
+        \hline
+        \textbf{Technique} & \textbf{Description} \\
+        \hline
+        AI Sparring Partner & Iterative adversarial dialogue where GenAI challenges design rationale \\
+        \hline
+        Devil's Advocate Prompting & Instructing GenAI to argue against the proposed architecture \\
+        \hline
+        Decision Stress Testing & Sequential methodology: identify blind spots, steelman alternatives, conduct pre-mortem \\
+        \hline
+        AI Pre-Mortem & ``The architecture already failed; why?'' Prospective hindsight analysis \\
+        \hline
+        Skeptical Reviewer & Role-based persona critique simulating a senior architect review \\
+        \hline
+        Architectural Gap Analysis & Structural completeness analysis against standards and patterns \\
+        \hline
+        Epistemic Stress Testing & Challenges confidence levels behind decisions, not the decisions themselves \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\textit{Verification pattern:} Adversarial Review requires domain expertise as a
+prerequisite. The panel confirmed that ``a lot of the hallucination issue can
+only be identified if you know things are wrong from experience already''
+(Section~\ref{subsubsec:trust-calibration}). Practitioners should evaluate
+GenAI-generated critiques against their own domain knowledge, recognizing that
+GenAI lacks the ability to model strategic adversarial behaviour across
+organizational boundaries.
+
+\textit{Experience indicators:} Novice practitioners should start with
+structured techniques such as AI Pre-Mortem and Skeptical Reviewer, which
+provide clear prompting templates. Advanced practitioners develop intuition for
+when GenAI critique reflects genuine design weaknesses versus pattern-matching
+artifacts.
+
+\textbf{Governance/Compliance Checking} \textit{[Adaptive].}
+This practice involves using GenAI to verify architectural artifacts against
+governance standards, compliance requirements, and organizational policies.
+Governance/Compliance emerged during live Round~2 discussion as the seventh
+category (Section~\ref{subsubsec:practice-validation}), with high variability
+($SD = 1.27$) reflecting context-dependent value across organizational settings.
+The adaptive guidance level acknowledges that governance structures vary
+substantially across organizations.
+
+\textit{Verification pattern:} In compliance contexts, verify every detail
+line-by-line. The Delphi panel rated this heuristic $M = 4.20$ with the lowest
+variability among Round~2 heuristics. GenAI can scan documents against regulatory
+requirements, but practitioners must verify completeness and accuracy manually.
+Compliance errors carry disproportionate organizational risk.
+
+\textit{Experience indicators:} Begin with low-risk compliance contexts;
+progress to automated governance pipelines where organizational maturity
+permits.
+
+\textbf{First Draft \& Documentation} \textit{[Contextual].}
+This practice involves using GenAI to produce initial drafts of architectural
+documentation (solution designs, architecture decision records (ADRs),
+technical specifications, and assessment reports) for subsequent human editing
+and validation. Six Round~1 practices employed the First Draft Generator
+interaction mode (Section~\ref{subsubsec:practice-discovery}). The Compression
+Not Generation framing (Section~\ref{subsubsec:cross-cutting}) applies directly:
+GenAI compresses existing information into structured documents rather than
+creating novel architectural knowledge.
+
+\textit{Verification pattern:} Cross-check all references, links, and factual
+claims in generated documentation. The panel's experience included hallucinated
+benchmarks and non-existent references that nearly entered planning documents
+(Section~\ref{subsubsec:cross-cutting}). Practitioners should treat generated
+drafts as starting points requiring architectural judgment, not finished
+artifacts.
+
+\textit{Experience indicators:} Start with well-structured document types
+(meeting minutes, status reports) before progressing to architecture decision
+records and metaprompt libraries.
+
+A related emerging practice, Spec-Driven Development, extends this
+documentation-first principle; its external evidence base is examined in
+Section~\ref{subsec:disc-triangulation}.
+
+\textbf{Stakeholder Communication} \textit{[Adaptive].}
+This practice involves using GenAI to translate architectural content for
+different audiences (executive summaries, team-specific views, non-technical
+explanations) and to synthesize stakeholder inputs into structured architectural
+artifacts. Stakeholder Communication exhibited the highest variability of all
+categories ($SD = 1.37$, Table~\ref{tab:practice-importance}), indicating
+substantial disagreement about GenAI's value for this purpose.
+
+\textit{Verification pattern:} Validate organizational context manually before
+communicating GenAI-assisted outputs. The panel established that organizational
+context (team dynamics, political constraints, historical decisions) remains
+exclusively human-retained knowledge
+(Section~\ref{subsubsec:cross-cutting}). GenAI-generated stakeholder
+communications risk being ``technically logical but organisationally
+nonsensical'' (P3, R1 Workbook) if organizational context is not carefully
+injected.
+
+\textit{Experience indicators:} Limit initial use to summarization tasks
+(meeting minutes, document distillation) where source material constrains
+outputs; extend to audience-specific prompting and RAG-based approaches as
+familiarity grows.
+
+\textbf{Deep Workflow Integration} \textit{[Adaptive].}
+This practice involves embedding GenAI into the practitioner's daily workflow
+through IDE integration, agent context files, custom hooks, Model Context
+Protocol (MCP) servers, and multi-agent orchestration. Deep Workflow Integration
+received the lowest mean rating ($M = 2.89$, one abstention,
+Table~\ref{tab:practice-importance}), consistent with its dependence on
+individual maturity and organizational tooling policies.
+
+The low rating likely reflects adoption barriers (cognitive load of tooling
+setup, organizational resistance, and infrastructure prerequisites) rather than
+low practice value. Two panel members operated in Cyborg mode with deep tooling
+integration (Section~\ref{subsubsec:practice-discovery}), showing that
+practitioners who overcome these barriers achieve sustained workflow benefits.
+
+\textit{Verification pattern:} Build trust incrementally. The incremental trust
+building heuristic rated $M = 4.29$ (Table~\ref{tab:heuristic-importance}),
+making it the second-highest heuristic and particularly relevant for deep
+integration where automated workflows reduce human oversight touchpoints.
+Practitioners should progressively expand GenAI autonomy from low-stakes tasks
+to higher-stakes ones as calibration develops.
+
+\textit{Experience indicators:} Novice practitioners should begin with
+single-tool integration (IDE assistant) before progressing to custom context
+files and agent orchestration. Advanced practitioners design multi-agent
+architectures with specialized agents for different architectural tasks.
+
+%% ================================================================
+%% 7.3 Cross-Cutting Guidance
+%% ================================================================
+\subsection{Cross-Cutting Guidance}\label{subsec:cross-cutting-guidance}
+
+The practice catalog addresses individual practice categories. Three
+cross-cutting concerns apply across all seven categories: trust calibration,
+context engineering, and skills atrophy mitigation. These concerns emerged from
+the cross-cutting patterns identified in Section~\ref{subsubsec:cross-cutting}
+and the verification heuristics refined across all three Delphi rounds
+(Section~\ref{subsubsec:heuristics}).
+
+\subsubsection{Trust Calibration Framework}\label{subsubsec:trust-framework}
+
+Trust calibration is the foundational cross-cutting concern. The Delphi panel
+established a universal verification mandate: all eight Round~1 participants
+described explicit verification practices, with no participant accepting GenAI
+outputs without review (Section~\ref{subsubsec:cross-cutting}). The
+cross-validation heuristic received the highest importance rating of any
+heuristic ($M = 4.57$, $SD = 0.53$, Table~\ref{tab:heuristic-importance}).
+
+Table~\ref{tab:trust-spectrum} presents a trust spectrum synthesized from Delphi
+data and external evidence (Researcher synthesis). The panel validated the
+underlying verification heuristics, but did not vote on the specific trust
+levels or their ordering. The spectrum structure is a researcher
+interpretation anchored by the panel's verification experiences and the
+organizational context boundary established in
+Section~\ref{subsubsec:cross-cutting}. This spectrum translates the
+verification heuristics from Section~\ref{subsubsec:heuristics} into task-level
+trust guidance, connecting the empirical sense-making patterns (sRQ3) to the
+systematized guidance framework (sRQ4).
+
+\begin{table}[!ht]
+    \centering
+    \caption{Trust Spectrum for GenAI in RA Development}\label{tab:trust-spectrum}
+    \begin{tabular}{|p{2.5cm}|p{5.5cm}|p{5.5cm}|}
+        \hline
+        \textbf{Trust Level} & \textbf{Task Type} & \textbf{Verification Approach} \\
+        \hline
+        Highest & Information compression: summaries, boilerplate, dependency graphs & Spot-check representative samples \\
+        \hline
+        High & Documentation drafts, concept explanation, test generation & Review structure and key claims \\
+        \hline
+        Medium & Code refactoring, common patterns, meeting synthesis & Verify against organizational standards \\
+        \hline
+        Medium-Low & Design trade-off exploration, technology recommendations & Cross-validate with primary sources \\
+        \hline
+        Low & Architecture decisions, novel business logic & Independent domain expert review \\
+        \hline
+        Very Low & Security-critical code, compliance assessment & Line-by-line verification \\
+        \hline
+        Lowest & Organizational judgment: politics, team dynamics, legal & Retain entirely; do not delegate \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Trust calibration is bidirectional. The Delphi panel identified instances where
+GenAI outperformed manual approaches; dependency graph calculations ``were
+actually better than our manual diagrams'' (R3 Brainstorm,
+Section~\ref{subsubsec:trust-calibration}). Practitioners should recalibrate
+trust upward when evidence warrants, not only guard against errors. The ``junior
+colleague'' mental model recurred across the panel: GenAI outputs merit the same
+supervisory attention as work from a capable but inexperienced team member.
+
+Two prerequisites anchor the framework. First, trust calibration is teachable but
+requires domain expertise as a foundation
+(Section~\ref{subsubsec:teachability}). Practitioners ``had to build a deep
+understanding before applying it'' (R3 Brainstorm). Second, calibration improves
+through the frontier learning pattern: six of eight participants discovered
+GenAI's limitations through direct experience with errors
+(Section~\ref{subsubsec:cross-cutting}). These findings align with
+\textcite{dellacqua_navigating_2023}, who demonstrated that knowledge workers
+operating on GenAI's ``jagged technological frontier'' must learn where AI
+capability boundaries fall through practice.
+
+\subsubsection{Context Engineering for EA}\label{subsubsec:context-engineering}
+
+\textcite{rajasekaran_context_engineering_2025} defines context engineering as
+``the set of strategies for curating and maintaining the optimal set of tokens
+during LLM inference.'' The Delphi panel validated the importance of this
+practice through the context management heuristic ($M = 4.14$, $SD = 0.90$,
+Table~\ref{tab:heuristic-importance}), the third-highest rated heuristic.
+
+Context engineering narrows the distance between what practitioners know and
+what GenAI can access. Seven of eight participants identified organizational
+context (team dynamics, political constraints, historical decisions) as
+outside GenAI capability (Section~\ref{subsubsec:cross-cutting}). Effective
+context engineering does not eliminate this boundary but narrows it by making
+more organizational knowledge machine-accessible.
+
+For EA practitioners, context engineering manifests in three areas (the panel
+validated context management as important; the three-part structure is
+researcher synthesis). First,
+\textit{agent context files}: project-level configuration files such as
+CLAUDE.md and AGENTS.md that encode architectural standards, design principles,
+and organizational constraints
+\parencite{chatlatanagulchai_agent_readmes_2025}. An empirical study of 2,303
+such files found that architecture content appeared in 67.7\% of repositories,
+with files undergoing multiple commits and evolving every one to three days.
+These files function as a new category of architectural artifact: both
+human-readable documentation and machine-executable governance.
+
+Second, \textit{strategic information ordering} mitigates the ``lost in the
+middle'' effect, where language models attend less to information in the middle
+of long contexts \parencite{liu_lost_middle_2024}. Practitioners should place
+critical architectural constraints at the beginning and end of context, with
+supporting detail in the middle. Modular rules files (separate context documents
+for different architectural concerns) keep individual contexts focused and
+within effective processing ranges.
+
+Third, \textit{context scope management} addresses what to include and what to
+exclude. Effective context includes: architectural principles and constraints,
+relevant standards and patterns, system-specific technical context, and
+decision history (ADRs). Effective context excludes: organizational politics
+and interpersonal dynamics (which GenAI cannot reliably process), exhaustive
+historical documentation (which dilutes signal), and ambiguous or contradictory
+requirements (which amplify hallucination risk).
+
+\subsubsection{Anti-Atrophy Strategies}\label{subsubsec:anti-atrophy}
+
+Practitioners risk losing skills they stop exercising. The skills GenAI
+automates (cold-start writing, exhaustive manual search, cover-to-cover
+documentation reading) are the same skills through which practitioners built
+their expertise
+\parencite{kabashkin_cognitive_atrophy_2025}. The Delphi panel rated ``skills
+used less'' as the second-most significant practice change ($M = 3.90$,
+Table~\ref{tab:change-significance}), confirming that practitioners recognize
+this dynamic in their own experience.
+
+Three deliberate friction practices mitigate competency atrophy (the panel
+validated the atrophy concern; the three mitigation strategies are researcher
+proposals). First,
+\textit{AI-free design sessions}: periodically conducting architectural work
+without GenAI assistance to maintain foundational skills. This practice is
+analogous to how pilots train for manual flight despite autopilot capabilities.
+Second, \textit{attempt independently first}: engaging with a problem for 15--30
+minutes before consulting GenAI, ensuring the practitioner develops and maintains
+their own mental model before seeing an AI-generated one. Third, \textit{pair
+programming mindset}: treating GenAI interaction as collaborative work rather
+than delegation, maintaining active cognitive engagement throughout. The
+practitioner drives architectural thinking while GenAI handles information
+retrieval and expression.
+
+These strategies connect to the role identity preservation pattern
+(Section~\ref{subsubsec:cross-cutting}). All eight Delphi participants viewed
+GenAI as an efficiency tool rather than a replacement for professional judgment.
+As P4 stated: ``I did this work for years without GenAI. Efficiency would
+decrease but effectiveness would not'' (R1 Workbook). Anti-atrophy practices
+operationalize this stance by ensuring that practitioners maintain the
+independent capability that underpins effective GenAI supervision.
+
+%% ================================================================
+%% 7.4 Governance Adaptation
+%% ================================================================
+\subsection{Governance Adaptation}\label{subsec:governance-adaptation}
+
+Governance adaptation for GenAI in RA development rests on thinner Delphi
+evidence than the practice catalog and cross-cutting guidance. Governance
+patterns received the lowest significance ratings among cross-role dynamics
+(Table~\ref{tab:cross-role}), and Governance/Compliance Checking exhibited the
+second-highest variability ($SD = 1.27$,
+Table~\ref{tab:practice-importance}). We present three governance themes that
+emerged from Delphi data triangulated with external evidence, while
+acknowledging that most organizations have not yet formally adapted their
+governance structures.
+
+\textbf{Gate-to-guardrail transition} \textit{(Researcher synthesis).} Traditional EA governance operates through
+periodic architectural review boards (ARBs) that evaluate decisions at defined
+stage gates. GenAI's acceleration of artifact production (practitioners producing
+drafts in minutes rather than days) challenges this periodic model. The Delphi
+panel's low rating for inside-out governance ($M = 2.00$,
+Table~\ref{tab:cross-role}) suggests that most organizations have not yet
+confronted this shift formally. \textcite{ettinger_ea_dynamic_capability_2025}
+argues that EA frameworks have significant limitations addressing GenAI
+requirements, noting the tension between innovation enablement and compliance
+maintenance. In our view, organizations should consider transitioning from
+periodic gate reviews to continuous guardrail enforcement, where architectural
+constraints are encoded and checked automatically rather than evaluated
+episodically.
+
+\textbf{Architecture-as-Code enforcement} \textit{(Researcher proposal).} Encoding architectural constraints as
+machine-readable rules (TypeScript validators, fitness functions, CI/CD
+checks) enables continuous enforcement without manual review bottlenecks. This
+approach bridges the Governance/Compliance practice category with Deep Workflow
+Integration by embedding governance directly into development workflows. When
+architectural rules are machine-readable, GenAI agents can read and apply them
+before generating code, reducing violation rates. Early implementations
+demonstrate executable ADRs where architectural decisions become automated
+rules in build pipelines \parencite{ford_evolutionary_architectures_2023, zdun_sustainable_decisions_2013}. This represents a shift from
+documenting governance intent to operationalizing it.
+
+\textbf{AI disclosure and provenance} \textit{(Researcher synthesis).} As GenAI-generated artifacts become
+prevalent, governance frameworks need mechanisms for identifying which
+components were AI-generated or AI-augmented. The ``Ghost Architect''
+dynamic (where ``everybody can generate an architecture now,''
+Section~\ref{subsubsec:cross-role}) creates traceability challenges. AI
+disclosure policies flag AI-generated components for calibrated review,
+enabling review boards to apply appropriate scrutiny. Provenance tracking
+becomes particularly important for compliance-sensitive domains where the
+origin of architectural decisions carries regulatory implications.
+
+%% ================================================================
+%% 7.5 Maturity Model
+%% ================================================================
+\subsection{Maturity Model}\label{subsec:maturity-model}
+
+The Delphi data revealed that practitioners operate at different levels of GenAI
+integration, from ad-hoc experimentation to deep workflow embedding. Round~1
+workbooks showed this variation clearly: two participants operated in Cyborg
+mode with MCP servers and custom hooks, while others used chat-based interaction
+exclusively (Section~\ref{subsubsec:practice-discovery}).
+Table~\ref{tab:maturity-model} presents a four-stage maturity model derived from
+this observed variation, mapped to the practice catalog and cross-cutting
+guidance. The four-stage structure is a researcher proposal; the progression
+assumption that practitioners naturally advance from basic to sophisticated
+integration has Delphi consensus ($M = 4.71$,
+Table~\ref{tab:maturity-progression}).
+This structure follows established maturity model conventions.
+\textcite{becker_developing_2009} propose a procedure model for
+theoretically founded maturity model development, noting that over a
+hundred such models have been created across IT management domains.
+\textcite{poeppelbuss_what_2011} characterize maturity models as staged
+representations of anticipated evolutionary paths, where each stage
+builds on the previous one. A recognized critique of such models is
+that the assumed sequential progression lacks empirical causal validation
+\parencite{poeppelbuss_what_2011, van_steenbergen_maturity_2011};
+Section~\ref{subsec:maturity-model} addresses this by grounding the
+four stages in observed practitioner variation rather than prescriptive
+theory.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Maturity Model for GenAI in RA Development}\label{tab:maturity-model}
+    \begin{tabular}{|c|p{3cm}|p{4.5cm}|p{4.5cm}|}
+        \hline
+        \textbf{Stage} & \textbf{Label} & \textbf{Characteristics} & \textbf{Observable Indicators} \\
+        \hline
+        1 & Experimental & Ad-hoc GenAI use for individual tasks; chat-based interaction; no structured verification & Occasional use for research or drafting; no shared practices; trust calibration through trial and error \\
+        \hline
+        2 & Systematic Personal & Structured personal workflows; context engineering basics; deliberate verification & Personal prompt libraries; agent context files; anti-atrophy practices; consistent trust spectrum application \\
+        \hline
+        3 & Team-Level Integration & Shared practices across team; team-level agent context files; Architecture-as-Code adoption & Shared context files in version control; team verification standards; collective decision capture workflows \\
+        \hline
+        4 & Organizational Embedding & Governance adaptation; enterprise context engineering; agentic workflows & Automated architectural guardrails; AI disclosure policies; multi-agent orchestration; enterprise MCP infrastructure \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The SP2 maturity progression vote, collected asynchronously after the Round~3
+session (Table~\ref{tab:maturity-progression}), provides partial empirical
+grounding. The panel rated natural progression from basic to sophisticated
+integration at $M = 4.71$ (variability 22\%), supporting the model's
+progression assumption. The proposition that short experience can equal long
+experience scored $M = 2.86$, indicating that progression requires sustained
+engagement. Per-category measurement scored $M = 3.86$ (variability 49\%),
+suggesting practitioners advance at different rates across practice categories.
+Context scored the same ($M = 3.86$) but appears to modulate pace rather than
+replace experience.
+
+The model is diagnostic, not prescriptive. Practitioners can use it to locate
+their current practice and identify growth areas; progression through all four
+stages is not necessary for every context. The progression assumption has
+panel support, though the four-stage structure itself remains
+researcher-proposed. \textit{Data Limitations} (Section~\ref{subsec:data-limitations}) addresses the
+methodological caveats, and the \textit{Discussion} (Section~\ref{sec:discussion}) interprets the
+implications for EA maturity theory.
+

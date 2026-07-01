@@ -1,0 +1,473 @@
+% =============================================================================
+% EXECUTIVE SUMMARY
+% =============================================================================
+\phantomsection
+\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+
+Generative AI (GenAI) is changing how professionals work
+\parencite{brynjolfsson_generative_2025, noy_experimental_2023}. Enterprise
+Architecture (EA) practitioners have started using GenAI to develop Reference
+Architectures (RAs), but no empirical research documents how they do so
+\parencite{banh_affordance_genai_ea_2025}. Practitioners experiment in
+isolation. They lack shared vocabulary, evaluation criteria, or validated
+guidance. This study asks: \textit{What practices do EA practitioners adopt when
+using GenAI for RA development, and how can these be systematized into guidance?}
+
+We conducted a three-round Design-Oriented Delphi study
+\parencite{skulmoski_delphi_2007} with seven to ten EA practitioners per
+round. Round~1 (eight participants) collected asynchronous discovery workbooks.
+Round~2 (ten participants) convened synchronous sessions to validate emerging
+patterns. Round~3 (seven participants) refined verification heuristics and
+critiqued a draft guidance artifact.
+
+The panel identified seven practice categories that span RA development
+activities. System/Codebase Analysis drew the strongest consensus. Stakeholder
+Communication proved most context-dependent. Three shifts describe how GenAI
+changes EA work. First, practitioners now spend more time checking GenAI outputs
+than producing initial content. Second, the practitioner role moves from creator
+to curator. Third, GenAI lets practitioners engage with topics beyond their
+immediate expertise, which changes how roles interact.
+
+Practitioners decide how much to trust GenAI based on the task at hand. The
+dominant mental model treats GenAI as a junior colleague: capable, but requiring
+supervision. Eight verification heuristics, organized in two tiers (structural
+and domain), give practitioners concrete checks for validating outputs.
+Table~\ref{tab:trust-spectrum-es} shows the resulting trust spectrum from full
+delegation to full human retention.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Trust Spectrum for GenAI in RA Development}\label{tab:trust-spectrum-es}
+    \begin{tabular}{|p{2.5cm}|p{5.5cm}|p{5.5cm}|}
+        \hline
+        \textbf{Trust Level} & \textbf{Task Type} & \textbf{Verification Approach} \\
+        \hline
+        Highest & Information compression: summaries, boilerplate, dependency graphs & Spot-check representative samples \\
+        \hline
+        High & Documentation drafts, concept explanation, test generation & Review structure and key claims \\
+        \hline
+        Medium & Code refactoring, common patterns, meeting synthesis & Verify against organizational standards \\
+        \hline
+        Medium-Low & Design trade-off exploration, technology recommendations & Cross-validate with primary sources \\
+        \hline
+        Low & Architecture decisions, novel business logic & Independent domain expert review \\
+        \hline
+        Very Low & Security-critical code, compliance assessment & Line-by-line verification \\
+        \hline
+        Lowest & Organizational judgment: politics, team dynamics, legal & Retain entirely; do not delegate \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Two tensions cut across these findings. The first is a Ghost Architect dynamic:
+when GenAI enables anyone to produce architectural artifacts, it becomes unclear
+who is accountable. Organizations respond by shifting from periodic gate reviews
+to continuous guardrails. The second is a competency decay risk: automating
+foundational tasks (e.g., cold-start writing, exhaustive research) may erode the
+learning process through which architectural expertise develops. Practitioners
+counter this with deliberate practices such as AI-free design sessions and
+independent-attempt-first protocols.
+
+This study extends distributed cognition theory
+\parencite{hutchins_cognition_1995}. GenAI acts as a new kind of cognitive
+partner whose role is negotiated through practice, not predetermined by system
+design. On the practical side, the study provides a taxonomy of GenAI practices
+grounded in observable behavior. It shows where GenAI adds consistent value and
+where its contribution depends on organizational context. The resulting guidance
+artifact offers three levels of recommendation: directive (strong panel
+consensus), contextual (moderate agreement, general recommendations), and
+adaptive (high variability, requires organizational calibration).
+
+\clearpage
+
+% =============================================================================
+% THESIS-COVER (AMS records page)
+% =============================================================================
+\newpage
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1.5cm}
+
+{\Large\href{https://www.antwerpmanagementschool.be/}{\textsc{Antwerp Management School}}}\\[0.5cm]
+{\Large\textsc{Master Thesis}}
+
+\vspace{0.8cm}
+\noindent\rule{0.7\textwidth}{0.4pt}
+
+\vspace{0.7cm}
+{\LARGE\bfseries From GenAI Practice Vacuum\\to Validated Guidance\par}
+\vspace{0.4cm}
+{\large A Delphi Study of AI-Augmented Reference Architecture Development\par}
+
+\vspace{0.5cm}
+\noindent\rule{0.7\textwidth}{0.4pt}
+
+\vspace{1.5cm}
+
+\begin{minipage}[t]{0.45\textwidth}
+\raggedright
+\textit{Author:}\\[0.3cm]
+\href{https://www.linkedin.com/in/thiagodefarianl/}{\textsc{Thiago A. de Faria}}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\raggedleft
+\textit{Supervisors:}\\[0.3cm]
+Prof.\ Dr.\ Ing.\ \href{https://www.linkedin.com/in/jbfmulder/}{\textsc{Hans Mulder}}\\
+\&\\
+\href{https://www.linkedin.com/in/victorvanr/}{\textsc{Victor van Reijswoud}}, PhD\\
+\&\\
+\href{https://www.linkedin.com/in/edzob/}{\textsc{Edzo A.\ Botjes}} MSc.
+\end{minipage}
+
+\vspace{3cm}
+
+\textit{A thesis submitted in fulfilment of the requirements for the degree of\\
+Master of Enterprise IT Architecture (MSc)}
+
+\vspace{0.5cm}
+\today
+
+\vspace{0.8cm}
+\includegraphics[width=0.3\textwidth]{images/AMS_logo-lockup_black_rgb_150ppi.jpg}
+
+\vfill
+\end{center}
+
+% Blank page after thesis-cover
+\newpage\thispagestyle{empty}\mbox{}\newpage
+
+% =============================================================================
+% ABOUT / COLOPHON PAGE
+% =============================================================================
+\phantomsection
+\section*{About}
+\addcontentsline{toc}{section}{About}
+
+{\footnotesize
+\noindent From GenAI Practice Vacuum to Validated Guidance\\
+- A Delphi Study of AI-Augmented Reference Architecture Development\\
+Thesis content licensed under CC BY-SA 4.0 (\url{https://creativecommons.org/licenses/by-sa/4.0/})\\
+Copyright \textcopyright\ 2024--2026 Thiago A. de Faria
+
+\vspace{0.2cm}
+
+\noindent\hspace{0.2cm}\textbf{Author}\\
+\noindent\hspace{0.2cm}\textit{Name:} Thiago A. de Faria\\
+\noindent\hspace{0.2cm}\textit{Email:} \href{mailto:thiagoavadore@gmail.com}{mailto:thiagoavadore@gmail.com}\\
+\noindent\hspace{0.2cm}\textit{LinkedIn:} \href{https://www.linkedin.com/in/thiagodefarianl/}{linkedin.com/in/thiagodefarianl}\\
+\noindent\hspace{0.2cm}\textit{ORCID:} \href{https://orcid.org/0009-0005-6631-4138}{0009-0005-6631-4138}
+
+\vspace{0.2cm}
+
+\noindent\hspace{0.2cm}\textbf{Supervisor}\\
+\noindent\hspace{0.2cm}\textit{Name:} Prof.\ Dr.\ Ing.\ Hans Mulder\\
+\noindent\hspace{0.2cm}\textit{Wikipedia:} \href{https://en.wikipedia.org/wiki/Hans_Mulder_(scientist)}{https://en.wikipedia.org/wiki/Hans\_Mulder\_(scientist)}\\
+\noindent\hspace{0.2cm}\textit{LinkedIn:} \href{https://www.linkedin.com/in/jbfmulder/}{linkedin.com/in/jbfmulder}\\
+\noindent\hspace{0.2cm}\textit{ORCID:} \href{https://orcid.org/0000-0002-3304-9711}{0000-0002-3304-9711}
+
+\vspace{0.2cm}
+
+\noindent\hspace{0.2cm}\textbf{Co-Supervisor}\\
+\noindent\hspace{0.2cm}\textit{Name:} Edzo A.\ Botjes, MSc.\\
+\noindent\hspace{0.2cm}\textit{LinkedIn:} \href{https://www.linkedin.com/in/edzob/}{linkedin.com/in/edzob}\\
+\noindent\hspace{0.2cm}\textit{ORCID:} \href{https://orcid.org/0000-0003-0097-7375}{0000-0003-0097-7375}
+
+\vspace{0.2cm}
+
+\noindent\hspace{0.2cm}\textbf{Co-Supervisor}\\
+\noindent\hspace{0.2cm}\textit{Name:} Victor van Reijswoud, PhD\\
+\noindent\hspace{0.2cm}\textit{LinkedIn:} \href{https://www.linkedin.com/in/victorvanr/}{linkedin.com/in/victorvanr}\\
+\noindent\hspace{0.2cm}\textit{ORCID:} \href{https://orcid.org/0009-0001-8594-2149}{0009-0001-8594-2149}
+
+\vspace{0.2cm}
+
+\noindent\hspace{0.2cm}\textbf{Thesis Project}\\
+\noindent\hspace{0.2cm}GitHub \href{https://github.com/thiagoavadore/thesis_2024-2026_antwerp_thesis_GenAIPracticeVacuum}{github.com/thiagoavadore/thesis\_2024-2026\_antwerp\_thesis\_GenAIPracticeVacuum}
+
+\vspace{0.2cm}
+
+\noindent\hspace{0.2cm}\textbf{Publication References ID}\\
+\noindent\hspace{0.2cm}DOI \href{https://doi.org/10.5281/zenodo.18367977}{10.5281/zenodo.18367977}
+
+\vspace{0.2cm}
+
+\noindent\hspace{0.2cm}\textbf{Keywords}\\
+\noindent\hspace{0.2cm}Delphi Study, Design-Oriented Delphi, Distributed Cognition, EA Practice,\\
+\noindent\hspace{0.2cm}Enterprise Architecture, GenAI, Generative AI, Large Language Models, LLM,\\
+\noindent\hspace{0.2cm}Practice Theory, Reference Architecture, Software Architecture, Software Design,\\
+\noindent\hspace{0.2cm}Target Architecture
+
+\vspace{0.2cm}
+
+\noindent\hspace{0.2cm}\textbf{Reference Style}\\
+\noindent\hspace{0.2cm}This thesis is in compliance with APA Reference style version 7.\\
+\noindent\hspace{0.2cm}\url{https://apastyle.apa.org/products/publication-manual-7th-edition}
+
+\vspace{0.2cm}
+
+\noindent\hspace{0.2cm}\textbf{Language}\\
+\noindent\hspace{0.2cm}This thesis applies British English.
+
+}
+
+\clearpage
+
+% =============================================================================
+% FRONT COVER PAGE (no TOC entry, no PDF bookmark)
+% =============================================================================
+\thispagestyle{empty}
+\section*{Front Cover}
+
+{\footnotesize
+\noindent The front cover is created by Thiago A. de Faria.
+
+\vspace{0.3cm}
+
+\noindent Image generated using Google Gemini with the prompt: ``Monochromatic grayscale academic illustration, no text, no letters, no words, no numbers. A detailed anatomical human brain on the left side, drawn in fine ink lines, partially dissolving into geometric particles and dots that drift rightward. These particles gradually reassemble into an abstract architectural blueprint floorplan on the right side, shown as precise technical line drawings of rooms, corridors, and structural elements. Between the brain and the blueprint, a translucent magnifying lens floats, refracting the particles passing through it, symbolizing verification and curation. Subtle watercolor ink splashes in light gray behind both elements. Small geometric shapes (circles, hexagons, connection nodes) scattered in the transition zone. Style: scientific illustration meets architectural drawing, similar to academic thesis cover art. White background, no color, purely grayscale ink and pencil aesthetic. High detail, scholarly tone.'', on 4 April 2026.
+}
+
+\clearpage
+
+% =============================================================================
+% DECLARATION OF AUTHORSHIP
+% =============================================================================
+\phantomsection
+\section*{Declaration of Authorship}
+\addcontentsline{toc}{section}{Declaration of Authorship}
+
+I, Thiago A. de Faria, declare that this thesis titled, `From GenAI Practice Vacuum to Validated Guidance' and the work presented in it are my own. I confirm that:
+
+\begin{itemize}
+  \item This work was done wholly or mainly while in candidature for a research degree at Antwerp Management School.
+  \item Where any part of this thesis has previously been submitted for a degree or any other qualification at Antwerp Management School or any other institution, this has been clearly stated.
+  \item Where I have consulted the published work of others, this is always clearly attributed.
+  \item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
+  \item I have acknowledged all main sources of help.
+  \item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.
+\end{itemize}
+
+\vspace{2cm}
+
+\noindent Signed: \rule{6cm}{0.4pt}
+
+\vspace{1cm}
+
+\noindent Date: \rule{6cm}{0.4pt}
+
+% Blank page after declaration
+\newpage\thispagestyle{empty}\mbox{}\newpage
+
+% =============================================================================
+% QUOTES PAGE
+% =============================================================================
+
+\vspace*{3cm}
+
+\noindent\textit{`Historically, whenever a new AI paradigm has emerged, some AI researchers and many AI businesspeople have claimed ``that's it, we found the trick! Within 10 years we'll have machines that are smarter than humans.'' But they have been consistently over-optimistic. It's always harder than we think.'}
+
+\hfill Yann LeCun (2025)
+
+\vspace{1.2cm}
+
+\noindent\textit{`A lot of what I'm spending my brain cycles on is machine learning ways to address safety: particularly how to design AI systems which eventually might be smarter than us, but that will behave well and not harm people.'}
+
+\hfill Yoshua Bengio (2024)
+
+\vspace{1.2cm}
+
+\noindent\textit{`People are sufficiently clear and correct about the reasons for local decision making --- they know what information is available and how that information is used in deciding on action. But people often do not understand correctly what overall behavior will result from the complex interconnections of known local actions.'}
+
+\hfill Jay W.\ Forrester (1995)
+
+\vspace{1.2cm}
+
+\noindent\textit{`A leader's job is to understand his people, understand their differences; optimize their interactions, their educations, their experiences.'}
+
+\hfill Edward Deming (1991)
+
+\vspace{1.2cm}
+
+\noindent\textit{`The fundamental problem of communication is that of reproducing at one point either exactly or approximately a message selected at another point.'}
+
+\hfill Claude Shannon (1948)
+
+% Blank page after quotes
+\newpage\thispagestyle{empty}\mbox{}\newpage
+
+% =============================================================================
+% ABSTRACT
+% =============================================================================
+\phantomsection
+\addcontentsline{toc}{section}{Abstract}
+
+\begin{center}
+\vspace*{1.5cm}
+
+{\large\href{https://www.antwerpmanagementschool.be/}{\textsc{Antwerp Management School}}}
+
+\vspace{0.8cm}
+{\LARGE\textit{Abstract}}
+
+\vspace{0.6cm}
+Faculty Enterprise Engineering\\
+\href{https://www.antwerpmanagementschool.be/en/program/executive-master-digital-leadership-and-transformation/major-enterprise-it-architecture}{Executive Master Enterprise IT Architecture}
+
+\vspace{0.4cm}
+Master of Enterprise IT Architecture (MSc)
+
+\vspace{0.6cm}
+{\large\bfseries From GenAI Practice Vacuum to Validated Guidance}
+
+\vspace{0.3cm}
+by \textsc{Thiago A. de Faria}
+
+\end{center}
+
+\vspace{0.8cm}
+
+Generative AI (GenAI) is rapidly integrating into professional knowledge work
+and software development. Enterprise Architecture (EA) practitioners are using
+GenAI to analyze systems, draft documentation, and develop Reference
+Architectures (RAs). Yet no empirical research documents these emerging
+practices, and no shared guidance exists.
+
+This study uses distributed cognition as its integrating lens to examine how
+cognitive work redistributes when GenAI enters RA development. We review the
+literature on EA, RAs, GenAI capabilities, and distributed cognition to build a
+conceptual model. We then conduct a three-round Design-Oriented Delphi study
+with EA practitioners to validate emerging practices and produce a guidance
+artifact.
+
+The central finding is that GenAI acts as a new cognitive partner in the
+distributed system of EA practice. Practitioners negotiate its role through
+use: delegating information compression and first drafts, while retaining
+architectural judgment and stakeholder decisions. The practitioner role shifts
+from content creator to output curator. The resulting guidance artifact
+systematizes these practices into directive, contextual, and adaptive
+recommendations.
+
+% Blank page after abstract
+\newpage\thispagestyle{empty}\mbox{}\newpage
+
+% =============================================================================
+% DEDICATION PAGE
+% =============================================================================
+
+\vspace*{7cm}
+
+\begin{center}
+{\large\textit{Dedicated to Isabela, the love of my life,\\and to our children Nina and Liam, who fill it with meaning}}
+\end{center}
+
+% Blank page after dedication
+\newpage\thispagestyle{empty}\mbox{}\newpage
+
+% =============================================================================
+% ACKNOWLEDGMENTS
+% =============================================================================
+\phantomsection
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+\hspace{\parindent}I would like to thank my family (Isabela, Nina and Liam) for their support
+during these almost two years. Travelling to Antwerp meant being away from
+little kids and leaving all the extra work to Isabela. Knowing that I had
+nothing to worry about at home is a priceless gift. Furthermore, I would like
+to thank the following people.
+
+\vspace{1em}
+\noindent\textbf{Antwerp Management School}
+\vspace{0.5em}
+
+\noindent Thanks to AMS for providing the inspiration, content and discussions that
+boosted my learning experience. I have the utmost respect for my supervisors
+Prof.\ Dr.\ Ing.\ Hans Mulder, Victor van Reijswoud PhD and Edzo A.\ Botjes
+MSc, for the sage advice and effort they put into guiding this work. Your
+patience and guidance throughout this journey are the greatest show of trust I
+could have experienced.
+
+\vspace{1em}
+\noindent\textbf{The Delphi Study Participants}
+\vspace{0.5em}
+
+\noindent A remarkably diverse group in nationalities, work experience and job titles
+helped me enormously during the Delphi Study. Due to anonymity I cannot reveal
+their names, but they know who they are. The extensive discussions, arguments
+and counter-arguments shaped this research in ways I could not have anticipated.
+In such a fast-paced subject as the adoption of GenAI tools in the tech world,
+you all recognized the unknowns and showed the willingness to adapt and revise
+your opinions. Thank you!
+
+\vspace{1em}
+\noindent\textbf{All the AI Builders Out There}
+\vspace{0.5em}
+
+\noindent We live in unprecedented times. I would like to thank the practitioners and
+builders out there who are pushing software development to new standards and
+heights: open-source coders releasing tools that are changing the world, and
+researchers advancing new methodologies, AI safety and ethics. I have been
+working in the IT industry for 20 years, and what has happened in the last
+three years displays the disruptive (sorry for using this word) power that
+technology has. It is up to us, builders, leaders and researchers, to discuss,
+iterate and ask for help. The consequences of AI pervasiveness, the ethical
+discussions, the impact on society and on people's practice and identity cannot
+be forgotten. I am glad the majority of AI builders out there are building in
+the open.
+
+% Blank page after acknowledgments
+\newpage\thispagestyle{empty}\mbox{}\newpage
+
+% =============================================================================
+% TABLE OF CONTENTS, LIST OF FIGURES, LIST OF TABLES
+% =============================================================================
+\phantomsection
+\addcontentsline{toc}{section}{Table of Contents}
+\section*{Contents}
+\etocstandardlines          % Use standard LaTeX TOC formatting for global TOC
+\tableofcontents
+% Re-enable custom formatting for local mini-TOCs
+\etocsetstyle{subsection}
+  {\begin{list}{}{\setlength{\leftmargin}{0.5in}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}}
+  {\item}
+  {\makebox[2.5em][l]{\etocnumber}\etocname\nobreak\leaders\hbox to 0.5em{\hss.\hss}\hfill\nobreak\makebox[2em][r]{\etocpage}}
+  {\end{list}}
+\clearpage
+
+\phantomsection
+\listoffigures
+\addcontentsline{toc}{section}{List of Figures}
+\clearpage
+
+\phantomsection
+\listoftables
+\addcontentsline{toc}{section}{List of Tables}
+\clearpage
+
+% =============================================================================
+% LIST OF ABBREVIATIONS
+% =============================================================================
+\phantomsection
+\section*{List of Abbreviations}
+\addcontentsline{toc}{section}{List of Abbreviations}
+
+\begin{longtable}{@{} l l @{}}
+AMS   & Antwerp Management School \\
+APA   & American Psychological Association \\
+API   & Application Programming Interface \\
+CLT   & Cognitive Load Theory \\
+DCog  & Distributed Cognition \\
+EA    & Enterprise Architecture \\
+GenAI & Generative Artificial Intelligence \\
+GSS   & Group Support System \\
+LLM   & Large Language Model \\
+MRQ   & Main Research Question \\
+RA    & Reference Architecture \\
+sRQ   & Sub-Research Question \\
+TOGAF & The Open Group Architecture Framework \\
+\end{longtable}
+\clearpage
+
+% Blank page before main content
+\newpage\thispagestyle{empty}\mbox{}\newpage

@@ -1,0 +1,262 @@
+\documentclass[12pt, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[style=apa, backend=biber]{biblatex}
+\usepackage{csquotes}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, linkcolor={blue!50!black}, citecolor={red!70!black}, urlcolor={blue!50!black}]{hyperref}
+\usepackage{xpatch}
+
+% Make author names in citations also hyperlinked (year already is by default).
+% The comma between author and year stays black because each is a separate hyperlink.
+\xpatchbibmacro{cite}
+  {\printnames{labelname}}
+  {\bibhyperref{\printnames{labelname}}}
+  {}{}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage[explicit]{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{etoc}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, backgrounds}
+
+% Mini-TOC (local table of contents) configuration for Edzo-style chapter intros
+% Only show subsection-level entries (not sub-subsections)
+\etocsettocdepth{subsection}
+% Suppress the default "Contents" heading for local TOCs
+\etocsettocstyle{}{}
+% Style: indented, dotted leaders, page numbers (matches main TOC style)
+\etocsetstyle{subsection}
+  {\begin{list}{}{\setlength{\leftmargin}{0.5in}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}}
+  {\item}
+  {\makebox[2.5em][l]{\etocnumber}\etocname\nobreak\leaders\hbox to 0.5em{\hss.\hss}\hfill\nobreak\makebox[2em][r]{\etocpage}}
+  {\end{list}}
+
+
+% APA style formatting
+\geometry{margin=1in}
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\setstretch{1.0}  % Single spacing
+\raggedbottom     % Let pages end naturally; avoid stretched-glue gaps mid-page
+
+% Build date in YYYYMMDD format
+\newcommand{\builddate}{\the\year\ifnum\month<10 0\fi\the\month\ifnum\day<10 0\fi\the\day}
+
+% Running headers: even = page left + section right; odd = subsection left + page right
+\setlength{\headheight}{14.5pt}  % Fix header height warning
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\thepage}
+\fancyhead[RE]{\small\nouppercase{\leftmark}}
+\fancyhead[LO]{\small\nouppercase{\rightmark}}
+\fancyhead[RO]{\thepage}
+\fancyfoot[LO]{\tiny\textcopyright~CC BY-SA 4.0~-- Version: \textit{v1.0 \builddate}}
+\fancyfoot[RE]{\tiny\textcopyright~CC BY-SA 4.0~-- Version: \textit{v1.0 \builddate}}
+\fancyfoot[RO]{\tiny Thiago A. de Faria~-- \url{https://github.com/thiagoavadore/thesis_2024-2026_antwerp_thesis_GenAIPracticeVacuum}}
+\fancyfoot[LE]{\tiny Thiago A. de Faria~-- \url{https://github.com/thiagoavadore/thesis_2024-2026_antwerp_thesis_GenAIPracticeVacuum}}
+\newlength{\currentheadrulewidth}
+\setlength{\currentheadrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{\currentheadrulewidth}
+\newlength{\currentfootrulewidth}
+\setlength{\currentfootrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{\currentfootrulewidth}
+
+% First page of each section: page number only, no section/subsection text
+\fancypagestyle{sectionfirst}{%
+  \fancyhf{}%
+  \fancyhead[RO]{\thepage}%
+  \fancyhead[LE]{\thepage}%
+  \fancyfoot[LO]{\tiny\textcopyright~CC BY-SA 4.0~-- Version: \textit{v1.0 \builddate}}%
+  \fancyfoot[RE]{\tiny\textcopyright~CC BY-SA 4.0~-- Version: \textit{v1.0 \builddate}}%
+  \fancyfoot[RO]{\tiny Thiago A. de Faria~-- \url{https://github.com/thiagoavadore/thesis_2024-2026_antwerp_thesis_GenAIPracticeVacuum}}%
+  \fancyfoot[LE]{\tiny Thiago A. de Faria~-- \url{https://github.com/thiagoavadore/thesis_2024-2026_antwerp_thesis_GenAIPracticeVacuum}}%
+}
+
+% Section formatting with proper spacing
+\titleformat{\section}
+  {\normalfont\fontsize{16}{19}\bfseries}{\thesection}{1em}{#1}
+\titlespacing{\section}{0pt}{12pt}{12pt}  % APA spacing: 12pt before and after sections
+
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{#1}
+\titlespacing{\subsection}{0pt}{12pt}{12pt}  % APA spacing: 12pt before and after subsections
+
+% List formatting according to APA
+\setlist[itemize]{leftmargin=0.5in, noitemsep, topsep=0pt}
+\setlist[enumerate]{leftmargin=0.5in, noitemsep, topsep=0pt}
+
+% Figure caption formatting
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf, labelsep=period}
+
+% Checkbox command for practitioner checklist cards (Appendix C)
+\newcommand{\checkbox}{$\square$}
+
+\addbibresource{references/refs-thesis_final.bib}
+
+\title{From GenAI Practice Vacuum to Validated Guidance: A Delphi Study of AI-Augmented Reference Architecture Development}
+\author{[Thiago A. de Faria]}
+\date{\today}
+
+\begin{document}
+
+% === FRONT COVER (Edzo-style external cover, no page number) ===
+\begin{titlepage}
+    \centering
+    \vspace*{0.2cm}
+
+    % --- AMS Logo ---
+    \includegraphics[width=0.45\textwidth]{images/AMS_logo-lockup_black_rgb_150ppi.jpg}
+
+    \vspace{0.3cm}
+    {\Large\textsc{Antwerp Management School}}\\[0.15cm]
+    {\Large\textsc{Master Thesis}}
+
+    \vspace{0.3cm}
+    \noindent\rule{0.8\textwidth}{0.4pt}
+    \vspace{0.3cm}
+
+    % --- Title ---
+    {\fontsize{22}{26}\selectfont\bfseries From GenAI Practice Vacuum\\to Validated Guidance\par}
+    \vspace{0.2cm}
+    {\large A Delphi Study of AI-Augmented Reference Architecture Development\par}
+
+    \vspace{0.3cm}
+    \noindent\rule{0.8\textwidth}{0.4pt}
+    \vspace{0.3cm}
+
+    % --- Author and Supervisors (left-aligned) ---
+    \begin{flushleft}
+    \hspace{1.5cm}{\textit{Author:}}\\[0.1cm]
+    \hspace{1.5cm}Thiago A. de Faria
+
+    \vspace{0.3cm}
+
+    \hspace{1.5cm}{\textit{Supervisors:}}\\[0.1cm]
+    \hspace{1.5cm}Prof.\ Dr.\ Ing.\ Hans Mulder\\[0.05cm]
+    \hspace{1.5cm}Victor van Reijswoud, PhD\\[0.05cm]
+    \hspace{1.5cm}Edzo A.\ Botjes MSc.
+    \end{flushleft}
+
+    \vspace{0.2cm}
+
+    % --- Cover image ---
+    \includegraphics[width=0.75\textwidth]{images/frontcover_image.png}
+
+    \vfill
+
+    % --- Bottom: fulfilment, DOI, date ---
+    {\small\textit{A thesis submitted in fulfilment of the requirements for the degree of\\
+    Master of Enterprise IT Architecture (MSc)}}
+
+    \vspace{0.2cm}
+    {\small DOI: \href{https://doi.org/10.5281/zenodo.18367977}{10.5281/zenodo.18367977}}\\[0.1cm]
+    {\small \today}
+    \vspace{0.2cm}
+\end{titlepage}
+
+% Blank page after cover
+\newpage\thispagestyle{empty}\mbox{}\newpage
+
+% === FRONT MATTER WITH ROMAN NUMERALS ===
+\pagenumbering{roman}
+
+% Front matter page style: page numbers in header, no running title
+\fancypagestyle{frontmatter}{%
+  \fancyhf{}%
+  \fancyhead[RO]{\thepage}%
+  \fancyhead[LE]{\thepage}%
+  \fancyfoot[LO]{\tiny\textcopyright~CC BY-SA 4.0~-- Version: \textit{v1.0 \builddate}}%
+  \fancyfoot[RE]{\tiny\textcopyright~CC BY-SA 4.0~-- Version: \textit{v1.0 \builddate}}%
+  \fancyfoot[RO]{\tiny Thiago A. de Faria~-- \url{https://github.com/thiagoavadore/thesis_2024-2026_antwerp_thesis_GenAIPracticeVacuum}}%
+  \fancyfoot[LE]{\tiny Thiago A. de Faria~-- \url{https://github.com/thiagoavadore/thesis_2024-2026_antwerp_thesis_GenAIPracticeVacuum}}%
+}
+\pagestyle{frontmatter}
+\global\currentheadrulewidth=0pt\relax
+\global\currentfootrulewidth=0pt\relax
+
+\onehalfspacing
+
+% Front matter: executive summary, inner title, about, declaration,
+% acknowledgments, TOC, LOF, LOT, abbreviations
+\input{sections/00_frontmatter}
+
+% === MAIN CONTENT WITH ARABIC NUMERALS ===
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\global\currentheadrulewidth=0.4pt\relax
+\global\currentfootrulewidth=0.4pt\relax
+\fancyhead[RE]{\small\leftmark}
+\fancyhead[LO]{\small\rightmark}
+
+% Larger section titles for main body (sections 01-08) and appendices
+\titleformat{\section}
+  {\normalfont\fontsize{16}{19}\bfseries}{\thesection}{1em}{#1}
+\titlespacing{\section}{0pt}{12pt}{12pt}
+
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{#1}
+\titlespacing{\subsection}{0pt}{12pt}{12pt}
+
+% Section/subsection marks for running headers + first-page style
+\renewcommand{\sectionmark}[1]{%
+  \markboth{Section \thesection.\ \ #1}{}%
+  \thispagestyle{sectionfirst}%
+  \global\currentheadrulewidth=0pt\relax
+  \global\currentfootrulewidth=0pt\relax}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ \ #1}}
+\AddToHook{shipout/after}{%
+  \global\currentheadrulewidth=0.4pt\relax
+  \global\currentfootrulewidth=0.4pt\relax}
+
+\input{sections/01_introduction}
+\clearpage
+\input{sections/02_theoretical-background}
+\clearpage
+\input{sections/03_conceptual-model}
+\clearpage
+\input{sections/04_methodology}
+\clearpage
+\input{sections/05_results}
+\clearpage
+\input{sections/06_artifact}
+\clearpage
+\input{sections/07_conclusion}
+\clearpage
+\input{sections/08_discussion}
+
+\clearpage
+\appendix
+% Appendix formatting:
+% - Section heading shows: "A  Appendix - Title"
+% - PDF bookmark/TOC shows: "A  Appendix - Title"
+% Keep \thesection clean for hyperref; use \titleformat for display.
+\titleformat{\section}
+  {\normalfont\fontsize{16}{19}\bfseries}
+  {\Alph{section}\quad Appendix\enspace{}-\enspace{}}{0pt}{#1}
+\titlespacing{\section}{0pt}{12pt}{12pt}
+\renewcommand{\thesubsection}{\Alph{section}.\arabic{subsection}}
+\renewcommand{\sectionmark}[1]{%
+  \markboth{Appendix \thesection.\ \ #1}{}%
+  \thispagestyle{sectionfirst}%
+  \global\currentheadrulewidth=0pt\relax
+  \global\currentfootrulewidth=0pt\relax}
+
+\clearpage
+\input{sections/appendix/a_genai-usage}
+\clearpage
+\input{sections/appendix/b_workbook-instrument}
+\clearpage
+\input{sections/appendix/c_practitioner-checklists}
+\clearpage
+\phantomsection
+\printbibliography[heading=bibintoc, title={Bibliography}]
+\end{document}

@@ -1,0 +1,482 @@
+# GenAI Guidance Artifact for Reference Architecture Development
+# Source: Section 7 of "From GenAI Practice Vacuum to Validated Guidance"
+# Final version (incorporating Delphi Rounds 1-3)
+# Machine-readable companion to Appendix C (Practitioner Checklist Cards)
+
+metadata:
+  title: "GenAI Practices for Reference Architecture Development"
+  version: "final"
+  author: "Thiago A. de Faria"
+  institution: "Antwerp Management School"
+  methodology: "Design-Oriented Delphi (N=10)"
+  rounds: 3
+  provenance_legend:
+    delphi_consensus: "Panel voted on, rated, or explicitly validated"
+    researcher_synthesis: "Researcher interpretation anchored in Delphi data"
+    researcher_proposal: "Informed suggestions derived from evidence but not validated by panel"
+  guidance_levels:
+    directive: "SD < 1.0; specific recommendations"
+    contextual: "1.0 <= SD <= 1.2; situational qualification"
+    adaptive: "SD > 1.2; practitioners calibrate to organizational setting"
+
+practices:
+  - id: system_codebase_analysis
+    name: "System/Codebase Analysis"
+    guidance_level: directive
+    consensus:
+      mean: 4.00
+      sd: 0.82
+    provenance: delphi_consensus
+    description: >
+      Using GenAI to analyze existing systems, codebases, and architectural
+      artifacts to build understanding of the current state.
+    when_to_use:
+      lifecycle_phase: "Phase 2: Current State Analysis"
+      triggers:
+        - "Legacy system comprehension needed"
+        - "Dependency mapping across repositories"
+        - "Cross-repository analysis"
+    key_steps:
+      - "Feed existing system artifacts (code, configs, diagrams) into GenAI for analysis"
+      - "Delegate information gathering to GenAI; retain architectural judgment"
+      - "Cross-validate GenAI-generated descriptions against source systems directly"
+      - "Verify that referenced components, services, and dependencies exist in the actual system"
+    verification:
+      pattern: "Cross-validate against source systems"
+      trust_level: "Highest"
+      checklist:
+        - "Cross-validate system descriptions against source systems"
+        - "Confirm referenced folders, components, and services exist physically"
+        - "Verify dependency graphs against actual system topology"
+        - "Spot-check representative samples of information compression outputs"
+    experience_indicators:
+      novice: "Start with well-documented codebases where verification is straightforward"
+      advanced: "Extend to legacy systems and cross-repository analysis where GenAI's compression value is highest"
+
+  - id: research_exploration
+    name: "Research & Exploration"
+    guidance_level: contextual
+    consensus:
+      mean: 3.60
+      sd: 1.17
+    provenance: delphi_consensus
+    description: >
+      Using GenAI as a research assistant for exploring design alternatives,
+      technology options, and architectural trade-offs during target state design.
+    when_to_use:
+      lifecycle_phase: "Phase 4: Target State Design"
+      triggers:
+        - "Exploring design alternatives"
+        - "Evaluating technology options"
+        - "Analyzing architectural trade-offs"
+    key_steps:
+      - "Use GenAI as a research assistant for information gathering"
+      - "Scope research questions clearly before prompting"
+      - "Treat GenAI research outputs as hypotheses requiring confirmation"
+      - "Verify claims, statistics, and technology recommendations against primary sources"
+    verification:
+      pattern: "Verify claims against primary sources"
+      trust_level: "Medium-Low"
+      checklist:
+        - "Cross-validate specific claims against primary sources (heuristic M=4.57)"
+        - "Verify 60-70% of specific claims against primary sources (panel benchmark)"
+        - "Confirm technology recommendations against official documentation"
+        - "Check statistics and benchmarks for currency and accuracy"
+    experience_indicators:
+      novice: "Focus on well-scoped research questions where outputs can be verified against established sources"
+      advanced: "Leverage multi-model workflows and iterative refinement cycles"
+
+  - id: adversarial_review
+    name: "Adversarial Review / Stress Testing"
+    guidance_level: contextual
+    consensus:
+      mean: 3.60
+      sd: 0.97
+    provenance: delphi_consensus
+    description: >
+      Deliberately using GenAI to challenge, critique, and stress-test
+      architectural decisions. Requires domain expertise as a prerequisite.
+    when_to_use:
+      triggers:
+        - "Challenging or critiquing architectural decisions"
+        - "Stress-testing design rationale"
+      prerequisites:
+        - "Domain expertise required"
+    key_steps:
+      - "Select a stress-testing technique from the repertoire"
+      - "Actively elicit critique; do not accept GenAI's default collaborative stance"
+      - "Evaluate GenAI-generated critiques against your own domain knowledge"
+      - "Recognize that GenAI cannot model strategic adversarial behaviour across organizational boundaries"
+    stress_testing_techniques:
+      - name: "AI Sparring Partner"
+        description: "Iterative adversarial dialogue challenging design rationale"
+      - name: "Devil's Advocate Prompting"
+        description: "Instruct GenAI to argue against the proposed architecture"
+      - name: "Decision Stress Testing"
+        description: "Identify blind spots, steelman alternatives, conduct pre-mortem"
+      - name: "AI Pre-Mortem"
+        description: "'The architecture already failed; why?' Prospective hindsight analysis"
+      - name: "Skeptical Reviewer"
+        description: "Persona critique simulating a senior architect review"
+      - name: "Architectural Gap Analysis"
+        description: "Completeness analysis against standards and patterns"
+      - name: "Epistemic Stress Testing"
+        description: "Challenge confidence levels behind decisions, not the decisions themselves"
+    verification:
+      pattern: "Domain expertise threshold check"
+      trust_level: "Low"
+      checklist:
+        - "Confirm domain expertise threshold before relying on adversarial outputs (M=3.86)"
+        - "Distinguish genuine design weaknesses from pattern-matching artifacts"
+        - "Validate contradiction seeding results against known architectural constraints (M=3.33)"
+    experience_indicators:
+      novice: "Start with structured techniques (AI Pre-Mortem, Skeptical Reviewer) that provide clear prompting templates"
+      advanced: "Develop intuition for when GenAI critique reflects genuine weaknesses versus pattern-matching artifacts"
+
+  - id: governance_compliance
+    name: "Governance/Compliance Checking"
+    guidance_level: adaptive
+    consensus:
+      mean: 3.50
+      sd: 1.27
+    provenance: delphi_consensus
+    description: >
+      Using GenAI to verify architectural artifacts against governance standards,
+      compliance requirements, and organizational policies.
+    when_to_use:
+      triggers:
+        - "Verifying artifacts against governance standards"
+        - "Checking compliance requirements"
+        - "Validating organizational policies"
+      note: "Adapt to your specific governance structures"
+    key_steps:
+      - "Scan documents against regulatory requirements using GenAI"
+      - "Verify completeness and accuracy manually in all compliance contexts"
+      - "Apply line-by-line verification for compliance-sensitive outputs (M=4.20)"
+      - "Recognize that compliance errors carry disproportionate organizational risk"
+    verification:
+      pattern: "Line-by-line verification in compliance contexts"
+      trust_level: "Very Low"
+      checklist:
+        - "Verify every compliance-related detail line-by-line"
+        - "Confirm GenAI output against actual regulatory text or standard"
+        - "Check for completeness gaps that GenAI may have omitted"
+        - "Validate that organizational-specific policies are correctly represented"
+    experience_indicators:
+      novice: "Use GenAI for compliance checking only in low-risk contexts initially"
+      advanced: "Integrate governance checks into automated pipelines where organizational maturity permits"
+
+  - id: first_draft_documentation
+    name: "First Draft & Documentation"
+    guidance_level: contextual
+    consensus:
+      mean: 3.10
+      sd: 1.10
+    provenance: delphi_consensus
+    description: >
+      Using GenAI to produce initial drafts of architectural documentation
+      (solution designs, ADRs, technical specifications, assessment reports)
+      for subsequent human editing. Compression Not Generation framing applies.
+    when_to_use:
+      triggers:
+        - "Producing initial drafts of architectural documentation"
+        - "Solution designs, ADRs, technical specifications, assessment reports"
+      framing: "Compression Not Generation: GenAI compresses existing information into structured documents"
+    key_steps:
+      - "Provide existing information (meeting notes, system data, design inputs) as context"
+      - "Use GenAI as a First Draft Generator; treat outputs as starting points, not finished artifacts"
+      - "Cross-check all references, links, and factual claims in generated documentation"
+      - "Apply architectural judgment to refine structure and content"
+    verification:
+      pattern: "Cross-check references and facts"
+      trust_level: "High"
+      checklist:
+        - "Cross-check all references and links for accuracy"
+        - "Verify factual claims and benchmarks against primary sources"
+        - "Check for hallucinated references or non-existent sources"
+        - "Confirm document structure aligns with organizational templates and standards"
+    experience_indicators:
+      novice: "Start with well-structured document types (meeting minutes, status reports) before progressing to ADRs"
+      advanced: "Develop metaprompt libraries and multi-stage generation workflows"
+
+  - id: stakeholder_communication
+    name: "Stakeholder Communication"
+    guidance_level: adaptive
+    consensus:
+      mean: 3.10
+      sd: 1.37
+    provenance: delphi_consensus
+    description: >
+      Using GenAI to translate architectural content for different audiences
+      and to synthesize stakeholder inputs into structured architectural artifacts.
+      Highest variability of all categories.
+    when_to_use:
+      triggers:
+        - "Translating architectural content for different audiences"
+        - "Executive summaries, team-specific views, non-technical explanations"
+        - "Synthesizing stakeholder inputs into structured artifacts"
+    key_steps:
+      - "Define the target audience and communication purpose before prompting"
+      - "Inject organizational context (team dynamics, political constraints, historical decisions) manually"
+      - "Validate that GenAI outputs reflect organizational reality, not just technical logic"
+      - "Review for audience appropriateness before distribution"
+    verification:
+      pattern: "Validate organizational context manually"
+      trust_level: "Lowest (for organizational judgment)"
+      checklist:
+        - "Validate organizational context manually before communicating outputs"
+        - "Check that outputs are not 'technically logical but organisationally nonsensical'"
+        - "Verify that audience-specific framing preserves architectural intent"
+        - "Confirm that political and interpersonal nuances are appropriately handled"
+    experience_indicators:
+      novice: "Limit GenAI use to summarization tasks (meeting minutes, document distillation) where source material constrains outputs"
+      advanced: "Develop audience-specific prompting strategies and RAG-based approaches over organizational documentation"
+
+  - id: deep_workflow_integration
+    name: "Deep Workflow Integration"
+    guidance_level: adaptive
+    consensus:
+      mean: 2.89
+      sd: 1.17
+      note: "One abstention; low rating reflects adoption barriers, not low practice value"
+    provenance: delphi_consensus
+    description: >
+      Embedding GenAI into daily workflow through IDE integration, agent context
+      files, custom hooks, MCP servers, and multi-agent orchestration.
+    when_to_use:
+      triggers:
+        - "Embedding GenAI into daily workflow"
+        - "IDE integration, agent context files, custom hooks"
+        - "MCP servers and multi-agent orchestration"
+    key_steps:
+      - "Begin with single-tool integration (IDE assistant) as a foundation"
+      - "Build trust incrementally; expand GenAI autonomy from low-stakes to higher-stakes tasks (M=4.29)"
+      - "Progress to custom context files and agent orchestration as calibration develops"
+      - "Reduce human oversight touchpoints only after sustained positive calibration"
+    verification:
+      pattern: "Incremental trust building"
+      trust_level: "Varies by task"
+      checklist:
+        - "Apply incremental trust building before expanding automation scope"
+        - "Verify automated workflow outputs at regular intervals"
+        - "Confirm that reduced oversight touchpoints are justified by calibration evidence"
+        - "Maintain rollback capability for agentic workflow outputs"
+    experience_indicators:
+      novice: "Begin with single-tool integration (IDE assistant) before progressing to custom context files and agent orchestration"
+      advanced: "Design multi-agent architectures with specialized agents for different architectural tasks"
+
+cross_cutting:
+  - id: trust_calibration
+    name: "Trust Calibration"
+    provenance: researcher_synthesis
+    heuristic_rating:
+      name: "Cross-validation"
+      mean: 4.57
+      sd: 0.53
+    description: >
+      Bidirectional trust adjustment based on task type and evidence.
+      All eight Round 1 participants described explicit verification practices.
+    trust_spectrum:
+      - level: "Highest"
+        task_type: "Information compression: summaries, boilerplate, dependency graphs"
+        verification: "Spot-check representative samples"
+      - level: "High"
+        task_type: "Documentation drafts, concept explanation, test generation"
+        verification: "Review structure and key claims"
+      - level: "Medium"
+        task_type: "Code refactoring, common patterns, meeting synthesis"
+        verification: "Verify against organizational standards"
+      - level: "Medium-Low"
+        task_type: "Design trade-off exploration, technology recommendations"
+        verification: "Cross-validate with primary sources"
+      - level: "Low"
+        task_type: "Architecture decisions, novel business logic"
+        verification: "Independent domain expert review"
+      - level: "Very Low"
+        task_type: "Security-critical code, compliance assessment"
+        verification: "Line-by-line verification"
+      - level: "Lowest"
+        task_type: "Organizational judgment: politics, team dynamics, legal"
+        verification: "Retain entirely; do not delegate"
+    checklist:
+      - "Match each GenAI task to its trust level before accepting output"
+      - "Apply the 'junior colleague' mental model: supervisory attention for all outputs"
+      - "Recalibrate trust upward when evidence warrants (bidirectional calibration)"
+      - "Build domain expertise first; trust calibration requires domain knowledge as foundation"
+      - "Learn GenAI capability boundaries through direct experience with errors (frontier learning)"
+
+  - id: context_engineering
+    name: "Context Engineering for EA"
+    provenance: researcher_synthesis
+    heuristic_rating:
+      name: "Context management"
+      mean: 4.14
+      sd: 0.90
+    description: >
+      Systematically designing information provided to GenAI systems to maximize
+      output quality. Bridges the gap between what practitioners know and what
+      GenAI can access.
+    areas:
+      - name: "Agent Context Files"
+        description: "Project-level files (CLAUDE.md, AGENTS.md) encoding architectural standards, design principles, and organizational constraints"
+        checklist:
+          - "Create and maintain agent context files for each architectural project"
+          - "Review and update context files regularly (benchmark: every 1-3 days)"
+          - "Include architecture content (found in 67.7% of repositories in empirical studies)"
+      - name: "Strategic Information Ordering"
+        description: "Mitigate the 'lost in the middle' effect where language models attend less to information in the middle of long contexts"
+        checklist:
+          - "Place critical architectural constraints at the beginning and end of context"
+          - "Use modular rules files (separate documents for different architectural concerns)"
+      - name: "Context Scope Management"
+        description: "Deciding what to include and exclude from context"
+        include:
+          - "Architectural principles and constraints"
+          - "Relevant standards and patterns"
+          - "System-specific technical context"
+          - "Decision history (ADRs)"
+        exclude:
+          - "Organizational politics and interpersonal dynamics"
+          - "Exhaustive historical documentation"
+          - "Ambiguous or contradictory requirements"
+        checklist:
+          - "Verify that context includes relevant constraints and excludes noise"
+          - "Confirm that organizational politics are handled by the practitioner, not delegated"
+
+  - id: anti_atrophy
+    name: "Anti-Atrophy Strategies"
+    provenance: researcher_proposal
+    significance_rating:
+      name: "Skills used less"
+      mean: 3.90
+    description: >
+      The skills being automated (cold-start writing, exhaustive manual search,
+      cover-to-cover documentation reading) are precisely the skills through which
+      practitioners built their expertise.
+    friction_practices:
+      - name: "AI-Free Design Sessions"
+        description: "Periodically conduct architectural work without GenAI assistance to maintain foundational skills"
+        frequency: "Schedule regular sessions"
+      - name: "Attempt Independently First"
+        description: "Engage with a problem for 15-30 minutes before consulting GenAI to develop own mental model"
+        frequency: "Every new design problem"
+      - name: "Pair Programming Mindset"
+        description: "Treat GenAI interaction as collaborative work; practitioner drives architectural thinking, GenAI handles information retrieval"
+        frequency: "Every GenAI session"
+    self_assessment:
+      - "Can you still perform core architectural tasks without GenAI assistance?"
+      - "Do you form your own mental model before consulting GenAI?"
+      - "Are you actively driving architectural thinking during GenAI sessions?"
+
+governance:
+  note: "Rests on thinner Delphi evidence than practice catalog and cross-cutting guidance"
+  themes:
+    - id: gate_to_guardrail
+      name: "Gate-to-Guardrail Transition"
+      provenance: researcher_synthesis
+      description: >
+        GenAI's acceleration of artifact production challenges periodic architectural
+        review board (ARB) models.
+      checklist:
+        - "Assess whether periodic ARBs keep pace with GenAI-accelerated artifact production"
+        - "Consider transitioning from periodic gate reviews to continuous guardrail enforcement"
+        - "Encode architectural constraints for automatic checking rather than episodic evaluation"
+        - "Note: inside-out governance rated low (M=2.00); most organizations have not yet confronted this shift"
+
+    - id: architecture_as_code
+      name: "Architecture-as-Code Enforcement"
+      provenance: researcher_proposal
+      description: >
+        Encoding architectural constraints as machine-readable rules enables
+        continuous enforcement without manual review bottlenecks.
+      checklist:
+        - "Encode architectural constraints as machine-readable rules (TypeScript validators, fitness functions, CI/CD checks)"
+        - "Enable GenAI agents to read and apply architectural rules before generating code"
+        - "Implement executable ADRs where architectural decisions become automated rules in build pipelines"
+        - "Bridge Governance/Compliance practice with Deep Workflow Integration"
+
+    - id: ai_disclosure
+      name: "AI Disclosure and Provenance"
+      provenance: researcher_synthesis
+      description: >
+        Governance frameworks need mechanisms for identifying which components were
+        AI-generated or AI-augmented.
+      checklist:
+        - "Establish AI disclosure policies that flag AI-generated components for calibrated review"
+        - "Implement provenance tracking for compliance-sensitive domains"
+        - "Address the 'Ghost Architect' dynamic: identify which components were AI-generated"
+
+maturity_model:
+  provenance: researcher_proposal
+  progression_consensus:
+    mean: 4.71
+    note: "Panel strongly agreed practitioners naturally progress from basic to sophisticated GenAI integration"
+  short_experience_substitution:
+    mean: 2.86
+    note: "Panel rejected that short experience can equal long experience given the right context"
+  per_category_measurement:
+    mean: 3.86
+    note: "Practitioners may advance at different rates across practice categories"
+  use: "Diagnostic (locating current practice), not prescriptive (mandating progression)"
+
+  stages:
+    - stage: 1
+      label: "Experimental"
+      you_are_here_if:
+        - "Ad-hoc GenAI use for individual tasks"
+        - "Chat-based interaction only"
+        - "No structured verification"
+      indicators:
+        - "Occasional use for research or drafting"
+        - "No shared practices"
+        - "Trust calibration through trial and error"
+      to_advance:
+        - "Develop personal prompt libraries"
+        - "Adopt the trust spectrum"
+        - "Begin deliberate verification"
+
+    - stage: 2
+      label: "Systematic Personal"
+      you_are_here_if:
+        - "Structured personal workflows"
+        - "Use agent context files"
+        - "Apply deliberate verification"
+      indicators:
+        - "Personal prompt libraries"
+        - "Agent context files in use"
+        - "Anti-atrophy practices adopted"
+        - "Consistent trust spectrum application"
+      to_advance:
+        - "Share practices with your team"
+        - "Place context files in version control"
+        - "Establish team verification standards"
+
+    - stage: 3
+      label: "Team-Level Integration"
+      you_are_here_if:
+        - "Team shares practices and context files"
+        - "Architecture-as-Code adoption has begun"
+      indicators:
+        - "Shared context files in version control"
+        - "Team verification standards"
+        - "Collective decision capture workflows"
+      to_advance:
+        - "Pursue governance adaptation"
+        - "Build enterprise context engineering"
+        - "Explore agentic workflows"
+
+    - stage: 4
+      label: "Organizational Embedding"
+      you_are_here_if:
+        - "Automated architectural guardrails in place"
+        - "AI disclosure policies exist"
+        - "Multi-agent orchestration at enterprise scale"
+      indicators:
+        - "Automated architectural guardrails"
+        - "AI disclosure policies"
+        - "Multi-agent orchestration"
+        - "Enterprise MCP infrastructure"
+      to_advance:
+        - "Maintain anti-atrophy practices"
+        - "Refine trust calibration continuously"
+        - "Contribute to community of practice"

@@ -1,0 +1,206 @@
+\section{Introduction}\label{sec:introduction}
+
+This section establishes the research problem and derives the research
+questions that guide this study. We begin by situating Generative AI (GenAI)
+in professional practice, then examine its implications for Enterprise
+Architecture (EA) and Reference Architecture (RA) development. Two gaps
+emerge: a practice gap, where no empirical research documents how EA
+practitioners integrate GenAI into RA development, and a guidance vacuum,
+where practitioners experiment in isolation without shared frameworks.
+
+The \textit{Theoretical Background} (Section~\ref{sec:theoretical-background}) provides the theoretical foundation
+on EA, RAs, GenAI capabilities, and distributed cognition.
+The \textit{Conceptual Model} (Section~\ref{sec:conceptual-model}) presents the conceptual model that frames
+the investigation. The \textit{Methodology} (Section~\ref{sec:methodology}) explains the Design-Oriented
+Delphi methodology used to answer the research questions. The following
+subsections detail this investigation:
+
+\localtableofcontents\clearpage
+
+\subsection{The emergence of Generative AI in Professional Practice}
+
+Since the public release of ChatGPT in November 2022, Generative AI (GenAI) has
+become a routine part of professional work
+\parencite{brynjolfsson_generative_2025}. ChatGPT reached 100 million users
+within two months \parencite{hu_chatgpt_2023}. By 2025, 84\% of developers use
+AI coding tools, up from 76\% one year earlier
+\parencite{stack_overflow_2024, stack_overflow_2025}, and 75\% of knowledge
+workers across 31 countries report using AI regularly
+\parencite{microsoft_wti_2025}. Yet adoption has outpaced preparation: 83\% of
+workers are self-taught in AI, and only 52\% of senior leaders have deployed
+formal AI training \parencite{ey_agentic_2025}.
+
+The infrastructure behind this adoption is large and growing. In 2025, the major
+US hyperscalers (Amazon, Microsoft, Google, and Meta) are collectively investing
+approximately \$320 billion in AI infrastructure, more than 1\% of US GDP
+\parencite{understanding_ai_2025}. Microsoft alone has committed \$80 billion to
+data center construction in fiscal year 2025 \parencite{cnbc_tech_2025}. The
+\textcite{iea_energy_2025} projects that global electricity consumption from
+data centers will more than double by 2030, reaching 945 TWh (equivalent to
+Japan's entire current consumption). In the United States, data centers are
+forecast to account for almost half of electricity demand growth between 2024
+and 2030 \parencite{iea_energy_2025}. \textcite{mckinsey_cost_2025} estimates
+the total cost to scale AI data center infrastructure at \$7 trillion. These
+investments have multi-decade lifespans. The practical question is not whether
+GenAI will persist, but how practitioners should adapt their work to it.
+
+\subsection{Reference Architecture Development}
+
+Enterprise Architecture (EA) is a discipline that aligns organizational
+strategy, processes, and IT infrastructure
+\parencite{lankhorst_enterprise_2017}. EA practitioners analyze, design, and
+govern how organizations structure their technology ecosystems
+\parencite{the_open_group_togaf_2022}. Among their outputs are Reference
+Architectures (RAs): documented patterns and templates for system
+implementations \parencite{cloutier_concept_2010}. RAs enable reuse across
+projects, reduce design risk, promote interoperability, and serve as knowledge
+repositories for stakeholder communication
+\parencite{cloutier_concept_2010, angelov_framework_2012}.
+
+In practice, RA development involves more than formal EA titles.
+\textcite{kotusev_enterprise_2018} showed that EA artifacts are built
+collaboratively by architects, business executives, analysts, and developers.
+Solution architects, platform engineers, and senior developers routinely shape
+these artifacts through daily work. Developing RAs requires analyzing existing
+systems, identifying patterns, engaging stakeholders, and synthesizing technical
+and business considerations.
+
+GenAI is already entering this work. Developer tools powered by GenAI are
+shaping architectural patterns from the bottom up, through code generation,
+design suggestions, and automated documentation, often before formal EA
+governance becomes aware
+\parencite{peng_impact_2023, tabarsi_llms_reshaping_se_2025}. This makes
+understanding how practitioners use GenAI in RA development urgent.
+
+\subsection{The Practice Gap}
+
+No empirical research documents how EA practitioners integrate GenAI into RA
+development\footnote{ EBSCO host advanced search conducted on June 8, 2025,
+    resulted in 0 publications using the query: ((enterprise architecture OR ea
+    practice) AND (gen ai OR generative artificial intelligence OR llm OR large
+    language models)) AND SO (MIS Quarterly Executive OR Information Systems
+    Research OR Journal of the Association for Information Systems OR European
+    Journal of Information Systems) Filters applied: peer-reviewed articles,
+    publication date from January 1, 2020, to June 8, 2025
+}. Research in adjacent fields (software engineering, management consulting,
+general knowledge work) shows that GenAI changes professional practice
+\parencite{peng_impact_2023, dellacqua_navigating_2023, noy_experimental_2023},
+but EA remains unstudied
+\parencite{banh_affordance_genai_ea_2025, ettinger_ea_dynamic_capability_2025}.
+
+This gap matters for three reasons. First, EA work involves both technical and
+social dimensions. Practitioners navigate organizational politics, synthesize
+diverse perspectives, and create artifacts that must resonate with multiple
+stakeholders. How GenAI tools, primarily trained on technical content, interact
+with this sociotechnical reality is unknown. Second, RA development is
+knowledge-intensive. It requires capturing, synthesizing, and codifying
+architectural knowledge. GenAI's capabilities for pattern recognition and
+content generation could change how this knowledge work is done, but no evidence
+documents whether or how. Third, research in other domains shows that
+professionals restructure their work practices around AI rather than simply
+using it as a faster tool \parencite{noy_experimental_2023,
+tankelevitch_metacognitive_2024, dellacqua_navigating_2023}. Whether EA
+practitioners are experiencing similar changes is unexamined.
+
+\subsection{The Guidance Vacuum}
+
+Practitioners who experiment with GenAI in EA work do so without shared
+vocabulary, evaluation criteria, or validated guidance. Specifically, they lack:
+
+\begin{enumerate}
+    \item Evidence of which practices work for GenAI use in EA
+          \parencite{banh_affordance_genai_ea_2025}.
+    \item Frameworks for judging when GenAI helps versus hinders architectural
+          activities \parencite{esposito_genai_architecture_2026}.
+    \item Guidance on managing the risks of human-AI collaboration in EA,
+          particularly over-reliance \parencite{dellacqua_navigating_2023}.
+\end{enumerate}
+
+Without shared guidance, each practitioner reinvents the wheel
+\parencite{feldman_theorizing_2011}. Emerging practices cannot consolidate into
+reliable routines, and organizations risk both missed opportunities and quality
+problems \parencite{dellacqua_navigating_2023}.
+
+\subsection{Research Opportunity}
+
+In our view, these gaps call for an investigation into how EA practitioners
+develop new practices as they integrate GenAI into RA development. This is not
+a tool-adoption study; Section~\ref{subsec:framework-dynamics} develops this argument further. Research in adjacent domains shows that professionals
+reshape their work around AI capabilities rather than bolting AI onto existing
+workflows \parencite{noy_experimental_2023, dellacqua_navigating_2023}.
+
+We focus on RA development because it is a central EA activity
+\parencite{cloutier_concept_2010, the_open_group_togaf_2022} that spans the
+full range of architectural work: analysis, synthesis, and documentation. If
+GenAI changes how RAs are developed, the effects will extend to governance,
+implementation, and knowledge management. Beyond documenting current practices,
+the aim is to develop practical guidance that supports EA practitioners in
+navigating this change.
+
+In sum, GenAI is a structural shift in professional knowledge work. RA
+development is knowledge-intensive sociotechnical work for which no empirical
+guidance exists. Developer-level GenAI use is already shaping architectural
+artifacts before formal EA governance becomes aware. The following subsections
+translate this problem into research questions.
+
+\subsection{Deriving the Research Questions}\label{sec:research-question}
+
+The introduction identified two gaps. A \emph{practice gap}: no empirical
+research documents how EA practitioners integrate GenAI into RA development.
+And a \emph{guidance vacuum}: practitioners experiment in isolation, without
+shared frameworks or vocabulary. These gaps call for research that both
+documents emerging practices and produces actionable guidance.
+
+\subsection{Main Research Question}
+
+\begin{quote}
+\textit{What practices do EA practitioners adopt when using GenAI for RA development,
+and how can these be systematized into guidance?}
+\end{quote}
+
+The first part of this question targets practice discovery. The second targets
+guidance development. This reflects a practice-based perspective: technology
+integration is not a one-time event but an ongoing process shaped by how people
+actually use tools in context \parencite{feldman_theorizing_2011,
+orlikowski_using_2000}. GenAI and EA practice shape one another. Practitioners
+adapt their workflows to GenAI, while GenAI outputs depend on practitioner
+expertise and organizational context \parencite{orlikowski_sociomaterial_2007}.
+Answering this question requires a methodology that captures both current
+practices and the ambition to produce practical guidance.
+
+\subsection{Sub-Questions}\label{subsec:sub-questions}
+
+Four sub-questions decompose the main RQ into a progression from description
+through analysis and interpretation to design:
+
+\vspace{0.5em}
+\noindent\textbf{sRQ1:} What GenAI practices are EA practitioners currently using when developing RAs?
+
+\vspace{0.5em}
+\noindent\textbf{sRQ2:} What changes to EA practice are EA practitioners experiencing when RAs are developed using GenAI?
+
+\vspace{0.5em}
+\noindent\textbf{sRQ3:} How do EA practitioners make sense of impacts and trade-offs when adopting GenAI for RA development?
+
+\vspace{0.5em}
+\noindent\textbf{sRQ4:} How should effective GenAI practices for RA development be systematized into guidance for EA practitioners?
+
+\vspace{0.5em}
+\noindent Throughout these questions, ``EA practitioners'' refers broadly to all
+professionals contributing to RA development, as formally defined in
+Section~\ref{sec:theoretical-background}.
+
+\subsection{Sub-Question Progression}
+
+The four sub-questions follow a deliberate sequence. sRQ1 is
+\emph{descriptive}: it maps which GenAI practices EA practitioners currently
+use. sRQ2 is \emph{analytical}: it examines how these practices change existing
+EA work. sRQ3 is \emph{interpretive}: it surfaces how practitioners weigh the
+impacts and trade-offs they experience.
+
+sRQ4 differs from the first three. Where sRQ1 through sRQ3 investigate what
+\emph{is}, sRQ4 asks what \emph{should be}. It synthesizes empirical findings
+into a guidance artifact that practitioners can use
+\parencite{gregor_positioning_2013}. This shift from empirical inquiry to
+artifact construction is characteristic of the Design-Oriented Delphi
+methodology adopted in this study (Section~\ref{sec:methodology}).

@@ -1,0 +1,565 @@
+% Appendix C: Practitioner Checklist Cards
+% Condensed, scannable reformatting of Section 07 (Guidance Artifact)
+% Each card fits approximately one page
+
+\section[Appendix - Practitioner Checklist Cards]{Practitioner Checklist Cards}\label{app:checklists}
+
+This appendix condenses the guidance artifact (Section~\ref{sec:artifact}) into
+twelve scannable checklist cards. Each card traces directly to a specific
+subsection of the artifact; no new content is introduced. Practitioners may
+photocopy or print individual cards for use during Reference Architecture (RA)
+development sessions. For Cards~1--7, practice descriptions and verification
+patterns carry Delphi consensus; experience indicators (Novice/Advanced) are
+researcher proposals.
+
+%% ================================================================
+%% Card 1: System/Codebase Analysis
+%% ================================================================
+\clearpage
+\subsection*{Card 1: System/Codebase Analysis \hfill \textit{[Directive]}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Consensus:} $M = 4.00$, $SD = 0.82$ & \textbf{Provenance:} Delphi consensus \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{When to Use}
+\begin{itemize}
+    \item Phase~2 (Current State Analysis) of the RA lifecycle
+    \item Legacy system comprehension, dependency mapping, cross-repository analysis
+\end{itemize}
+
+\textbf{Key Steps}
+\begin{enumerate}
+    \item Feed existing system artifacts (code, configs, diagrams) into GenAI for analysis
+    \item Delegate information gathering to GenAI; retain architectural judgment
+    \item Cross-validate GenAI-generated descriptions against source systems directly
+    \item Verify that referenced components, services, and dependencies exist in the actual system
+\end{enumerate}
+
+\textbf{Verification Checklist}
+\begin{itemize}[label=\checkbox]
+    \item Cross-validate system descriptions against source systems (Trust level: Highest)
+    \item Confirm referenced folders, components, and services exist physically
+    \item Verify dependency graphs against actual system topology
+    \item Spot-check representative samples of information compression outputs
+\end{itemize}
+
+\begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+    \hline
+    \textbf{Novice} & \textbf{Advanced} \\
+    \hline
+    Start with well-documented codebases where verification is straightforward & Extend to legacy systems and cross-repository analysis where GenAI's compression value is highest \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textit{External corroboration: Section~\ref{subsec:disc-triangulation}}
+
+%% ================================================================
+%% Card 2: Research & Exploration
+%% ================================================================
+\clearpage
+\subsection*{Card 2: Research \& Exploration \hfill \textit{[Contextual]}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Consensus:} $M = 3.60$, $SD = 1.17$ & \textbf{Provenance:} Delphi consensus \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{When to Use}
+\begin{itemize}
+    \item Phase~4 (Target State Design) of the RA lifecycle
+    \item Exploring design alternatives, technology options, and architectural trade-offs
+\end{itemize}
+
+\textbf{Key Steps}
+\begin{enumerate}
+    \item Use GenAI as a research assistant for information gathering
+    \item Scope research questions clearly before prompting
+    \item Treat GenAI research outputs as hypotheses requiring confirmation
+    \item Verify claims, statistics, and technology recommendations against primary sources
+\end{enumerate}
+
+\textbf{Verification Checklist}
+\begin{itemize}[label=\checkbox]
+    \item Cross-validate specific claims against primary sources (heuristic $M = 4.57$; Trust level: Medium-Low)
+    \item Verify 60--70\% of specific claims against primary sources (P2, R1 Workbook)
+    \item Confirm technology recommendations against official documentation
+    \item Check statistics and benchmarks for currency and accuracy
+\end{itemize}
+
+\begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+    \hline
+    \textbf{Novice} & \textbf{Advanced} \\
+    \hline
+    Focus on well-scoped research questions where outputs can be verified against established sources & Leverage multi-model workflows and iterative refinement cycles \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textit{External corroboration: Section~\ref{subsec:disc-triangulation}}
+
+%% ================================================================
+%% Card 3: Adversarial Review / Stress Testing
+%% ================================================================
+\clearpage
+\subsection*{Card 3: Adversarial Review / Stress Testing \hfill \textit{[Contextual]}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Consensus:} $M = 3.60$, $SD = 0.97$ & \textbf{Provenance:} Delphi consensus \\
+    \hline
+\end{tabular}
+
+\vspace{0.3em}
+\noindent\textit{Note: Contextual despite low SD ($< 1.0$) because practice value depends on practitioner domain expertise.}
+
+\vspace{0.5em}
+\textbf{When to Use}
+\begin{itemize}
+    \item When challenging, critiquing, or stress-testing architectural decisions
+    \item Requires domain expertise as a prerequisite
+\end{itemize}
+
+\textbf{Key Steps}
+\begin{enumerate}
+    \item Select a stress-testing technique (see list below)
+    \item Actively elicit critique; do not accept GenAI's default collaborative stance
+    \item Evaluate GenAI-generated critiques against your own domain knowledge
+    \item Recognize that GenAI cannot model strategic adversarial behaviour across organizational boundaries
+\end{enumerate}
+
+\textbf{Stress-Testing Techniques}
+\begin{itemize}
+    \item AI Sparring Partner: iterative adversarial dialogue challenging design rationale
+    \item Devil's Advocate Prompting: instruct GenAI to argue against the proposed architecture
+    \item Decision Stress Testing: identify blind spots, steelman alternatives, conduct pre-mortem
+    \item AI Pre-Mortem: ``The architecture already failed; why?''
+    \item Skeptical Reviewer: persona critique simulating a senior architect review
+    \item Architectural Gap Analysis: completeness analysis against standards
+    \item Epistemic Stress Testing: challenge confidence levels, not decisions themselves
+\end{itemize}
+
+\textbf{Verification Checklist}
+\begin{itemize}[label=\checkbox]
+    \item Confirm domain expertise threshold before relying on adversarial outputs ($M = 3.86$)
+    \item Distinguish genuine design weaknesses from pattern-matching artifacts
+    \item Validate contradiction seeding results against known architectural constraints ($M = 3.33$)
+\end{itemize}
+
+\begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+    \hline
+    \textbf{Novice} & \textbf{Advanced} \\
+    \hline
+    Start with structured techniques (AI Pre-Mortem, Skeptical Reviewer) that provide clear prompting templates & Develop intuition for when GenAI critique reflects genuine weaknesses versus pattern-matching artifacts \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textit{External corroboration: Section~\ref{subsec:disc-triangulation}}
+
+%% ================================================================
+%% Card 4: Governance/Compliance Checking
+%% ================================================================
+\clearpage
+\subsection*{Card 4: Governance/Compliance Checking \hfill \textit{[Adaptive]}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Consensus:} $M = 3.50$, $SD = 1.27$ & \textbf{Provenance:} Delphi consensus \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{When to Use}
+\begin{itemize}
+    \item Verifying architectural artifacts against governance standards and compliance requirements
+    \item Checking organizational policies; adapt to your specific governance structures
+\end{itemize}
+
+\textbf{Key Steps}
+\begin{enumerate}
+    \item Scan documents against regulatory requirements using GenAI
+    \item Verify completeness and accuracy manually in all compliance contexts
+    \item Apply line-by-line verification for compliance-sensitive outputs ($M = 4.20$)
+    \item Recognize that compliance errors carry disproportionate organizational risk
+\end{enumerate}
+
+\textbf{Verification Checklist}
+\begin{itemize}[label=\checkbox]
+    \item Verify every compliance-related detail line-by-line (Trust level: Very Low)
+    \item Confirm GenAI output against the actual regulatory text or standard
+    \item Check for completeness gaps that GenAI may have omitted
+    \item Validate that organizational-specific policies are correctly represented
+    \item Verify output structure and formatting against expected standards ($M = 2.83$)
+\end{itemize}
+
+\begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+    \hline
+    \textbf{Novice} & \textbf{Advanced} \\
+    \hline
+    Use GenAI for compliance checking only in low-risk contexts initially & Integrate governance checks into automated pipelines where organizational maturity permits \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textit{External corroboration: Section~\ref{subsec:disc-triangulation}}
+
+%% ================================================================
+%% Card 5: First Draft & Documentation
+%% ================================================================
+\clearpage
+\subsection*{Card 5: First Draft \& Documentation \hfill \textit{[Contextual]}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Consensus:} $M = 3.10$, $SD = 1.10$ & \textbf{Provenance:} Delphi consensus \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{When to Use}
+\begin{itemize}
+    \item Producing initial drafts of architectural documentation (solution designs, ADRs, technical specifications, assessment reports)
+    \item Apply the Compression Not Generation framing: GenAI compresses existing information into structured documents
+\end{itemize}
+
+\textbf{Key Steps}
+\begin{enumerate}
+    \item Provide existing information (meeting notes, system data, design inputs) as context
+    \item Use GenAI as a First Draft Generator; treat outputs as starting points, not finished artifacts
+    \item Cross-check all references, links, and factual claims in generated documentation
+    \item Apply architectural judgment to refine structure and content
+\end{enumerate}
+
+\textbf{Verification Checklist}
+\begin{itemize}[label=\checkbox]
+    \item Cross-check all references and links for accuracy (Trust level: High)
+    \item Verify factual claims and benchmarks against primary sources
+    \item Check for hallucinated references or non-existent sources
+    \item Confirm document structure aligns with organizational templates and standards
+\end{itemize}
+
+\begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+    \hline
+    \textbf{Novice} & \textbf{Advanced} \\
+    \hline
+    Start with well-structured document types (meeting minutes, status reports) before progressing to ADRs & Develop metaprompt libraries and multi-stage generation workflows \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textit{External corroboration: Section~\ref{subsec:disc-triangulation}}
+
+%% ================================================================
+%% Card 6: Stakeholder Communication
+%% ================================================================
+\clearpage
+\subsection*{Card 6: Stakeholder Communication \hfill \textit{[Adaptive]}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Consensus:} $M = 3.10$, $SD = 1.37$ & \textbf{Provenance:} Delphi consensus \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{When to Use}
+\begin{itemize}
+    \item Translating architectural content for different audiences (executive summaries, team-specific views, non-technical explanations)
+    \item Synthesizing stakeholder inputs into structured architectural artifacts
+\end{itemize}
+
+\textbf{Key Steps}
+\begin{enumerate}
+    \item Define the target audience and communication purpose before prompting
+    \item Inject organizational context (team dynamics, political constraints, historical decisions) manually
+    \item Validate that GenAI outputs reflect organizational reality, not just technical logic
+    \item Review for audience appropriateness before distribution
+\end{enumerate}
+
+\textbf{Verification Checklist}
+\begin{itemize}[label=\checkbox]
+    \item Validate organizational context manually before communicating outputs (Trust level: Lowest for organizational judgment)
+    \item Check that outputs are not ``technically logical but organisationally nonsensical'' (P3, R1 Workbook)
+    \item Verify that audience-specific framing preserves architectural intent
+    \item Confirm that political and interpersonal nuances are appropriately handled
+    \item Simulate likely stakeholder reactions before presenting GenAI-assisted content ($M = 3.00$)
+\end{itemize}
+
+\begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+    \hline
+    \textbf{Novice} & \textbf{Advanced} \\
+    \hline
+    Limit GenAI use to summarization tasks (meeting minutes, document distillation) where source material constrains outputs & Develop audience-specific prompting strategies and RAG-based approaches over organizational documentation \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textit{External corroboration: Section~\ref{subsec:disc-triangulation}}
+
+%% ================================================================
+%% Card 7: Deep Workflow Integration
+%% ================================================================
+\clearpage
+\subsection*{Card 7: Deep Workflow Integration \hfill \textit{[Adaptive]}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Consensus:} $M = 2.89$, $SD = 1.17$ (one abstention) & \textbf{Provenance:} Delphi consensus \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{When to Use}
+\begin{itemize}
+    \item Embedding GenAI into daily workflow through IDE integration, agent context files, custom hooks, MCP servers, and multi-agent orchestration
+    \item Low rating reflects adoption barriers (cognitive load, organizational resistance), not low practice value
+\end{itemize}
+
+\textbf{Key Steps}
+\begin{enumerate}
+    \item Begin with single-tool integration (IDE assistant) as a foundation
+    \item Build trust incrementally; expand GenAI autonomy from low-stakes to higher-stakes tasks ($M = 4.29$)
+    \item Progress to custom context files and agent orchestration as calibration develops
+    \item Reduce human oversight touchpoints only after sustained positive calibration
+\end{enumerate}
+
+\textbf{Verification Checklist}
+\begin{itemize}[label=\checkbox]
+    \item Apply incremental trust building before expanding automation scope (Trust level: varies by task)
+    \item Verify automated workflow outputs at regular intervals
+    \item Confirm that reduced oversight touchpoints are justified by calibration evidence
+    \item Maintain rollback capability for agentic workflow outputs
+\end{itemize}
+
+\begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+    \hline
+    \textbf{Novice} & \textbf{Advanced} \\
+    \hline
+    Begin with single-tool integration (IDE assistant) before progressing to custom context files and agent orchestration & Design multi-agent architectures with specialized agents for different architectural tasks \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textit{External corroboration: Section~\ref{subsec:disc-triangulation}}
+
+%% ================================================================
+%% Card 8: Trust Calibration
+%% ================================================================
+\clearpage
+\subsection*{Card 8: Trust Calibration \hfill \textit{Cross-Cutting}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Cross-validation heuristic:} $M = 4.57$, $SD = 0.53$ & \textbf{Provenance:} Researcher synthesis (panel validated heuristics) \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Trust Spectrum} (from Table~\ref{tab:trust-spectrum})
+
+\begin{tabular}{|p{2.5cm}|p{5cm}|p{5cm}|}
+    \hline
+    \textbf{Trust Level} & \textbf{Task Type} & \textbf{Verification Approach} \\
+    \hline
+    Highest & Information compression: summaries, boilerplate, dependency graphs & Spot-check representative samples \\
+    \hline
+    High & Documentation drafts, concept explanation, test generation & Review structure and key claims \\
+    \hline
+    Medium & Code refactoring, common patterns, meeting synthesis & Verify against organizational standards \\
+    \hline
+    Medium-Low & Design trade-off exploration, technology recommendations & Cross-validate with primary sources \\
+    \hline
+    Low & Architecture decisions, novel business logic & Independent domain expert review \\
+    \hline
+    Very Low & Security-critical code, compliance assessment & Line-by-line verification \\
+    \hline
+    Lowest & Organizational judgment: politics, team dynamics, legal & Retain entirely; do not delegate \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Calibration Checklist}
+\begin{itemize}[label=\checkbox]
+    \item Match each GenAI task to its trust level before accepting output
+    \item Apply the ``junior colleague'' mental model: supervisory attention for all outputs
+    \item Recalibrate trust upward when evidence warrants (bidirectional calibration)
+    \item Build domain expertise first; trust calibration is teachable but requires domain knowledge as a foundation
+    \item Learn GenAI capability boundaries through direct experience with errors (frontier learning pattern)
+\end{itemize}
+
+\vspace{0.5em}
+\textit{Source: Section~\ref{subsubsec:trust-framework}}
+
+%% ================================================================
+%% Card 9: Context Engineering
+%% ================================================================
+\clearpage
+\subsection*{Card 9: Context Engineering for EA \hfill \textit{Cross-Cutting}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Context management heuristic:} $M = 4.14$, $SD = 0.90$ & \textbf{Provenance:} Researcher synthesis (panel validated context management) \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Agent Context Files}
+\begin{itemize}
+    \item Encode architectural standards, design principles, and organizational constraints in project-level files (e.g., CLAUDE.md, AGENTS.md)
+    \item These files function as both human-readable documentation and machine-executable governance
+\end{itemize}
+\begin{itemize}[label=\checkbox]
+    \item Create and maintain agent context files for each architectural project
+    \item Review and update context files regularly (empirical benchmark: every one to three days)
+    \item Encode architectural standards, design principles, and organizational constraints in each context file
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Strategic Information Ordering}
+\begin{itemize}
+    \item Mitigate the ``lost in the middle'' effect: language models attend less to information in the middle of long contexts
+\end{itemize}
+\begin{itemize}[label=\checkbox]
+    \item Place critical architectural constraints at the beginning and end of context
+    \item Use modular rules files (separate documents for different architectural concerns)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Context Scope Management}
+\begin{itemize}
+    \item Include: architectural principles, relevant standards, system-specific technical context, decision history (ADRs)
+    \item Exclude: organizational politics, exhaustive historical documentation, ambiguous or contradictory requirements
+\end{itemize}
+\begin{itemize}[label=\checkbox]
+    \item Verify that context includes relevant constraints and excludes noise
+    \item Confirm that organizational politics and interpersonal dynamics are handled by the practitioner, not delegated to GenAI
+\end{itemize}
+
+\vspace{0.5em}
+\textit{Source: Section~\ref{subsubsec:context-engineering}}
+
+%% ================================================================
+%% Card 10: Anti-Atrophy Strategies
+%% ================================================================
+\clearpage
+\subsection*{Card 10: Anti-Atrophy Strategies \hfill \textit{Cross-Cutting}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{``Skills used less'' significance:} $M = 3.90$ & \textbf{Provenance:} Researcher proposal (panel validated atrophy concern) \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{The Competency Decay Paradox}
+
+The skills being automated (cold-start writing, exhaustive manual search, cover-to-cover documentation reading) are precisely the skills through which practitioners built their expertise. Three deliberate friction practices mitigate this risk.
+
+\vspace{0.5em}
+\textbf{Friction Practices}
+\begin{itemize}[label=\checkbox]
+    \item \textbf{AI-Free Design Sessions:} Periodically conduct architectural work without GenAI assistance to maintain foundational skills. \textit{Frequency: schedule regular sessions (analogous to manual flight training despite autopilot capabilities).}
+    \item \textbf{Attempt Independently First:} Engage with a problem for 15--30 minutes before consulting GenAI. This ensures the practitioner develops their own mental model before seeing an AI-generated one. \textit{Frequency: every new design problem.}
+    \item \textbf{Pair Programming Mindset:} Treat GenAI interaction as collaborative work rather than delegation. The practitioner drives architectural thinking; GenAI handles information retrieval and expression. \textit{Frequency: every GenAI session.}
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Self-Assessment}
+\begin{itemize}[label=\checkbox]
+    \item Can you still perform core architectural tasks without GenAI assistance?
+    \item Do you form your own mental model before consulting GenAI?
+    \item Are you actively driving architectural thinking during GenAI sessions?
+    \item Do you track GenAI failures to refine your trust calibration? (learn through failure, $M = 3.40$)
+\end{itemize}
+
+\vspace{0.5em}
+\textit{Source: Section~\ref{subsubsec:anti-atrophy}}
+
+%% ================================================================
+%% Card 11: Governance Adaptation
+%% ================================================================
+\clearpage
+\subsection*{Card 11: Governance Adaptation \hfill \textit{Organizational}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Evidence base:} Thinner Delphi evidence than practice catalog & \textbf{Provenance:} Mixed (see per-theme indicators) \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Gate-to-Guardrail Transition} \textit{(Researcher synthesis)}
+\begin{itemize}[label=\checkbox]
+    \item Assess whether periodic architectural review boards (ARBs) keep pace with GenAI-accelerated artifact production
+    \item Consider transitioning from periodic gate reviews to continuous guardrail enforcement
+    \item Encode architectural constraints for automatic checking rather than episodic evaluation
+    \item Recognize that inside-out governance rated low ($M = 2.00$); most organizations have not yet confronted this shift formally
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Architecture-as-Code Enforcement} \textit{(Researcher proposal)}
+\begin{itemize}[label=\checkbox]
+    \item Encode architectural constraints as machine-readable rules (TypeScript validators, fitness functions, CI/CD checks)
+    \item Enable GenAI agents to read and apply architectural rules before generating code
+    \item Implement executable ADRs where architectural decisions become automated rules in build pipelines
+    \item Bridge Governance/Compliance practice with Deep Workflow Integration
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{AI Disclosure and Provenance} \textit{(Researcher synthesis)}
+\begin{itemize}[label=\checkbox]
+    \item Establish AI disclosure policies that flag AI-generated components for calibrated review
+    \item Implement provenance tracking for compliance-sensitive domains
+    \item Address the ``Ghost Architect'' dynamic: identify which components were AI-generated or AI-augmented
+\end{itemize}
+
+\vspace{0.5em}
+\textit{Source: Section~\ref{subsec:governance-adaptation}}
+
+%% ================================================================
+%% Card 12: Maturity Model
+%% ================================================================
+\clearpage
+\subsection*{Card 12: Maturity Model \hfill \textit{Diagnostic}}
+
+\begin{tabular}{|p{7cm}|p{6cm}|}
+    \hline
+    \textbf{Progression assumption:} $M = 4.71$ (Delphi consensus) & \textbf{Provenance:} Researcher proposal (progression assumption has Delphi consensus) \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Stage Diagnostic} (from Table~\ref{tab:maturity-model})
+
+\begin{tabular}{|c|p{2.8cm}|p{4.5cm}|p{4.5cm}|}
+    \hline
+    \textbf{Stage} & \textbf{Label} & \textbf{Characteristics} & \textbf{Observable Indicators} \\
+    \hline
+    1 & Experimental & Ad-hoc GenAI use for individual tasks; chat-based interaction; no structured verification & Occasional use for research or drafting; no shared practices; trust calibration through trial and error \\
+    \hline
+    2 & Systematic Personal & Structured personal workflows; context engineering basics; deliberate verification & Personal prompt libraries; agent context files; anti-atrophy practices; consistent trust spectrum application \\
+    \hline
+    3 & Team-Level Integration & Shared practices across team; team-level agent context files; Architecture-as-Code adoption & Shared context files in version control; team verification standards; collective decision capture workflows \\
+    \hline
+    4 & Organizational Embedding & Governance adaptation; enterprise context engineering; agentic workflows & Automated architectural guardrails; AI disclosure policies; multi-agent orchestration; enterprise MCP infrastructure \\
+    \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Key Principles}
+\begin{itemize}[label=\checkbox]
+    \item Use this model as diagnostic (locating current practice), not prescriptive (mandating progression)
+    \item Recognize that progression requires sustained engagement; short experience cannot substitute for long experience ($M = 2.86$)
+    \item Accept that advancement may occur at different rates across practice categories (per-category measurement $M = 3.86$)
+    \item Acknowledge that organizational context modulates pace but does not replace experience ($M = 3.86$)
+\end{itemize}
+
+\vspace{0.5em}
+\textit{Source: Section~\ref{subsec:maturity-model}}

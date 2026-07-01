@@ -1,0 +1,528 @@
+\section{Theoretical Background}\label{sec:theoretical-background}
+
+\subsection*{Introduction}
+
+This section defines the five constructs that ground the study: Enterprise
+Architecture (EA), EA practitioners, EA practice, Reference Architectures (RAs),
+and Generative AI (GenAI). It then introduces distributed cognition as the
+theoretical lens that connects them. The theoretical background from this
+section is used in the construction of the conceptual model in
+the \textit{Conceptual Model} (Section~\ref{sec:conceptual-model}). The following subsections detail these
+foundations:
+
+\localtableofcontents\clearpage
+
+\subsection{Enterprise Architecture}\label{subsec:enterprise-architecture}
+
+Enterprise Architecture has roots in IBM's Business Systems Planning methodology
+of the 1960s \parencite{kotusev_enterprise_2018} and emerged as a distinct
+discipline with \textcite{zachman_zachman_1987}'s framework. After nearly four
+decades, the field still lacks a shared definition.
+\textcite{saint-louis_investigation_2019} found that EA means different things
+to different people, with definitions varying across theoretical lenses and
+organizational contexts.
+
+\textcite{the_open_group_togaf_2022} defines EA as the practice of analyzing,
+designing, planning, and implementing enterprise-level analysis in service of
+business strategy. \textcite{lankhorst_enterprise_2017} presents EA as an
+integrated set of principles, methods, and models for designing an enterprise's
+organisational structure, business processes, information systems, and
+infrastructure. The first definition treats EA as an active practice; the second
+treats it as both process and product.
+
+\textcite{saint-louis_investigation_2019} identified a useful distinction: EA
+as a noun versus EA as a verb. As a noun, EA refers to deliverables, models, and
+artifacts. As a verb, it refers to the practice and process of architecting.
+This distinction matters for this study because GenAI may affect both what
+practitioners produce and how they produce it.
+
+The lack of definitional consensus has practical consequences.
+\textcite{kotusev_enterprise_2018} notes that EA frameworks offer vague,
+inconsistent, and conflicting recommendations, creating problems for
+organizations trying to implement EA. Some view EA as primarily IT-focused;
+others emphasize business-IT alignment or enterprise-wide transformation
+\parencite{gartner_gartner_2008, ross_enterprise_2006}.
+
+In our view, EA is best understood as the sociotechnical practice of analyzing,
+designing, and governing an enterprise's structures, processes, and technology
+to enable strategic alignment. This working definition bridges the noun and verb
+perspectives: EA produces tangible artifacts (models, standards, principles)
+through an ongoing practice of stakeholder negotiation, technical design, and
+organizational adaptation
+\parencite{saint-louis_investigation_2019, the_open_group_togaf_2022, lankhorst_enterprise_2017}.
+
+\subsubsection{Historical Evolution}\label{subsubsec:ea-history}
+
+EA's origins are commonly traced to \textcite{zachman_zachman_1987}'s ``A
+Framework for Information Systems Architecture.'' This work introduced multiple
+perspectives and abstraction levels for describing enterprises. Zachman
+established the principle that a single complex object can be described in
+multiple ways, depending on the purpose and type of description required
+\parencite{zachman_zachman_1987}. Early EA was largely understood through
+an engineering metaphor, with practitioners viewing themselves as technical
+specialists designing optimal IT solutions \parencite{spewak_enterprise_1993}.
+
+The discipline shifted in the 2000s. \textcite{ross_enterprise_2006}
+repositioned EA as the organizing logic that aligns core business processes and
+IT infrastructure with a firm's integration and standardization requirements
+\parencite{ross_enterprise_2006}. This moved
+EA from documentation toward strategic capability. The Open Group's TOGAF
+framework, first published in 1995, gained prominence through successive
+revisions \parencite{the_open_group_togaf_2022}.
+
+More recently, \textcite{kotusev_enterprise_2018} challenged many assumptions
+about EA in practice. He argues that the current conceptualization rests on
+anecdotal stories and wishful thinking rather than empirical evidence. Through
+case study research, he showed that successful EA practices diverge from
+mainstream prescriptions. Rather than following a linear path toward maturity,
+EA practices adapt to organizational contexts, with successful implementations
+often bearing little resemblance to framework prescriptions.
+
+\textcite{saint-louis_investigation_2019} similarly notes that despite decades
+of development, EA still lacks common understanding. EA continues to evolve,
+with practitioners and researchers still working out its boundaries and methods.
+
+\subsubsection{EA as Sociotechnical Practice}\label{subsubsec:ea-sociotechnical}
+
+EA is not purely technical work. \textcite{saint-louis_investigation_2019}
+identified three contexts within which EA operates, each combining technical and
+social dimensions:
+
+\begin{enumerate}
+      \item Technological: IT infrastructure, systems integration, and technical
+            optimization
+      \item Socio-Technological: stakeholder participation, communication, and
+            collaborative decision-making
+      \item Eco-Technological: ecosystem relationships, compliance requirements,
+            and external standards
+\end{enumerate}
+
+EA practice requires integrating both technical and social considerations in
+specific organizational settings. \textcite{gregor_enterprise_2007} demonstrated
+through case studies that effective EA development requires stakeholder
+participation, with solutions achieved through communication, negotiation, and
+collaboration. \textcite{lankhorst_enterprise_2017} similarly characterizes EA
+as a holistic approach to organisational design, where multiple
+domains (organization, information, systems, products, processes, and
+applications) intersect. This sociotechnical character is why GenAI integration
+in EA is not simply a tool-adoption question.
+
+\subsection{EA Practitioners and EA Practice}\label{subsec:ea-practitioners}
+
+\subsubsection{EA Practitioners: Roles and Evolution}\label{subsubsec:ea-roles}
+
+EA practitioners are the professionals who develop, maintain, and govern
+enterprise architectures
+\parencite{kotusev_enterprise_2018, the_open_group_togaf_2022}.
+\textcite{kotusev_enterprise_2018} notes that EA artifacts are developed not
+only by dedicated architects but also by business executives, business analysts,
+project managers, and software developers. EA practice therefore extends beyond
+formal ``Enterprise Architect'' job titles.
+
+\textcite{saint-louis_investigation_2019} identified three practitioner
+archetypes:
+
+\begin{enumerate}
+      \item \textbf{Specialists}: technical experts focused on selecting optimal
+            solutions for organizational needs
+            \parencite{saint-louis_investigation_2019}.
+      \item \textbf{Integrators}: practitioners who prioritize stakeholder
+            participation and motivation in the decision-making process
+            \parencite{saint-louis_investigation_2019}. They bridge technical and
+            business domains through negotiation.
+      \item \textbf{Facilitators}: professionals who view IT implementation and
+            stakeholder engagement as inseparable from broader organizational
+            adaptation \parencite{saint-louis_investigation_2019}.
+\end{enumerate}
+
+In practice, EA practitioners shift between these roles depending on the
+situation. \textcite{land_enterprise_2009} observe that effective architects
+need competencies spanning technical expertise, communication, leadership, and
+political acumen. \textcite{van_steenbergen_maturity_2011} shows that EA
+effectiveness depends on maturity across multiple dimensions, not technical
+capability alone.
+
+Our position is that ``EA practitioners'' in this research encompasses all
+professionals who contribute to the development and governance of architectural
+artifacts: enterprise architects, solution architects, platform engineers, data
+architects, and senior software engineers who shape RAs through their daily
+work. \textcite{kotusev_enterprise_2018}'s finding of distributed authorship
+supports this broader scope.
+
+\subsubsection{EA Practice: Beyond Frameworks}\label{subsubsec:ea-practice-frameworks}
+
+We understand EA practice, following \textcite{feldman_theorizing_2011}, as the
+recurrent patterns of action through which practitioners accomplish
+architectural work. These practices are sociomaterial accomplishments
+\parencite{orlikowski_sociomaterial_2007}: they involve both human actors and
+technological artifacts.
+
+\textcite{kotusev_enterprise_2018}'s empirical research revealed four
+disconnects between formal EA frameworks and actual practice.
+\textcite{ross_enterprise_2006}, \textcite{fonstad_n_o_transforming_2006}, and
+\textcite{ahlemann_strategic_2012} corroborate these findings:
+
+\begin{enumerate}
+      \item \textbf{Incremental Development}: EA artifacts evolve gradually
+            through organizational learning, not all at once
+            \parencite{kotusev_enterprise_2018}.
+      \item \textbf{Distributed Authorship}: Business executives are actively
+            involved, sometimes leaving enterprise architects in a secondary
+            facilitator role
+            \parencite{kotusev_enterprise_2018, ross_enterprise_2006}.
+      \item \textbf{Broad Application}: EA applications extend beyond strategic
+            initiatives to address local requirements, unforeseen demands, and
+            unplanned deviations \parencite{fonstad_n_o_transforming_2006}.
+      \item \textbf{Process Integration}: Successful EA integrates with
+            strategic, project, and operations management
+            \parencite{ahlemann_strategic_2012}.
+\end{enumerate}
+
+The point is that EA work happens through dynamic interactions among
+practitioners, tools, and organizational structures. As
+\textcite{feldman_theorizing_2011} argue, understanding practice means examining
+how activities are generated and operate within different contexts and over time
+\parencite[p.~1241]{feldman_theorizing_2011}.
+
+\subsection{Reference Architectures and Their Lifecycle}\label{subsec:reference-architectures}
+
+\textcite{cloutier_concept_2010} define a Reference Architecture (RA) as an
+authoritative knowledge source for a specific domain that guides and constrains
+how concrete architectures and solutions are instantiated.
+\textcite{angelov_framework_2012} complement this by characterizing RAs as
+generic architectures for a class of information systems, designed to provide
+standardization, interoperability, and reuse. RAs serve four functions: they
+capture proven architectural patterns, control complexity through abstraction,
+promote common understanding among stakeholders, and reduce risk through reuse
+of validated designs \parencite{cloutier_concept_2010}.
+
+\textcite{cloutier_concept_2010} describe how RAs are built from proven
+architectures of past and existing products yet provide guidance for future
+implementations. RAs must therefore evolve with technological change and
+organizational learning. However, the literature does not present a unified view
+of the RA lifecycle. The following subsections review five perspectives, then
+synthesize them into an operational definition and sensitizing lifecycle model.
+This model serves as a structuring device for the Delphi study: Round~1
+participants position their practices within the lifecycle phases, providing
+empirical validation of its utility (Section~\ref{sec:methodology}).
+
+\subsubsection{Perspective 1: Continuous Development Cycle}
+
+\textcite{cloutier_concept_2010} present a development cycle showing the
+relationship between existing architectures, RA patterns, and new
+implementations. In their view, RAs should evolve continuously because
+organizational needs, technologies, and standards change. This requires active
+maintenance and refactoring \parencite{cloutier_concept_2010}. They stress that
+the Chief Architect (business plus technical) owns the RA and that business
+sponsorship is a prerequisite.
+
+\subsubsection{Perspective 2: Evolution and Transformation}
+
+\textcite{angelov_framework_2012} focus on how RAs evolve over time. Using
+their classification framework (which categorizes RAs by context, goal, and
+scope), they note that an RA may shift categories as its environment changes or
+its organizational goal evolves. Examples of evolution paths include:
+
+\begin{itemize}
+      \item A preliminary RA transforming into a classical architecture when the
+            domain matures
+      \item Evolution from facilitation to standardization as organizational
+            needs change
+      \item Expansion from single organization scope to multiple organizations
+\end{itemize}
+
+To remain usable, an RA must be adapted to reflect such changes
+\parencite{angelov_framework_2012}.
+
+\subsubsection{Perspective 3: Creation and Application Context}
+
+Creating RAs involves analyzing existing systems, identifying commonalities and
+variations, and abstracting from implementation specifics
+\parencite{angelov_framework_2012}. Application requires careful attention to
+context, since the generic nature of RAs leads to less defined design and
+application boundaries. \textcite{cloutier_concept_2010} describe the challenge
+of making RAs accessible to multiple stakeholders (engineers, business managers,
+customers) while keeping them generic enough for broad reuse yet concrete enough
+to be actionable. This tension between abstraction and concreteness cannot be
+resolved through technical means alone. It requires ongoing negotiation with the
+stakeholders who must interpret and apply the guidance.
+
+\subsubsection{Perspective 4: Stakeholder Engagement and Validation}
+
+The literature emphasizes intensive stakeholder involvement throughout the RA's
+existence. \textcite{ross_j_w_maturity_2004} found that developing an
+architectural vision required approximately sixty meetings of the executive
+team, illustrating the collaboration that architectural work demands.
+\textcite{angelov_framework_2012} note that RA quality can be measured by its
+success in fulfilling its goals, which requires ongoing validation through
+implementation and feedback.
+
+\subsubsection{Perspective 5: Ongoing Refinement}
+
+Rather than following a linear lifecycle, the literature suggests RAs exist in a
+state of continuous adaptation. \textcite{cloutier_concept_2010} explain that
+RAs must be actively managed to ensure they are updated based on evolving
+standards, emerging technology, changing stakeholder requirements, and maturing
+business needs. The RA lifecycle is an ongoing process of refinement, not a
+sequence of phases.
+
+\subsubsection{Operational Definition for This Research}
+
+The five perspectives can be summarized as follows:
+
+\begin{enumerate}
+      \item \textbf{Continuous Development Cycle}: RAs require active
+            maintenance, not one-time creation
+            \parencite{cloutier_concept_2010}.
+      \item \textbf{Evolution and Transformation}: RAs shift across categories
+            as technology, experience, and goals change
+            \parencite{angelov_framework_2012}.
+      \item \textbf{Creation and Application Context}: RA design must balance
+            abstraction for reuse with concreteness for implementation
+            \parencite{angelov_framework_2012, cloutier_concept_2010}.
+      \item \textbf{Stakeholder Engagement}: Architectural work demands
+            extensive multi-stakeholder collaboration
+            \parencite{ross_j_w_maturity_2004, angelov_framework_2012}.
+      \item \textbf{Ongoing Refinement}: RAs exist in continuous adaptation
+            driven by implementation experience
+            \parencite{cloutier_concept_2010}.
+\end{enumerate}
+
+RA work extends well beyond initial creation. For this study, Reference
+Architecture encompasses templates, standards, patterns, governance documents,
+blueprints, and domain models used as reference for downstream architectural
+design, regardless of formality level. Project-specific solution architectures
+fall outside this scope, unless they are reused as reference for other projects,
+at which point they function as RAs.
+
+This broad scope reflects how practitioners engage with RAs in practice. RA work
+encompasses creating, reading, absorbing, contextualizing, validating,
+communicating, governing, and evolving architectural artifacts.
+\textcite{cloutier_concept_2010} describe a continuous development cycle in
+which RAs require active organizational management.
+\textcite{angelov_framework_2012} note that RAs must evolve to reflect
+changes in technology, experience, and goals.
+
+\subsubsection{Sensitizing Lifecycle Model}
+
+The Delphi study requires participants to position their GenAI practices within
+the RA lifecycle. However, the five perspectives describe lifecycle
+\textit{characteristics} (continuous, iterative, stakeholder-intensive) without
+converging on named phases. To provide a shared vocabulary for data collection,
+we synthesize an eight-phase lifecycle model:
+
+\begin{enumerate}
+    \item Stakeholder Analysis \& Requirements Gathering
+    \item Current State Analysis
+    \item Pattern Identification \& Abstraction
+    \item Target State Design
+    \item Component Specification
+    \item Documentation \& Communication
+    \item Validation \& Review
+    \item Evolution \& Maintenance
+\end{enumerate}
+
+Each phase maps to the perspectives discussed above.
+Phases~1--2 correspond to requirements and context analysis
+\parencite{angelov_framework_2012}. Phases~3--5 reflect the creation and
+abstraction activities in the development cycle
+\parencite{cloutier_concept_2010, angelov_framework_2012}. Phase~6 addresses
+the multi-stakeholder accessibility that
+\textcite{cloutier_concept_2010} identify as essential. Phase~7 captures the
+quality validation that \textcite{angelov_framework_2012} emphasize. Phase~8
+embodies the ongoing refinement both sources describe.
+
+This model serves as a \textit{sensitizing device}, not a prescriptive
+sequence. Practitioners may enter at any phase, iterate, skip phases, or work
+across multiple phases simultaneously. Its purpose is to provide a common
+vocabulary for participants to position their GenAI practices within the RA
+lifecycle. The model is used as the data collection instrument in
+Section~\ref{sec:methodology}, where Round~1 workbook participants map their
+practices to these eight phases.
+
+\subsection{Generative AI: Emergence and Capabilities}\label{subsec:generative-ai}
+
+Artificial intelligence research has progressed through several waves: from
+rule-based expert systems in the 1980s, through machine learning and deep
+learning approaches that required curated training data, to the current
+generation of large-scale models that learn from broad corpora and generate
+novel outputs \parencite{kanbach_genai_2024}. Generative AI (GenAI) refers to
+this latest class of AI systems, capable of generating new content (text,
+images, audio, code, and video) based on patterns learned from training data
+\parencite{kanbach_genai_2024}.
+
+\textcite{vaswani_attention_2017} introduced the transformer architecture that
+underlies current GenAI systems, enabling attention mechanisms that capture
+global dependencies without relying on recurrence or convolutions. Large
+Language Models (LLMs) are specific GenAI implementations focused on natural
+language. These models are trained on vast text corpora using self-supervised
+learning \parencite{brown_language_2020}. The key innovation is not information
+retrieval but the ability to generate coherent, contextually appropriate text by
+combining learned patterns in novel ways \parencite{bubeck_sparks_2023}.
+
+\subsubsection{Rapid Adoption}
+
+As documented in Section~\ref{sec:introduction}, GenAI adoption has been rapid
+and broad. The public release of ChatGPT in November 2022 reached 100 million
+users within two months \parencite{hu_chatgpt_2023}, and by 2025 the majority
+of developers and knowledge workers use AI tools regularly. This adoption has
+occurred despite limited understanding of best practices, creating what
+\textcite{dellacqua_navigating_2023} describe as a ``jagged technological
+frontier'' where capabilities are unevenly distributed across task types.
+
+\subsubsection{Core Capabilities Relevant to EA Practice}
+
+GenAI systems exhibit several capabilities relevant to architectural work:
+
+\begin{enumerate}
+      \item \textbf{Pattern Recognition and Synthesis}: GenAI can identify
+            patterns in unstructured content (text, diagrams, code) and
+            synthesize novel outputs that combine them
+            \parencite{brynjolfsson_generative_2025}. For EA practitioners, this
+            enables rapid analysis of existing architectures.
+      \item \textbf{Context-Aware Generation}: Modern LLMs maintain context
+            windows of hundreds of thousands of tokens, allowing extended
+            interactions and iterative refinement of architectural artifacts
+            \parencite{kanbach_genai_2024, banh_affordance_genai_ea_2025}.
+      \item \textbf{Multi-Modal Reasoning}: Recent models process and generate
+            text, code, images, and structured data
+            \parencite{kanbach_genai_2024}, supporting the diverse
+            representational needs of architectural work.
+      \item \textbf{Knowledge Integration}: GenAI can combine information from
+            multiple domains, bridging technical and business perspectives
+            \parencite{banh_affordance_genai_ea_2025}.
+\end{enumerate}
+
+However, GenAI also introduces challenges: hallucination (generating plausible
+but incorrect information) \parencite{zhang_sirens_2023}, lack of genuine
+understanding, and potential for bias inherited from training data
+\parencite{bender_dangers_2021}.
+
+\subsubsection{GenAI Integration in Professional Practice}
+
+Emerging research reveals patterns of GenAI integration relevant to EA practice.
+\textcite{noy_experimental_2023} found that professionals using ChatGPT for
+writing tasks decreased inequality between workers, with less skilled workers
+benefiting more while overall productivity increased by 37\%.
+
+\textcite{dellacqua_navigating_2023} identified two patterns of AI use among
+consultants. Centaurs strategically divide tasks between themselves and AI.
+Cyborgs integrate AI into their workflow for all tasks. Their research showed
+that professionals develop contextual understanding about when AI helps versus
+hinders.
+
+\textcite{tankelevitch_metacognitive_2024} documented new metacognitive demands
+when professionals work with AI:
+
+\begin{enumerate}
+      \item Evaluating AI-generated content for accuracy and relevance
+      \item Managing the balance between efficiency and critical thinking
+      \item Developing strategies for effective prompting
+      \item Maintaining domain expertise despite AI assistance
+\end{enumerate}
+
+\textcite{lee_impact_2025} surveyed 319 knowledge workers using GenAI tools at
+work and found that GenAI shifts critical-thinking effort from material
+production to AI oversight, with workers reporting reduced effort for
+information gathering but greater effort for verifying and integrating AI
+outputs. Taken together, these findings show that GenAI does not merely
+automate tasks. It redistributes cognitive work between human and machine,
+which requires a theoretical framework to analyze.
+
+\subsection{Distributed Cognition as Integrating Lens}\label{subsec:distributed-cognition}
+
+\subsubsection{Distributed Cognition Theory}
+
+Distributed cognition \parencite{hutchins_cognition_1995} provides a framework
+for understanding how cognitive processes spread across the members of a social
+group, the tools they use, and the environment in which activity takes place.
+Rather than treating cognition as something that happens only inside individual
+brains, this perspective examines how cognitive systems accomplish tasks through
+the propagation of representational states across media.
+
+\textcite{hutchins_cognition_1995} studied navigation teams and showed that the
+computational work of navigation is accomplished through physical manipulation
+of representations distributed across team members, instruments, charts, and
+procedures. The cognitive system includes all these elements working together.
+No individual component could accomplish the task alone.
+
+\textcite{hollan_distributed_2000} extended this framework to human-computer
+interaction, identifying three types of cognitive distribution:
+
+\begin{enumerate}
+      \item Cognitive processes distributed across group members
+      \item Cognitive processes involving coordination between internal and
+            external structures
+      \item Processes distributed through time, with products of earlier events
+            transforming later events
+\end{enumerate}
+
+\subsubsection{Application to EA-GenAI Integration}
+
+\textcite{hutchins_cognition_1995} canonical study of ship navigation analyzed
+the cognitive system as distributed across four substrate categories: team
+members, instruments, external representations, and the procedures coordinating
+their use. We adopt this same decomposition for the EA-GenAI system. Each
+element below maps to a substrate category recognised in the distributed
+cognition literature \parencite{hollan_distributed_2000,
+perry_m_distributed_2003}.
+
+In GenAI-augmented architectural work, cognitive resources are distributed
+across four elements:
+
+\begin{enumerate}
+      \item \textbf{EA Practitioners}: domain knowledge, organizational
+            understanding, stakeholder awareness, and evaluative judgment
+            \parencite{perry_m_distributed_2003}
+      \item \textbf{GenAI Systems}: pattern recognition, content generation,
+            rapid synthesis, and access to encoded knowledge
+            \parencite{brynjolfsson_generative_2025}
+      \item \textbf{Organizational Artifacts}: external memory and constraint
+            structures \parencite{zhang_representations_1994}
+      \item \textbf{Collaborative Tools}: coordination among human and
+            artificial agents \parencite{brynjolfsson_generative_2025}
+\end{enumerate}
+
+A clarification: the three types of distribution from
+\textcite{hollan_distributed_2000} describe \emph{how} cognition distributes
+(across people, between internal and external structures, and through time).
+The four elements above identify \emph{across what} cognitive resources are
+distributed in the EA-GenAI system. This decomposition serves as the analytical
+lens through which Sections~\ref{sec:results} and~\ref{sec:discussion} examine
+how introducing GenAI restructures the cognitive system for RA development. The
+Delphi study empirically tests whether this theoretical mapping holds.
+
+As \textcite{hutchins_cognition_1995} argues, the functional properties of a
+cognitive system cannot be reduced to the properties of individual agents. The
+distributed system may produce capabilities neither human nor AI possesses
+alone. In our view, this explains why simple tool-adoption perspectives miss
+what is happening when GenAI enters EA work. The unit of analysis must be the
+larger system \parencite{hollan_distributed_2000}, not the individual
+practitioner.
+
+\subsection{Core Constructs for This Study}\label{subsec:coreelements}
+
+This study examines the interaction of five constructs:
+
+\begin{enumerate}
+      \item \textbf{Generative AI (GenAI)}: the technological capabilities
+            introduced into the EA ecosystem, serving as a cognitive partner
+            within a distributed system
+            \parencite{hutchins_cognition_1995, vaswani_attention_2017}.
+      \item \textbf{EA Practitioners}: professionals who operate as specialists,
+            integrators, or facilitators
+            \parencite{saint-louis_investigation_2019}, spanning roles from
+            enterprise architect to platform engineer.
+      \item \textbf{Reference Architecture}: the focal artifact for studying
+            practice evolution, capturing accumulated architectural knowledge
+            \parencite{cloutier_concept_2010}.
+      \item \textbf{EA Practice}: the recurrent patterns of action
+            \parencite{feldman_theorizing_2011} within which architectural work
+            is accomplished.
+      \item \textbf{Guidance (Research Output)}: the prescriptive output that
+            synthesizes findings into actionable recommendations, validated
+            through panel deliberation.
+\end{enumerate}
+
+These five constructs and their interrelationships form the basis of the
+conceptual model in the following section.

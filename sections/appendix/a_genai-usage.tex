@@ -1,0 +1,149 @@
+\section[Appendix - Use of Generative AI in Research]{Use of Generative AI in Research}\label{app:genai}
+
+This appendix documents what Generative AI (GenAI) tools were used in this
+research, how they were deployed, and what functions they served.
+
+Four GenAI systems supported this research:
+
+\begin{enumerate}
+    \item Perplexity: For literature discovery and initial source identification
+    \item Anthropic Claude: For critical analysis of reading notes, validation of
+          guidance artifact outputs, generation of the machine-readable YAML
+          companion,\footnote{\url{https://github.com/thiagoavadore/thesis_2024-2026_antwerp_thesis_GenAIPracticeVacuum/blob/main/guidance-artifact.yaml}} front cover prompt design,
+          and thesis revision assistance
+    \item Meta Llama 3 (self-hosted instance): For critical analysis of reading notes
+    \item Google Gemini: For front cover image generation
+\end{enumerate}
+
+These tools served six functions:
+
+\begin{enumerate}
+    \item \textbf{Efficiency in discovery}: Accelerated identification of relevant
+          sources across disciplines;
+    \item \textbf{Critical examination}: Provided external perspective on blind spots
+          and gaps in interpretation;
+    \item \textbf{Research alignment}: Helped assess literature relevance to evolving
+          research questions;
+    \item \textbf{Artifact validation}: Checked practitioner checklist cards for
+          internal consistency, completeness against Section~\ref{sec:artifact}
+          content, and formatting;
+    \item \textbf{Format generation}: Produced the machine-readable YAML guidance
+          artifact from researcher-authored content;
+    \item \textbf{Image generation}: Produced the front cover image from a
+          researcher-designed concept.
+\end{enumerate}
+
+The following sections document each usage in detail.
+
+\subsection{Literature Discovery Process}
+
+Perplexity helped identify relevant literature beyond traditional academic
+search engines (Google Scholar) and supervisor recommendations.
+
+\textbf{Example discovery prompt}: \textit{In the context of Software and Infrastructure engineering,
+    are there any peer-reviewed articles/papers that connect Reference Architecture and tools that
+    support it, including AI tools? If so, give me a list with sources. This is for academic research,
+    so explore and reference only journals, thesis and dissertations - skip the blog posts.}
+
+\subsection{Literature Review Process}
+
+The review process followed a three-stage pattern:
+
+\begin{enumerate}
+    \item \textbf{Reading and Note-Taking}: Papers identified through discovery were added to
+          Zotero and read systematically. Notes captured key points, learnings, questions,
+          and findings.
+    \item \textbf{Critical Analysis}: Notes were submitted to GenAI systems for critical
+          examination using the following prompt:
+
+          \textit{I've read the paper (attached) and took notes (also attached) by trying to summarize
+              interesting points, learnings, questions and findings. Investigate potential blind spots,
+              contradictions or any type of hand-waving on my notes. Critique my points and avoid
+              agreeing with me for the sake of making me happy. If the article publication date is before
+              your cut training date, investigate what theories and implications it had that are not
+              highlighted in my notes, always giving me link to sources.}
+
+    \item \textbf{Research Alignment}: Once the Problem Statement and Research Questions
+          crystallized, the analysis prompt evolved to include research alignment:
+
+          \textit{As part of my Executive MSc I'm researching into this Problem Statement/Research
+              Question (attached). To better investigate it, I've read the paper (attached) and I
+              took notes (also attached) by trying to summarize interesting points, learnings, questions
+              and findings. Investigate potential blind spots, contradictions or any type of hand-waving
+              on my notes. Critique my points and avoid agreeing with me for the sake of making me happy.
+              If the article publication date is before your cut training date, investigate what theories
+              and implications it had that are not highlighted in my notes, always giving me link to sources.
+              And lastly, investigate if the article supports, contradicts or adds new information to
+              the Problem Statement or the Research Question.}
+
+\end{enumerate}
+
+\subsection{Guidance Artifact Preparation}
+
+Two outputs in the appendices involved GenAI assistance:
+
+\begin{enumerate}
+    \item \textbf{Practitioner Checklist Cards (\ref{app:checklists}):} The checklist cards were
+          researcher-authored based on Delphi findings and the guidance artifact in
+          Section~\ref{sec:artifact}. GenAI (Claude) was used to validate the cards for internal
+          consistency, completeness against Section~\ref{sec:artifact} content, and formatting. GenAI
+          did not generate the card content.
+    \item \textbf{YAML Guidance Artifact:} The machine-readable YAML companion
+          (available in the research repository\footnote{\url{https://github.com/thiagoavadore/thesis_2024-2026_antwerp_thesis_GenAIPracticeVacuum/blob/main/guidance-artifact.yaml}}) was generated by GenAI (Claude) from the
+          researcher-authored Section~\ref{sec:artifact} and checklist card content. The researcher
+          reviewed, corrected, and approved the output. This constitutes a format
+          transformation of existing researcher-authored material, not new content
+          generation.
+\end{enumerate}
+
+\subsection{Thesis Revision}
+
+During the final revision phase, Claude (Anthropic) assisted with mechanical
+verification tasks: identifying misformatted cross-references after structural
+reorganization and verifying APA citation consistency. In all cases, the
+researcher reviewed the identified issues and applied corrections manually.
+
+\subsection{Front Cover Image}
+
+The researcher designed the front cover concept to represent the thesis theme
+visually: cognitive work (represented by an anatomical brain) transforming into
+an architectural blueprint through a verification lens. Three design constraints
+guided the concept. First, the image had to be monochromatic to avoid dominating
+the page. Second, the transformation had to show intentional loss and change in
+the process, reflecting how GenAI outputs require curation rather than blind
+acceptance. Third, the style had to match the scholarly tone of an academic
+thesis.
+
+Anthropic Claude translated these constraints into a structured image generation
+prompt. Google Gemini then generated the image from the following prompt:
+
+\textit{Monochromatic grayscale academic illustration, no text, no letters, no
+words, no numbers. A detailed anatomical human brain on the left side, drawn in
+fine ink lines, partially dissolving into geometric particles and dots that drift
+rightward. These particles gradually reassemble into an abstract architectural
+blueprint floorplan on the right side, shown as precise technical line drawings
+of rooms, corridors, and structural elements. Between the brain and the
+blueprint, a translucent magnifying lens floats, refracting the particles
+passing through it, symbolizing verification and curation. Subtle watercolor ink
+splashes in light gray behind both elements. Small geometric shapes (circles,
+hexagons, connection nodes) scattered in the transition zone. Style: scientific
+illustration meets architectural drawing, similar to academic thesis cover art.
+White background, no color, purely grayscale ink and pencil aesthetic. High
+detail, scholarly tone.}
+
+\subsection{What GenAI Did Not Do}
+
+GenAI tools did not:
+
+\begin{enumerate}
+    \item Generate original thesis argumentation or theoretical analysis;
+    \item Make methodological decisions;
+    \item Conduct analysis of primary research data;
+    \item Assist with between-round synthesis, including data coding, taxonomy
+          development, or preparation of subsequent round materials;
+    \item Develop the conceptual framework;
+    \item Independently interpret supervisor feedback.
+\end{enumerate}
+
+All interpretation, synthesis, framework development, and argumentation is
+the researcher's own work.
